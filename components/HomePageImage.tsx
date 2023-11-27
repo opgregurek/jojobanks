@@ -3,7 +3,7 @@
 import {Box, Image, ImageProps, keyframes} from "@chakra-ui/react";
 import {useMemo, useState} from "react";
 import useImagePreloader from "@/hooks/useImagePreloader";
-import useCloudinaryImage from "@/utils/useCloudinaryImage";
+import cloudinaryImage from "@/utils/cloudinaryImage";
 
 export interface HomePageImageProps extends ImageProps {
     imageName: string;
@@ -23,7 +23,7 @@ const HomePageImage = (props: HomePageImageProps) => {
     const [useHover, setUseHover] = useState(false);
 
     const baseImageString = useMemo(() => {
-        return useCloudinaryImage(`homepage/${imageName}`, 187);
+        return cloudinaryImage(`homepage/${imageName}`, 187);
     }, [imageName]);
     const hoverImageString = useMemo(() => {
         return `${baseImageString}-hover`

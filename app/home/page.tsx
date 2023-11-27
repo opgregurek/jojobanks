@@ -2,7 +2,7 @@
 
 import {Box, HStack, Text, VStack, Image, Grid, GridItem} from "@chakra-ui/react";
 import {CLOUDINARY_URL} from "@/app/Constants";
-import DisplayImage from "@/components/DisplayImage";
+import DisplayImage from "@/components/HomePageImage";
 
 export default function Home() {
     return (
@@ -23,6 +23,7 @@ export default function Home() {
                             Explore this collection for  insights into her creative journey and where she would like to go next.
                         </Text>
                     </VStack>
+
                     <Grid templateColumns="auto auto auto auto">
                         <GridItem>
                             <DisplayImage
@@ -35,6 +36,7 @@ export default function Home() {
                                 imageName="black-fungus"
                                 alt="Black Fungus"
                                 circleImage
+                                useOverhang
                             />
                         </GridItem>
                         <GridItem>
@@ -68,6 +70,13 @@ export default function Home() {
                             <DisplayImage
                                 imageName="bird"
                                 alt="Bird"
+                                useOverhang
+                                overhangImageProps={{
+                                    position: 'absolute',
+                                    width: '80%',
+                                    left: '10%',
+                                    top: '10%',
+                                }}
                             />
                         </GridItem>
                         <GridItem>

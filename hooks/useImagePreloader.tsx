@@ -14,21 +14,19 @@ function preloadImage (src: string) {
     })
 }
 
-export default function useImagePreloader(imageList: string[]) {
+export default function useImagePreloader(imageList: (string | null)[]) {
     const [imagesPreloaded, setImagesPreloaded] = useState<boolean>(false)
 
     useEffect(() => {
         let isCancelled = false
 
         async function effect() {
-            console.log('PRELOAD')
-
             if (isCancelled) {
                 return
             }
 
             const imagesPromiseList: Promise<any>[] = []
-            for (const i of imageList) {
+            for (const i of imageList.filter(x => x != null) as string[]) {
                 imagesPromiseList.push(preloadImage(i))
             }
 

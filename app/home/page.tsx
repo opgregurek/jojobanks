@@ -71,6 +71,7 @@ export default function Home() {
                                 imageName="bird"
                                 alt="Bird"
                                 useOverhang
+                                overhangImageSpeed={1}
                                 overhangImageProps={{
                                     position: 'absolute',
                                     width: '80%',

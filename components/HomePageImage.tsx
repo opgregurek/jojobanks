@@ -10,6 +10,7 @@ export interface HomePageImageProps extends ImageProps {
     alt: string;
     circleImage?: boolean;
     useOverhang?: boolean;
+    overhangImageSpeed?: number;
     overhangImageProps?: ImageProps;
 }
 
@@ -19,11 +20,18 @@ const spin = keyframes`
 `;
 
 const HomePageImage = (props: HomePageImageProps) => {
-    const { imageName, alt, circleImage, useOverhang, overhangImageProps } = props;
+    const {
+        imageName,
+        alt,
+        circleImage,
+        useOverhang,
+        overhangImageProps,
+        overhangImageSpeed
+    } = props;
     const [useHover, setUseHover] = useState(false);
 
     const baseImageString = useMemo(() => {
-        return cloudinaryImage(`homepage/${imageName}`, 187);
+        return cloudinaryImage(`homepage/${imageName}`);
     }, [imageName]);
     const hoverImageString = useMemo(() => {
         return `${baseImageString}-hover`
@@ -48,10 +56,12 @@ const HomePageImage = (props: HomePageImageProps) => {
     }
 
     return (
-        <Box position="relative">
+        <Box position="relative" w="187" h="187">
             <Image
                 src={src}
                 alt={alt}
+                maxW="100%"
+                maxH="100%"
                 borderRadius={circleImage ? '100%' : undefined}
                 onMouseEnter={() => setUseHover(true)}
                 onMouseLeave={() => setUseHover(false)}
@@ -61,11 +71,13 @@ const HomePageImage = (props: HomePageImageProps) => {
                     src={overhangImageString}
                     alt={alt + ' overhang'}
                     position="absolute"
+                    maxW="100%"
+                    maxH="100%"
                     bottom={0}
                     borderRadius={circleImage ? '100%' : undefined}
                     onMouseEnter={() => setUseHover(true)}
                     onMouseLeave={() => setUseHover(false)}
-                    animation={`${spin} infinite 20s linear`}
+                    animation={`${spin} infinite ${overhangImageSpeed || 24}s linear`}
                     {...overhangImageProps}
                 />
             ) : null}

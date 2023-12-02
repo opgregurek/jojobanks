@@ -3,12 +3,13 @@
 import {Box, HStack, Text, VStack, Image, Grid, GridItem} from "@chakra-ui/react";
 import {CLOUDINARY_URL} from "@/app/Constants";
 import DisplayImage from "@/components/HomePageImage";
+import cloudinaryImage from "@/utils/cloudinaryImage";
 
 export default function Home() {
     return (
-        <Box w="100%" h="100vh" bg="white">
-            <VStack justifyContent="flex-start" alignItems="flex-start" p="60px">
-                <Image src={`${CLOUDINARY_URL}/homepage/mushroom-pink`} alt="Mushroom arrow" w="42px" h="85px" />
+        <Box w="100%" h="100vh" bg="white" p="60px">
+            <VStack justifyContent="flex-start" alignItems="flex-start">
+                <Image src={cloudinaryImage('homepage/mushroom-pink')} alt="Mushroom arrow" w="42px" h="85px" />
                 <HStack gap="80px" alignItems="flex-end">
                     <VStack width="210px" alignItems="flex-start">
                         <Text>Josephine Nguyen</Text>

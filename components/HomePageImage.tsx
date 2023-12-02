@@ -4,6 +4,7 @@ import {Box, Image, ImageProps, keyframes} from "@chakra-ui/react";
 import {useMemo, useState} from "react";
 import useImagePreloader from "@/hooks/useImagePreloader";
 import cloudinaryImage from "@/utils/cloudinaryImage";
+import fiveMinuteCacheImage from "@/utils/fiveMinuteCacheImage";
 
 export interface HomePageImageProps extends ImageProps {
     imageName: string;
@@ -29,6 +30,11 @@ const HomePageImage = (props: HomePageImageProps) => {
         overhangImageSpeed
     } = props;
     const [useHover, setUseHover] = useState(false);
+    const roundedDate = useMemo(() => {
+        const date = new Date();
+        const coff = 1000 * 60 * 5;
+        return new Date(Math.round(date.getTime() / coff) * coff);
+    }, []);
 
     const baseImageString = useMemo(() => {
         return cloudinaryImage(`homepage/${imageName}`);
@@ -44,9 +50,9 @@ const HomePageImage = (props: HomePageImageProps) => {
     }, [useHover, baseImageString, hoverImageString]);
 
     const { imagesPreloaded } = useImagePreloader([
-        baseImageString,
-        hoverImageString,
-        useOverhang ? overhangImageString : null,
+        fiveMinuteCacheImage(baseImageString),
+        fiveMinuteCacheImage(hoverImageString),
+        useOverhang ? fiveMinuteCacheImage(overhangImageString) : null,
     ]);
 
     if (!imagesPreloaded) {
@@ -58,7 +64,7 @@ const HomePageImage = (props: HomePageImageProps) => {
     return (
         <Box position="relative" w="187" h="187">
             <Image
-                src={src}
+                src={fiveMinuteCacheImage(src)}
                 alt={alt}
                 maxW="100%"
                 maxH="100%"
@@ -68,7 +74,7 @@ const HomePageImage = (props: HomePageImageProps) => {
             />
             {useOverhang && useHover ? (
                 <Image
-                    src={overhangImageString}
+                    src={fiveMinuteCacheImage(overhangImageString)}
                     alt={alt + ' overhang'}
                     position="absolute"
                     maxW="100%"

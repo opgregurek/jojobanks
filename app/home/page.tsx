@@ -1,15 +1,12 @@
 'use client'
 
-import {Box, HStack, Text, VStack, Image, Grid, GridItem} from "@chakra-ui/react";
-import {CLOUDINARY_URL} from "@/app/Constants";
+import {Box, HStack, Text, VStack, Grid, GridItem} from "@chakra-ui/react";
 import DisplayImage from "@/components/HomePageImage";
-import cloudinaryImage from "@/utils/cloudinaryImage";
 
 export default function Home() {
     return (
-        <Box w="100%" h="100vh" bg="white" p="60px">
+        <Box w="100%">
             <VStack justifyContent="flex-start" alignItems="flex-start">
-                <Image src={cloudinaryImage('homepage/mushroom-pink')} alt="Mushroom arrow" w="42px" h="85px" />
                 <HStack gap="80px" alignItems="flex-end">
                     <VStack width="210px" alignItems="flex-start">
                         <Text>Josephine Nguyen</Text>

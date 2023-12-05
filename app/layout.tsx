@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import { Box } from "@chakra-ui/react";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: 'DISCOVER',
@@ -18,7 +18,8 @@ export default function RootLayout({
       <html lang='en'>
           <body>
             <Providers>
-                <Box h="100vh" w="100vw">
+                <Box w="100vw" bg="white" p="60px">
+                    <NavBar />
                     {children}
                 </Box>
             </Providers>

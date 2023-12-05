@@ -30,11 +30,6 @@ const HomePageImage = (props: HomePageImageProps) => {
         overhangImageSpeed
     } = props;
     const [useHover, setUseHover] = useState(false);
-    const roundedDate = useMemo(() => {
-        const date = new Date();
-        const coff = 1000 * 60 * 5;
-        return new Date(Math.round(date.getTime() / coff) * coff);
-    }, []);
 
     const baseImageString = useMemo(() => {
         return cloudinaryImage(`homepage/${imageName}`);

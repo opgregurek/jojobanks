@@ -1,96 +1,120 @@
 'use client'
-import Image from 'next/image'
-import styles from './page.module.css'
+
+import {Box, HStack, Text, VStack, Grid, GridItem} from "@chakra-ui/react";
+import HomePageImage from "@/components/HomePageImage";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+      <Box w="100%">
+        <VStack justifyContent="flex-start" alignItems="flex-start">
+          <HStack gap="80px" alignItems="flex-end">
+            <VStack width="210px" alignItems="flex-start">
+              <Text>Josephine Nguyen</Text>
+              <Text
+                  fontSize="24px"
+                  fontWeight="700"
+              >
+                Curation & design is a path to self-discovery.
+              </Text>
+              <Text fontStyle="italic" color="text.lightGrey">
+                This space is a curated showcase of Josephine&apos;s evolving body of work spanning several years. <br /><br />
+                Explore this collection for  insights into her creative journey and where she would like to go next.
+              </Text>
+            </VStack>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+            <Grid templateColumns="auto auto auto auto">
+              <GridItem>
+                <HomePageImage
+                    imageName="shadow"
+                    alt="Shadow"
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="black-fungus"
+                    alt="Black Fungus"
+                    circleImage
+                    useOverhang
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="mushroom-white"
+                    alt="White Mushroom"
+                    circleImage
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="viet-herbs"
+                    alt="Viet Herbs"
+                />
+              </GridItem>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+              <GridItem>
+                <HomePageImage
+                    imageName="tree"
+                    alt="Tree"
+                    circleImage
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="beach"
+                    alt="Beach"
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="bird"
+                    alt="Bird"
+                    useOverhang
+                    overhangImageSpeed={1}
+                    overhangImageProps={{
+                      position: 'absolute',
+                      width: '80%',
+                      left: '10%',
+                      top: '10%',
+                    }}
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="fortune"
+                    alt="Fortune Cookie"
+                    circleImage
+                />
+              </GridItem>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+              <GridItem>
+                <HomePageImage
+                    imageName="salt"
+                    alt="Salt"
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="oyster"
+                    alt="Oyster"
+                    circleImage
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="mushroom-2"
+                    alt="Mushroom"
+                    circleImage
+                />
+              </GridItem>
+              <GridItem>
+                <HomePageImage
+                    imageName="rose"
+                    alt="Rose"
+                />
+              </GridItem>
+            </Grid>
+          </HStack>
+        </VStack>
+      </Box>
   )
 }

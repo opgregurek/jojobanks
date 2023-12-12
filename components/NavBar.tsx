@@ -14,7 +14,7 @@ interface NavItem {
 }
 
 const NavItems: Array<NavItem> = [
-    {label: 'Discover', href: '/home'},
+    {label: 'Discover', href: '/'},
     {label: 'Tool-kit', href: '/tool-kit'},
     {label: 'Projects', href: '/projects'},
     {label: 'Contact', href: '/contact'}
@@ -35,7 +35,7 @@ const NavBar = () => {
 
     const pathname = usePathname();
     const renderNavBarItem = useCallback((label: string, href: string) => {
-        const isActive = pathname.startsWith(href);
+        const isActive = href !== '/' ? pathname.startsWith(href) : pathname === '/';
         return (
             <Link
                 key={`navbar-link-${label.toLowerCase().replace(' ', '-')}`}

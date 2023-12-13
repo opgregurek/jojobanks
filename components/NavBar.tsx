@@ -49,7 +49,7 @@ const NavBar = () => {
                 gap="8px"
             >
                 {isActive ? (
-                    <Image src="/blue-circle.svg" alt="Blue Circle" width="13px" height="13px" />
+                    <Image src="blue-circle.svg" alt="Blue Circle" width="13px" height="13px" />
                 ) : null}
                 {label}
             </Link>

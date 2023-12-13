@@ -9,14 +9,8 @@ export default function Home() {
         <VStack justifyContent="flex-start" alignItems="flex-start">
           <HStack gap="80px" alignItems="flex-end">
             <VStack width="210px" alignItems="flex-start">
-              <Text color="black">Josephine Nguyen</Text>
-              <Text
-                  color="black"
-                  fontSize="24px"
-                  fontWeight="700"
-              >
-                Curation & design is a path to self-discovery.
-              </Text>
+              <Text>Josephine Nguyen</Text>
+              <Text fontSize="24px" fontWeight="700">Curation & design is a path to self-discovery.</Text>
               <Text fontStyle="italic" color="text.lightGrey">
                 This space is a curated showcase of Josephine&apos;s evolving body of work spanning several years. <br /><br />
                 Explore this collection for  insights into her creative journey and where she would like to go next.

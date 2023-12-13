@@ -9,14 +9,7 @@ export default function Contact() {
         <Box w="100%">
             <VStack alignItems="flex-start" gap={10}>
                 <SimpleGrid columns={2}>
-                    <Text
-                        fontSize="80px"
-                        fontWeight="700"
-                        lineHeight="74px"
-                        textAlign="center"
-                    >
-                        Get in touch
-                    </Text>
+                    <Text fontSize="80px" fontWeight="700" lineHeight="74px" textAlign="center">Get in touch</Text>
                     <VStack alignItems="flex-start" gap={10}>
                         <Text fontSize="24px">
                             The best way to contact me is via homing pigeon. <br /><br />

@@ -9,8 +9,9 @@ export default function Home() {
         <VStack justifyContent="flex-start" alignItems="flex-start">
           <HStack gap="80px" alignItems="flex-end">
             <VStack width="210px" alignItems="flex-start">
-              <Text>Josephine Nguyen</Text>
+              <Text color="black">Josephine Nguyen</Text>
               <Text
+                  color="black"
                   fontSize="24px"
                   fontWeight="700"
               >

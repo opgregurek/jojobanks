@@ -21,10 +21,15 @@ const NavItems: Array<NavItem> = [
 ];
 
 const NavBar = () => {
-    const pinkMushroomString = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('homepage/mushroom-pink')),
+    const pinkMushroomString = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('homepage/mushroom-pink', 42)),
+        []);
+    const navActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-active', 13)),
+        []);
+    const navNonActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-nonactive', 13)),
         []);
 
-    const { imagesPreloaded } = useImagePreloader([(pinkMushroomString)]);
+    const { imagesPreloaded } = useImagePreloader([pinkMushroomString, navActive, navNonActive]);
+
     const pinkMushroom = useMemo(() => {
         if (!imagesPreloaded) {
             return <Box bg="white" w="42px" h="85px" />
@@ -32,6 +37,18 @@ const NavBar = () => {
 
         return <Image src={pinkMushroomString} alt="Mushroom arrow" w="42px" h="85px" />;
     }, [imagesPreloaded, pinkMushroomString]);
+
+    const navCircle = useCallback((isActive: boolean) => {
+        if (!imagesPreloaded) {
+            return <Box w="13px" h="13px" />
+        }
+
+        if (isActive) {
+            return <Image src={navActive} alt="Blue Circle" width="13px" height="13px" />;
+        }
+
+        return <Image src={navNonActive} alt="Grey Circle" width="13px" height="13px" />;
+    }, [imagesPreloaded, navActive, navNonActive]);
 
     const pathname = usePathname();
     const renderNavBarItem = useCallback((label: string, href: string) => {
@@ -48,13 +65,11 @@ const NavBar = () => {
                 alignItems="center"
                 gap="8px"
             >
-                {isActive ? (
-                    <Image src="blue-circle.svg" alt="Blue Circle" width="13px" height="13px" />
-                ) : null}
+                {navCircle(isActive)}
                 {label}
             </Link>
         )
-    }, [pathname]);
+    }, [pathname, navCircle]);
 
     return (
         <HStack pb="40px" justifyContent="space-between" alignItems="flex-start">

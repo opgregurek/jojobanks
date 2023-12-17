@@ -23,7 +23,7 @@ const CloudinaryImage = (props: CloudinaryImageProps) => {
 
     const imageString = useMemo(() => {
         return fiveMinuteCacheImage(cloudinaryImage(cloudinaryImageName, width));
-    }, [cloudinaryImageName]);
+    }, [cloudinaryImageName, width]);
 
     const { imagesPreloaded } = useImagePreloader([imageString]);
 

@@ -16,7 +16,7 @@ interface NavItem {
 const NavItems: Array<NavItem> = [
     {label: 'Discover', href: '/'},
     {label: 'Tool-kit', href: '/tool-kit'},
-    {label: 'Projects', href: '/projects'},
+    {label: 'Projects', href: '/projects/project-nav'},
     {label: 'Contact', href: '/contact'}
 ];
 

@@ -1,8 +1,8 @@
 'use client'
 
-import {Box, HStack, Image, SimpleGrid, Text, VStack} from "@chakra-ui/react";
-import CloudinaryImage from "@/components/CloudinaryImage";
+import {Box, SimpleGrid, Text, VStack} from "@chakra-ui/react";
 import {Link} from "@chakra-ui/next-js";
+import Footer from "@/components/Footer";
 
 export default function Contact() {
     return (
@@ -22,27 +22,7 @@ export default function Contact() {
                         </VStack>
                     </VStack>
                 </SimpleGrid>
-                <VStack alignItems="flex-start" gap={10}>
-                    <CloudinaryImage cloudinaryImageName="contact/spiral" alt="Spiral" width={67} height={67} />
-                    <Text color="text.lightGrey" w="365px">
-                        We have learned so much, there still remains much to learn. We are not going in circles, we are going upwards. The path is a spiral.<br /><br />
-                        Herman Hesse
-                    </Text>
-                    <HStack gap={3}>
-                        <a href="https://instagram.com/jojobanks.jpg">
-                            <CloudinaryImage cloudinaryImageName="contact/instagram" alt="Instagram" width={37} height={37} />
-                        </a>
-                        <a href="https://www.linkedin.com/in/josephinenguyen1/">
-                            <CloudinaryImage cloudinaryImageName="contact/linkedin" alt="LinkedIn" width={37} height={37} />
-                        </a>
-                        <a href="https://dribbble.com/jojobankss">
-                            <CloudinaryImage cloudinaryImageName="contact/dribbble" alt="Dribbble" width={37} height={37} />
-                        </a>
-                        <a href="https://www.behance.net/josephinenguyen">
-                            <CloudinaryImage cloudinaryImageName="contact/behance" alt="Behance" width={37} height={37} />
-                        </a>
-                    </HStack>
-                </VStack>
+                <Footer />
             </VStack>
         </Box>
     )

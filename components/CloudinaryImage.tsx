@@ -6,43 +6,64 @@ import useImagePreloader from "@/hooks/useImagePreloader";
 import cloudinaryImage from "@/utils/cloudinaryImage";
 import fiveMinuteCacheImage from "@/utils/fiveMinuteCacheImage";
 
-export interface CloudinaryImageProps extends ImageProps {
+export interface CloudinaryImageProps {
     cloudinaryImageName: string;
     alt: string;
-    width?: number;
-    height: number;
+    // both pixelWidth and pixelHeight need to be specified for them to apply
+    pixelWidth?: number;
+    pixelHeight?: number;
+    imageProps?: ImageProps,
 }
 
 const CloudinaryImage = (props: CloudinaryImageProps) => {
     const {
         cloudinaryImageName,
         alt,
-        width,
-        height,
-        
+        pixelWidth,
+        pixelHeight,
+        imageProps,
     } = props;
 
+    const width = pixelWidth ? `${pixelWidth}px` : undefined;
+    const height = pixelHeight ? `${pixelHeight}px` : undefined;
+
     const imageString = useMemo(() => {
-        return fiveMinuteCacheImage(cloudinaryImage(cloudinaryImageName, width));
-    }, [cloudinaryImageName, width]);
+        return fiveMinuteCacheImage(cloudinaryImage(cloudinaryImageName, pixelWidth));
+    }, [cloudinaryImageName, pixelWidth]);
 
     const { imagesPreloaded } = useImagePreloader([imageString]);
 
     if (!imagesPreloaded) {
         return (
-            <Box w={width === undefined ? "100%" : `${width}px`} h={`${height}px`} bg="lightGrey" />
+            <Box
+                w={width}
+                h={height}
+                bg="lightGrey"
+            />
+        );
+    }
+
+    if (width === undefined || height === undefined) {
+        return (
+            <Image
+                src={imageString}
+                alt={alt}
+                {...imageProps}
+            />
         );
     }
 
     return (
-        <Box w={width === undefined ? "100%" : `${width}px`} h={`${height}px`}>
+
+        <Box w={width} h={height}>
             <Image
                 src={imageString}
                 alt={alt}
+                w="100%"
+                h="100%"
                 maxW="100%"
-                width="100%"
                 maxH="100%"
-                height="100%"
+                {...imageProps}
             />
         </Box>
     )

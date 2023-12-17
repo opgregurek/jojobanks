@@ -14,7 +14,13 @@ export default function MusicController(){
                 <Text fontSize = "24px" fontWeight = "400" paddingRight="40%" paddingBottom="30px">For venues, such as restaurents, hotels, cafes and bars, this mobile application enables management over the music that is provided; giving them the controls to wield the vibe and environment for their patrons. The presence of music in a space that commands it has the power to elevate the atmosphere.</Text>
             </VStack>
             <Flex justifyContent="center">
-               <CloudinaryImage cloudinaryImageName="projectPages/MustardMusic/MM-header" alt="MustardMusic/MM-header" height={746}/>
+               <CloudinaryImage
+                   cloudinaryImageName="projectPages/MustardMusic/MM-header"
+                   alt="MustardMusic/MM-header"
+                       imageProps={{
+                       width: '100%',
+                   }}
+               />
             </Flex>
             <Center w="100%" h = "629px" p="100px">
                 <Text>With this application, venue staff can view the songs that are playing and use the remote to control how they are played. The inclusion of a like and dislike feature enabled an open channel and feedback loop to playlist makers. Playlists can also be viewed and scheduled; giving venue staff oversight on whats available and control over what vibe is appropriate.</Text>

@@ -18,7 +18,7 @@ export default function RootLayout({
       <html lang='en'>
           <body>
             <Providers>
-                <Box w="100vw" h="100vh" bg="white" p="60px">
+                <Box w="100vw" h="100vh" bg="white" p="60px" overflow="auto">
                     <NavBar />
                     {children}
                 </Box>

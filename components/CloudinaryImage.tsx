@@ -9,7 +9,7 @@ import fiveMinuteCacheImage from "@/utils/fiveMinuteCacheImage";
 export interface CloudinaryImageProps extends ImageProps {
     cloudinaryImageName: string;
     alt: string;
-    width: number;
+    width?: number;
     height: number;
 }
 
@@ -19,6 +19,7 @@ const CloudinaryImage = (props: CloudinaryImageProps) => {
         alt,
         width,
         height,
+        
     } = props;
 
     const imageString = useMemo(() => {
@@ -29,17 +30,19 @@ const CloudinaryImage = (props: CloudinaryImageProps) => {
 
     if (!imagesPreloaded) {
         return (
-            <Box w={`${width}px`} h={`${height}px`} bg="lightGrey" />
+            <Box w={width === undefined ? "100%" : `${width}px`} h={`${height}px`} bg="lightGrey" />
         );
     }
 
     return (
-        <Box w={`${width}px`} h={`${height}px`}>
+        <Box w={width === undefined ? "100%" : `${width}px`} h={`${height}px`}>
             <Image
                 src={imageString}
                 alt={alt}
                 maxW="100%"
+                width="100%"
                 maxH="100%"
+                height="100%"
             />
         </Box>
     )

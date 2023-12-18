@@ -1,9 +1,8 @@
 'use client'
 
 import CloudinaryImage from "@/components/CloudinaryImage"
-import { Box, Center, Flex, Text, VStack, Link} from "@chakra-ui/react"
-import Footer from "./Footer";
-
+import { Box, Center, Flex, Text, VStack, Link, Button} from "@chakra-ui/react"
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 export interface ProjectPageProps {
     headerImg: string;
@@ -13,6 +12,7 @@ export interface ProjectPageProps {
     projectContent: string;
     projectContent2?: string;
     projectContent3?: string;
+    projectContent4?: string;
     nextPageName?: string;
     nextPageHref?: string
 }
@@ -26,6 +26,7 @@ export const ProjectPage = (props: ProjectPageProps) => {
         projectContent,
         projectContent2,
         projectContent3,
+        projectContent4,
         nextPageName,
         nextPageHref
     } = props;
@@ -44,7 +45,7 @@ export const ProjectPage = (props: ProjectPageProps) => {
     });
 
     return (
-        <Box w="100%">
+        <Box w="100%" marginBottom="10%">
         <VStack alignItems="flex-start">
             <Text fontSize = "16px" fontWeight = "400" color="text.lightGrey" marginBottom="3%">{ projectLable }</Text>
             <Text fontSize = "36px" fontWeight = "300" color="text.lightGrey">{ pageName }</Text>
@@ -68,16 +69,39 @@ export const ProjectPage = (props: ProjectPageProps) => {
             </Center>
         }
         <Flex justifyContent="center" flexDirection="column" marginBottom="6%">{ slideImg }</Flex>
+
+        { projectContent4 !== undefined &&
+            <Center w="100%" h="629px" p="20%">
+                <Text fontSize = "24px" fontWeight = "400" textAlign="center">{ projectContent3 }</Text>
+            </Center>
+        }
           
         { nextPageName !== undefined && 
-            <VStack alignItems="flex-start" marginBottom="5%">
+            <VStack alignItems="flex-start" marginBottom="3%">
                 <Link href= {nextPageHref}>
-                    <Text fontSize = "24px" fontWeight = "500">Next project</Text>
+                    <ArrowForwardIcon
+                        w="18px"
+                        h="15px"
+                        color="text.lightGrey"
+                    />
+                    <Text fontSize = "24px" fontWeight = "500" color="text.lightGrey">Next</Text>
                     <Text fontSize = "80px" fontWeight = "500">{ nextPageName }</Text>
                 </Link>
             </VStack>
         }
-        <Footer />
+
+        <Link href="/projects">
+           <Button
+             fontSize="16px"
+             fontWeight="400"
+             border="1px"
+             borderRadius="24px"
+             variant="outline"
+             textTransform="uppercase"
+           >
+            View all work
+           </Button>
+        </Link>
     </Box>
     )
 }

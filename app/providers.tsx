@@ -11,6 +11,7 @@ const theme = extendTheme({
             blue: '#072165',
             dark: '#262626',
             lightGrey: '#A5A5A5',
+            forestGreen: "#0A4209"
         },
         background: {
             dark: '#262626',

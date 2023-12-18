@@ -5,7 +5,7 @@ import HomePageImage from "@/components/HomePageImage";
 
 export default function Home() {
   return (
-      <Box w="100%">
+      <Box w="100%" marginBottom="20%">
         <VStack justifyContent="flex-start" alignItems="flex-start">
           <HStack gap="80px" alignItems="flex-end">
             <VStack width="210px" alignItems="flex-start">

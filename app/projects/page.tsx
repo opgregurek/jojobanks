@@ -39,7 +39,7 @@ export default function Projects() {
   }
 
     return (
-        <Box w = "100%" marginBottom="25%">
+        <Box w = "100%">
             <>
                 {ProjectItems.map((item, key) => {
                     return ( 

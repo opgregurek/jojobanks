@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function Contact() {
     return (
-        <Box w="100%" maxWidth="1440px" marginLeft="auto" marginRight="auto" marginBottom="20%">
+        <Box w="100%" maxWidth="1440px" marginLeft="auto" marginRight="auto">
             <VStack alignItems="flex-start" gap={10}>
                 <SimpleGrid columns={[1, 1, 2]} gap={4}>
                     <Text fontSize={['40px', '40px', '80px']} fontWeight="700" lineHeight="74px" textAlign="center">Get in touch</Text>

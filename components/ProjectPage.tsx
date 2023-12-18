@@ -72,7 +72,7 @@ export const ProjectPage = (props: ProjectPageProps) => {
 
         { projectContent4 !== undefined &&
             <Center w="100%" h="629px" p="20%">
-                <Text fontSize = "24px" fontWeight = "400" textAlign="center">{ projectContent3 }</Text>
+                <Text fontSize = "24px" fontWeight = "400" textAlign="center">{ projectContent4 }</Text>
             </Center>
         }
           
@@ -99,7 +99,7 @@ export const ProjectPage = (props: ProjectPageProps) => {
              variant="outline"
              textTransform="uppercase"
            >
-            View all work
+            View all projects
            </Button>
         </Link>
     </Box>

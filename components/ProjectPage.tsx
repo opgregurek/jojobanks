@@ -99,7 +99,7 @@ export const ProjectPage = (props: ProjectPageProps) => {
              variant="outline"
              textTransform="uppercase"
            >
-            View all work
+            View all projects
            </Button>
         </Link>
     </Box>

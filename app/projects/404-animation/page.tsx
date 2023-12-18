@@ -48,7 +48,7 @@ export default function Animation(){
                         h="15px"
                         color="text.lightGrey"
                     />
-                    <Text fontSize="24px" fontWeight="500">Next</Text>
+                    <Text fontSize="24px" fontWeight="500" color="text.lightGrey">Next</Text>
                     <Text fontSize="80px" fontWeight="500">Music controller</Text>
                 </Link>
             </VStack>
@@ -62,7 +62,7 @@ export default function Animation(){
                     variant="outline"
                     textTransform="uppercase"
                 >
-                    View all work
+                    View all projects
                 </Button>
             </Link>
         </Box>

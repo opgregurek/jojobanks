@@ -22,7 +22,6 @@ export default function Contact() {
                         </VStack>
                     </VStack>
                 </SimpleGrid>
-                <Footer />
             </VStack>
         </Box>
     )

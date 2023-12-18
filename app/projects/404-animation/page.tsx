@@ -2,7 +2,6 @@
 
 import CloudinaryImage from "@/components/CloudinaryImage";
 import { Box, Flex, Link, Text, VStack} from "@chakra-ui/react";
-import Footer from "@/components/Footer";
 
 const notmalText = "The WorkingMouse website underwent an official rebrand in 2020. As most rebrands go, it invites the designer to play and explore the application. I had the pleasure of crafting the 404 page - intending for an otherwise negative experience to hopefully spark joy to those who come across it. You can check it out ";
 const restOfText = ".";
@@ -46,7 +45,6 @@ export default function Animation(){
                     <Text fontSize = "80px" fontWeight = "500">Music controller</Text>
                 </Link>
             </VStack>
-            <Footer />
         </Box>
     )
 }

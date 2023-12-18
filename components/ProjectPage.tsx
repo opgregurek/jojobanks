@@ -2,7 +2,6 @@
 
 import CloudinaryImage from "@/components/CloudinaryImage"
 import { Box, Center, Flex, Text, VStack, Link} from "@chakra-ui/react"
-import Footer from "./Footer";
 
 
 export interface ProjectPageProps {
@@ -77,7 +76,6 @@ export const ProjectPage = (props: ProjectPageProps) => {
                 </Link>
             </VStack>
         }
-        <Footer />
     </Box>
     )
 }

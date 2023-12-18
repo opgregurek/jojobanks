@@ -16,6 +16,7 @@ export default function Footer() {
                     <CloudinaryImage
                         cloudinaryImageName="contact/instagram"
                         alt="Instagram"
+                        ignoreCloudinaryParams
                         imageProps={{
                             width: '37px',
                         }}
@@ -25,6 +26,7 @@ export default function Footer() {
                     <CloudinaryImage
                         cloudinaryImageName="contact/linkedin"
                         alt="LinkedIn"
+                        ignoreCloudinaryParams
                         imageProps={{
                             width: '37px',
                         }}
@@ -34,6 +36,7 @@ export default function Footer() {
                     <CloudinaryImage
                         cloudinaryImageName="contact/dribbble"
                         alt="Dribbble"
+                        ignoreCloudinaryParams
                         imageProps={{
                             width: '37px',
                         }}
@@ -43,6 +46,7 @@ export default function Footer() {
                     <CloudinaryImage
                         cloudinaryImageName="contact/behance"
                         alt="Behance"
+                        ignoreCloudinaryParams
                         imageProps={{
                             width: '37px',
                         }}

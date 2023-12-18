@@ -13,6 +13,7 @@ export interface CloudinaryImageProps {
     pixelWidth?: number;
     pixelHeight?: number;
     imageProps?: ImageProps,
+    ignoreCloudinaryParams?: boolean,
 }
 
 const CloudinaryImage = (props: CloudinaryImageProps) => {
@@ -22,14 +23,15 @@ const CloudinaryImage = (props: CloudinaryImageProps) => {
         pixelWidth,
         pixelHeight,
         imageProps,
+        ignoreCloudinaryParams,
     } = props;
 
     const width = pixelWidth ? `${pixelWidth}px` : undefined;
     const height = pixelHeight ? `${pixelHeight}px` : undefined;
 
     const imageString = useMemo(() => {
-        return fiveMinuteCacheImage(cloudinaryImage(cloudinaryImageName, pixelWidth));
-    }, [cloudinaryImageName, pixelWidth]);
+        return fiveMinuteCacheImage(cloudinaryImage(cloudinaryImageName, pixelWidth, undefined, ignoreCloudinaryParams));
+    }, [cloudinaryImageName, pixelWidth, ignoreCloudinaryParams]);
 
     const { imagesPreloaded } = useImagePreloader([imageString]);
 

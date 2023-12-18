@@ -13,9 +13,9 @@ export interface DesktopNavBarProps {
 
 const DesktopNavBar = (props: DesktopNavBarProps) => {
     const { navItems } = props;
-    const navActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-active', 13)),
+    const navActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-active', 13, undefined, true)),
         []);
-    const navNonActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-nonactive', 13)),
+    const navNonActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-nonactive', 13, undefined, true)),
         []);
 
     const { imagesPreloaded } = useImagePreloader([navActive, navNonActive]);

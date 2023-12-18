@@ -26,7 +26,7 @@ const NavItems: Array<NavItem> = [
 ];
 
 const NavBar = () => {
-    const pinkMushroomString = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('homepage/mushroom-pink', 42)),
+    const pinkMushroomString = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('homepage/mushroom-pink')),
         []);
 
     const { imagesPreloaded } = useImagePreloader([pinkMushroomString]);

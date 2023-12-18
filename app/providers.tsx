@@ -7,10 +7,14 @@ import { extendTheme } from '@chakra-ui/react';
 const theme = extendTheme({
     colors: {
         text: {
+            white: '#F0EEED',
             blue: '#072165',
             dark: '#262626',
             lightGrey: '#A5A5A5',
         },
+        background: {
+            dark: '#262626',
+        }
     },
     breakpoints: {
         base: "0em", // 0px

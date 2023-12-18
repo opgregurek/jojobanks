@@ -1,14 +1,19 @@
 'use client'
 
-import {Box, HStack, Image} from "@chakra-ui/react";
+import {
+    Box,
+    HStack,
+    Image,
+    useBreakpoint,
+} from "@chakra-ui/react";
 import cloudinaryImage from "@/utils/cloudinaryImage";
 import useImagePreloader from "@/hooks/useImagePreloader";
 import fiveMinuteCacheImage from "@/utils/fiveMinuteCacheImage";
-import {useCallback, useMemo} from "react";
-import {usePathname} from "next/navigation";
-import {Link} from "@chakra-ui/next-js";
+import {useMemo} from "react";
+import MobileNavBar from "@/components/MobileNavBar";
+import DesktopNavBar from "@/components/DesktopNavBar";
 
-interface NavItem {
+export interface NavItem {
     label: string;
     href: string;
 }
@@ -16,19 +21,15 @@ interface NavItem {
 const NavItems: Array<NavItem> = [
     {label: 'Discover', href: '/'},
     {label: 'Tool-kit', href: '/tool-kit'},
-    {label: 'Projects', href: '/projects/project-nav'},
+    {label: 'Projects', href: '/projects'},
     {label: 'Contact', href: '/contact'}
 ];
 
 const NavBar = () => {
     const pinkMushroomString = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('homepage/mushroom-pink', 42)),
         []);
-    const navActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-active', 13)),
-        []);
-    const navNonActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-nonactive', 13)),
-        []);
 
-    const { imagesPreloaded } = useImagePreloader([pinkMushroomString, navActive, navNonActive]);
+    const { imagesPreloaded } = useImagePreloader([pinkMushroomString]);
 
     const pinkMushroom = useMemo(() => {
         if (!imagesPreloaded) {
@@ -38,45 +39,18 @@ const NavBar = () => {
         return <Image src={pinkMushroomString} alt="Mushroom arrow" w="42px" h="85px" />;
     }, [imagesPreloaded, pinkMushroomString]);
 
-    const navCircle = useCallback((isActive: boolean) => {
-        if (!imagesPreloaded) {
-            return <Box w="13px" h="13px" />
+    const breakpoint = useBreakpoint();
+    const navBar = useMemo(() => {
+        if (breakpoint === 'md' || breakpoint === 'sm') {
+            return <MobileNavBar navItems={NavItems} />;
         }
-
-        if (isActive) {
-            return <Image src={navActive} alt="Blue Circle" width="13px" height="13px" />;
-        }
-
-        return <Image src={navNonActive} alt="Grey Circle" width="13px" height="13px" />;
-    }, [imagesPreloaded, navActive, navNonActive]);
-
-    const pathname = usePathname();
-    const renderNavBarItem = useCallback((label: string, href: string) => {
-        const isActive = href !== '/' ? pathname.startsWith(href) : pathname === '/';
-        return (
-            <Link
-                key={`navbar-link-${label.toLowerCase().replace(' ', '-')}`}
-                textTransform="uppercase"
-                color={isActive ? 'text.blue' : 'text.lightGrey'}
-                href={href}
-                fontWeight={isActive ? 600 : 400}
-                display="flex"
-                flexDirection="row"
-                alignItems="center"
-                gap="8px"
-            >
-                {navCircle(isActive)}
-                {label}
-            </Link>
-        )
-    }, [pathname, navCircle]);
+        return <DesktopNavBar navItems={NavItems} />;
+    }, [breakpoint]);
 
     return (
         <HStack pb="40px" justifyContent="space-between" alignItems="flex-start">
             {pinkMushroom}
-            <HStack gap="48px">
-                {NavItems.map(({label, href}) => renderNavBarItem(label, href))}
-            </HStack>
+            {navBar}
         </HStack>
     )
 };

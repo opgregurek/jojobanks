@@ -3,7 +3,7 @@ import './globals.css'
 import { Providers } from './providers'
 import { Box } from "@chakra-ui/react";
 import NavBar from "@/components/NavBar";
-import Footer from '@/components/Footer';
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: 'DISCOVER',

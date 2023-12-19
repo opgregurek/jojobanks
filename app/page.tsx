@@ -2,22 +2,21 @@
 
 import {
     Box,
-    HStack,
     Text,
     VStack,
-    Grid,
     GridItem,
     SimpleGrid,
     Flex,
     chakra,
     ScaleFade,
-    Fade,
-    SlideFade
 } from "@chakra-ui/react";
 import HomePageImage from "@/components/HomePageImage";
 import CloudinaryImage from "@/components/CloudinaryImage";
-import {useMemo, useState} from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import {InView} from "react-intersection-observer";
+import useWindowDimensions from "@/hooks/useWindowDimentions";
+import useMousePosition from "@/hooks/useMousePosition";
+import useDebouncedEffect from 'use-debounced-effect';
 
 const FullPageComponent = chakra(VStack, {
     baseStyle: {
@@ -30,8 +29,21 @@ const FullPageComponent = chakra(VStack, {
 });
 
 const HiddenContentComponent = () => {
-    const [hidden, setHidden] = useState(false);
-    // const { width, height } = useWindowDimensions();
+    const [hidden, setHidden] = useState(true);
+    const mousePosition = useMousePosition();
+    const [spotlightPosition, setSpotlightPosition] = useState({
+        top: 200,
+        left: 50,
+    });
+    const { width, height } = useWindowDimensions();
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useDebouncedEffect(() => {
+        setSpotlightPosition({
+            top: Math.max(mousePosition.y - (containerRef.current?.getBoundingClientRect().y ?? 0) - 150, 0 ),
+            left: Math.max(mousePosition.x - (containerRef.current?.getBoundingClientRect().x ?? 0) - 150, 0),
+        });
+    }, 5, [mousePosition, containerRef]);
 
     const squareContent = useMemo(() => {
         if (hidden) {
@@ -61,20 +73,20 @@ const HiddenContentComponent = () => {
 
     return (
         <>
-            <VStack alignItems="center" justifyContent="space-between" overflow="hidden" >
-                {/*<Box*/}
-                {/*    position="relative"*/}
-                {/*    top="20px"*/}
-                {/*    left="20px"*/}
-                {/*    width="300px"*/}
-                {/*    height="300px"*/}
-                {/*    borderRadius="50%"*/}
-                {/*    boxShadow="0 0 0 9999px rgba(0, 0, 255, 1)"*/}
-                {/*/>*/}
-                <VStack>
+            <VStack alignItems="center" justifyContent="space-between" overflow="hidden" w={width - 15} h={height} position="relative" ref={containerRef}>
+                <Box
+                    position="absolute"
+                    top={`${spotlightPosition.top}px`}
+                    left={`${spotlightPosition.left}px`}
+                    width="300px"
+                    height="300px"
+                    borderRadius="50%"
+                    boxShadow="0 0 0 9999px #072165"
+                />
+                <VStack position="absolute" top={6}>
                     {squareContent}
                 </VStack>
-                <Text fontSize={['40px', '40px', '40px', '81px']} marginTop="10%" marginBottom="auto">
+                <Text fontSize={['40px', '40px', '40px', '81px']} marginTop="10%" marginBottom="auto" maxW="1440px" px="60px">
                     To clarify muddy waters, you must hold them still and let things settle. Designing calls on that same
                     patience.
                 </Text>

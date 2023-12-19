@@ -22,6 +22,7 @@ const theme = extendTheme({
             dark: '#262626',
             blue: '#072165',
             pink: '#FF54CF',
+            lightGrey: '#A5A5A5',
         }
     },
     breakpoints: {

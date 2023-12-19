@@ -228,17 +228,17 @@ export default function Home() {
                                 <Text color="text.blue" as="span"> Tokyo, Japan.</Text>
                             </Text>
 
-                            <Text fontSize={['32px', '32px', '32px', '40px']} fontWeight={300} color="text.lightGrey" maxW="820px">
+                            <Text fontSize={['24px', '24px', '24px', '32px']} fontWeight={300} color="text.lightGrey" maxW="820px">
                                 Through empathy and observing the natural stimulus around her, she designs digital experiences for
                                 individuals that seek to serve a specific need.
                             </Text>
 
                             <Flex flexDirection={['column', 'column', 'row', 'row']} gap={6} maxWidth="100%">
                                 <Box>
-                                    <CloudinaryImage cloudinaryImageName="homepage/orange-rose" alt="Orange covered in rose" pixelWidth={432} imageProps={{maxWidth: '100%'}} />
+                                    <CloudinaryImage cloudinaryImageName="homepage/orange-rose" alt="Orange covered in rose petals" pixelWidth={432} imageProps={{maxWidth: '100%'}} />
                                 </Box>
                                 <Box>
-                                    <CloudinaryImage cloudinaryImageName="homepage/silver-van" alt="Silver van" pixelWidth={965} imageProps={{maxWidth: '100%'}} />
+                                    <CloudinaryImage cloudinaryImageName="homepage/silver-van" alt="Abandoned chrome van in the forest" pixelWidth={965} imageProps={{maxWidth: '100%'}} />
                                 </Box>
                             </Flex>
                         </FullPageComponent>
@@ -251,13 +251,13 @@ export default function Home() {
                     <ScaleFade in={inView} transition={{enter: {duration: 0.7}}}>
                         <FullPageComponent gap={[6, 6, 6, 10]} ref={ref}>
                             <Text fontSize={['32px', '32px', '32px', '40px']} maxW="820px">
-                                Though time is relative, she has 7 years experience advocating UX/UI in digital
+                                Though time is relative, she has 7 years experience advocating for the user in digital
                                 solutions. <br/><br/>
                                 She works with people to unpack problems where software can help. She does this by:
                             </Text>
 
                             <Text fontSize={['20px', '20px', '20px', '28px']} fontWeight={300} color="text.lightGrey" maxW="820px">
-                                Facilitating workshops • applying design thinking • conceptualising visual solutions • scoping
+                                Facilitating workshops • applying design thinking • conceptualising • visual solutions • scoping
                                 requirements • building roadmaps.
                             </Text>
 

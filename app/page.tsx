@@ -18,6 +18,7 @@ import HomePageImage from "@/components/HomePageImage";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import {useMemo, useState} from "react";
 import {InView} from "react-intersection-observer";
+import useWindowDimensions from "@/hooks/useWindowDimentions";
 
 const FullPageComponent = chakra(VStack, {
     baseStyle: {
@@ -31,6 +32,7 @@ const FullPageComponent = chakra(VStack, {
 
 const HiddenContentComponent = () => {
     const [hidden, setHidden] = useState(false);
+    const { width, height } = useWindowDimensions();
 
     const squareContent = useMemo(() => {
         if (hidden) {
@@ -59,15 +61,26 @@ const HiddenContentComponent = () => {
     }, [hidden]);
 
     return (
-        <FullPageComponent alignItems="center" justifyContent="space-between" zIndex="10">
-            <VStack>
-                {squareContent}
+        <>
+            <VStack alignItems="center" justifyContent="space-between" overflow="hidden" width={`${width}px`} height={`${height}px`}>
+                {/*<Box*/}
+                {/*    position="relative"*/}
+                {/*    top="20px"*/}
+                {/*    left="20px"*/}
+                {/*    width="300px"*/}
+                {/*    height="300px"*/}
+                {/*    borderRadius="50%"*/}
+                {/*    boxShadow="0 0 0 9999px rgba(0, 0, 255, 1)"*/}
+                {/*/>*/}
+                <VStack>
+                    {squareContent}
+                </VStack>
+                <Text fontSize={['40px', '40px', '40px', '81px']} marginTop="10%" marginBottom="auto">
+                    To clarify muddy waters, you must hold them still and let things settle. Designing calls on that same
+                    patience.
+                </Text>
             </VStack>
-            <Text fontSize={['40px', '40px', '40px', '81px']}>
-                To clarify muddy waters, you must hold them still and let things settle. Designing calls on that same
-                patience.
-            </Text>
-        </FullPageComponent>
+        </>
     )
 }
 

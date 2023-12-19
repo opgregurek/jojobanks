@@ -20,6 +20,7 @@ const theme = extendTheme({
         },
         background: {
             dark: '#262626',
+            blue: '#072165',
         }
     },
     breakpoints: {

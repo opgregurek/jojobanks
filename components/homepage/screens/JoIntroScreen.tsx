@@ -19,7 +19,7 @@ export default function JoIntroScreen() {
 
                     <ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 0.5 }}}>
                         <Text
-                            fontSize={['32px', '32px', '32px', '40px']}
+                            fontSize={['24px', '24px', '24px', '32px']}
                             fontWeight={300}
                             color="text.lightGrey"
                             maxW="820px"
@@ -35,7 +35,7 @@ export default function JoIntroScreen() {
                             <Box>
                                 <CloudinaryImage
                                     cloudinaryImageName="homepage/orange-rose"
-                                    alt="Orange covered in rose"
+                                    alt="Orange covered in rose petals"
                                     pixelWidth={432}
                                     imageProps={{maxWidth: '100%'}}
                                 />
@@ -43,7 +43,7 @@ export default function JoIntroScreen() {
                             <Box>
                                 <CloudinaryImage
                                     cloudinaryImageName="homepage/silver-van"
-                                    alt="Silver van"
+                                    alt="Abandoned chrome van in the forest"
                                     pixelWidth={965}
                                     imageProps={{maxWidth: '100%'}}
                                 />

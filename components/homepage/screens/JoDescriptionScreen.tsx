@@ -11,7 +11,7 @@ export default function JoDescriptionScreen() {
                 <FullScreenStack gap={[6, 6, 6, 10]} ref={ref}>
                     <ScaleFade in={inView} transition={{ enter: { duration: 0.7 }}}>
                         <Text fontSize={['32px', '32px', '32px', '40px']} maxW="820px">
-                            Though time is relative, she has 7 years experience advocating UX/UI in digital
+                            Though time is relative, she has 7 years experience advocating for the user in digital
                             solutions.
                         </Text>
                     </ScaleFade>
@@ -29,7 +29,7 @@ export default function JoDescriptionScreen() {
                             color="text.lightGrey"
                             maxW="820px"
                         >
-                            Facilitating workshops • applying design thinking • conceptualising visual solutions •
+                            Facilitating workshops • applying design thinking • conceptualising • visual solutions •
                             scoping
                             requirements • building roadmaps.
                         </Text>
@@ -38,7 +38,7 @@ export default function JoDescriptionScreen() {
                         <Box>
                             <CloudinaryImage
                                 cloudinaryImageName="homepage/mushroom-3"
-                                alt=""
+                                alt="Mushroom in dense greenery"
                                 pixelWidth={1440}
                                 imageProps={{maxWidth: '100%'}}
                             />

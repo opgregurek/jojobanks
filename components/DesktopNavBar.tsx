@@ -1,3 +1,4 @@
+'use client'
 import {useCallback, useMemo} from "react";
 import fiveMinuteCacheImage from "@/utils/fiveMinuteCacheImage";
 import cloudinaryImage from "@/utils/cloudinaryImage";

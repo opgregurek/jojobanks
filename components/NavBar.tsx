@@ -1,5 +1,4 @@
 'use client'
-
 import {
     Box,
     HStack,
@@ -12,6 +11,7 @@ import fiveMinuteCacheImage from "@/utils/fiveMinuteCacheImage";
 import {useMemo} from "react";
 import MobileNavBar from "@/components/MobileNavBar";
 import DesktopNavBar from "@/components/DesktopNavBar";
+import {useRouter} from "next/navigation";
 
 export interface NavItem {
     label: string;
@@ -26,6 +26,7 @@ const NavItems: Array<NavItem> = [
 ];
 
 const NavBar = () => {
+    const router = useRouter();
     const pinkMushroomString = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('homepage/mushroom-pink')),
         []);
 
@@ -36,8 +37,23 @@ const NavBar = () => {
             return <Box position="relative" bg="white" w="42px" h="85px" zIndex="20" />
         }
 
-        return <Image src={pinkMushroomString} alt="Mushroom arrow" position="relative" w="42px" h="85px" zIndex="20" />;
-    }, [imagesPreloaded, pinkMushroomString]);
+        return (
+            <Image
+                src={pinkMushroomString}
+                alt="Mushroom arrow"
+                position="relative"
+                w="42px"
+                h="85px"
+                zIndex="20"
+                onClick={() => {
+                    router.push('/');
+                }}
+                _hover={{
+                    cursor: 'pointer',
+                }}
+            />
+        );
+    }, [imagesPreloaded, pinkMushroomString, router]);
 
     const breakpoint = useBreakpoint();
     const navBar = useMemo(() => {
@@ -50,7 +66,17 @@ const NavBar = () => {
     return (
         <>
             {pinkMushroom}
-            <HStack alignItems="flex-start" justifyContent="flex-end" position="fixed" top={0} left={0} width="100vw" p={['24px', '24px', '24px', '24px 60px']} bg="white" zIndex="10">
+            <HStack
+                alignItems="flex-start"
+                justifyContent="flex-end"
+                position="fixed"
+                top={0}
+                left={0}
+                width="100vw"
+                p={['24px', '24px', '24px', '60px 60px 24px 60px']}
+                bg="white"
+                zIndex="10"
+            >
                 {navBar}
             </HStack>
         </>

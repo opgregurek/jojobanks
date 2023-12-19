@@ -18,7 +18,6 @@ import HomePageImage from "@/components/HomePageImage";
 import CloudinaryImage from "@/components/CloudinaryImage";
 import {useMemo, useState} from "react";
 import {InView} from "react-intersection-observer";
-import useWindowDimensions from "@/hooks/useWindowDimentions";
 
 const FullPageComponent = chakra(VStack, {
     baseStyle: {
@@ -32,7 +31,7 @@ const FullPageComponent = chakra(VStack, {
 
 const HiddenContentComponent = () => {
     const [hidden, setHidden] = useState(false);
-    const { width, height } = useWindowDimensions();
+    // const { width, height } = useWindowDimensions();
 
     const squareContent = useMemo(() => {
         if (hidden) {
@@ -62,7 +61,7 @@ const HiddenContentComponent = () => {
 
     return (
         <>
-            <VStack alignItems="center" justifyContent="space-between" overflow="hidden" width={`${width}px`} height={`${height}px`}>
+            <VStack alignItems="center" justifyContent="space-between" overflow="hidden" >
                 {/*<Box*/}
                 {/*    position="relative"*/}
                 {/*    top="20px"*/}

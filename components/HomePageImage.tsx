@@ -52,12 +52,14 @@ const HomePageImage = (props: HomePageImageProps) => {
 
     if (!imagesPreloaded) {
         return (
-            <Box w="187px" h="187px" bg="lightGrey" borderRadius={circleImage ? '100%' : ''} />
+            <Box maxW="187px" maxH="187px" bg="lightGrey" borderRadius={circleImage ? '100%' : ''}>
+                <Box w="187px" h="187px" />
+            </Box>
         );
     }
 
     return (
-        <Box position="relative" w="187" h="187">
+        <Box position="relative" maxW="187px" maxH="187px">
             <Image
                 src={fiveMinuteCacheImage(src)}
                 alt={alt}

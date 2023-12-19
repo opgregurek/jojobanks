@@ -33,10 +33,10 @@ const NavBar = () => {
 
     const pinkMushroom = useMemo(() => {
         if (!imagesPreloaded) {
-            return <Box bg="white" w="42px" h="85px" />
+            return <Box position="relative" bg="white" w="42px" h="85px" zIndex="20" />
         }
 
-        return <Image src={pinkMushroomString} alt="Mushroom arrow" w="42px" h="85px" />;
+        return <Image src={pinkMushroomString} alt="Mushroom arrow" position="relative" w="42px" h="85px" zIndex="20" />;
     }, [imagesPreloaded, pinkMushroomString]);
 
     const breakpoint = useBreakpoint();
@@ -48,10 +48,12 @@ const NavBar = () => {
     }, [breakpoint]);
 
     return (
-        <HStack pb="40px" justifyContent="space-between" alignItems="flex-start">
+        <>
             {pinkMushroom}
-            {navBar}
-        </HStack>
+            <HStack alignItems="flex-start" justifyContent="flex-end" position="fixed" top={0} left={0} width="100vw" p={['24px', '24px', '24px', '24px 60px']} bg="white" zIndex="10">
+                {navBar}
+            </HStack>
+        </>
     )
 };
 

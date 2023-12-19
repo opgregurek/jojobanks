@@ -24,7 +24,7 @@ const theme = extendTheme({
     },
     breakpoints: {
         base: "0em", // 0px
-        sm: "30em", // ~480px
+        sm: "20", // ~320px
         md: "48em", // ~768px
         lg: "62em", // ~992px
         xl: "80em", // ~1280px
@@ -38,7 +38,7 @@ const theme = extendTheme({
     components: {
         Text: {
             baseStyle: () => ({
-                color: 'black',
+                color: 'text.dark',
             })
         }
     }

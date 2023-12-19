@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <VStack alignItems="flex-start" gap={10} marginTop="123px">
             <CloudinaryImage cloudinaryImageName="contact/spiral" alt="Spiral" pixelWidth={67} pixelHeight={63} />
-            <Text color="text.lightGrey" w="365px" fontFamily="footer">
+            <Text color="text.lightGrey" w={['auto', 'auto', '365px']} fontFamily="footer">
                 We have learned so much, there still remains much to learn. We are not going in circles, we are going upwards. The path is a spiral.<br /><br />
                 Herman Hesse
             </Text>

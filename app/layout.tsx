@@ -19,9 +19,11 @@ export default function RootLayout({
       <html lang='en'>
           <body>
             <Providers>
-                <Box w="100vw" h="100vh" bg="white" p="60px" overflow="auto">
+                <Box w="100vw" h="100vh" bg="white" p={['24px', '24px', '24px', '60px']} overflow="auto">
                     <NavBar />
-                    {children}
+                    <Box marginTop={['106px', '106px', '106px', '170px']}>
+                        {children}
+                    </Box>
                     <Footer />
                 </Box>
             </Providers>

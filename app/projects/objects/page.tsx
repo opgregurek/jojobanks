@@ -12,7 +12,7 @@ export default function Objects(){
                 "OBJECTS/objects-slide-3"
             ]}
             pageName="OBJECTS"
-            projectLable="2023 -- 3D art"
+            projectLable="2023 — 3D art"
             projectContent="Everyday objects under a spotlight."
             projectContent2="During summer in 2022, I spent my break dissecting commonplace objects. I was entranced by the intricacies of shapes and capturing movement in furniture, kitchen tools and household objects. I constructed some pieces in Blender in an effort to bring these objects to life, providing them a spotlight. Amidst the mundane, there is beauty."
             projectContent3="In June, I was invited to showcase some work for the issue launch of 'ScratchThat' magazine in Brisbane. I truly value these community-led events that offer local artists space to share work and creative endeavours with a wider audience."

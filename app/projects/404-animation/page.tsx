@@ -12,7 +12,7 @@ export default function Animation(){
     return (
         <Box w="100%" marginBottom="10%">
             <VStack alignItems="flex-start">
-                <Text fontSize="16px" fontWeight="400" color="text.lightGrey" marginBottom="3%">2021 -- Animation</Text>
+                <Text fontSize="16px" fontWeight="400" color="text.lightGrey" marginBottom="3%">2021 — Animation</Text>
                 <Text fontSize="36px" fontWeight="300" color="text.lightGrey">404 animation</Text>
                 <Text fontSize="80px" fontWeight="700" lineHeight="80px" marginRight="35%" marginBottom="12%">Getting lost on the web isn&apos;t always bad.</Text>
                 <Text fontSize="24px" fontWeight="400" marginRight="40%" marginBottom="3%">

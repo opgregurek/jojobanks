@@ -45,7 +45,7 @@ const MobileNavBar = (props: MobileNavBarProps) => {
                     <DrawerCloseButton color="text.white" width="37px" height="37px" fontSize="37px" margin={6}/>
                     <DrawerBody padding={6} bg="background.dark">
                         <Flex w="100%" h="100%" justifyContent="center">
-                            <VStack gap={10} marginTop="auto" justifyContent="flex-end">
+                            <VStack gap={10} marginTop="auto" marginBottom="100px" justifyContent="flex-end">
                                 <Text color="text.lightGrey" textAlign="center" fontStyle="italic" fontWeight={400}>
                                     Where do you want to go?
                                 </Text>

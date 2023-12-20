@@ -34,7 +34,7 @@ const NavBar = () => {
 
     useEffect(() => {
         setNavBarShadow(scroll > 50);
-    }, [scroll]);
+    }, [scroll, setNavBarShadow]);
 
     const [navBarBackground, setNavBarBackground] = useRecoilState(NavBarBackground);
 

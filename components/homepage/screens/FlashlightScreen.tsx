@@ -72,7 +72,6 @@ export default function FlashlightScreen() {
             setNavBarBackground('white');
             setNavBarColor('text.blue');
             setNavBarActiveIcon('misc/nav-active');
-            setNavBarShadow(true);
         }
     }, [scroll, containerRef, setNavBarColor, setNavBarActiveIcon, setNavBarBackground, setNavBarShadow]);
 

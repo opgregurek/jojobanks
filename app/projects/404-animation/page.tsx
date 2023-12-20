@@ -1,5 +1,4 @@
 'use client'
-
 import {Project} from "@/components/projects/Project"
 import {Text} from "@chakra-ui/react";
 import {Link} from "@chakra-ui/next-js";

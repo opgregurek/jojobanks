@@ -25,12 +25,11 @@ export default function JoIntroScreen() {
                             maxW="820px"
                         >
                             Through empathy and observing the natural stimulus around her, she designs digital
-                            experiences for
-                            individuals that seek to serve a specific need.
+                            experiences for individuals that seek to serve a specific need.
                         </Text>
                     </ScaleFade>
 
-                    <ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 1 }}}>
+                    <ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 0.75 }}}>
                         <Flex flexDirection={['column', 'column', 'row', 'row']} gap={6} maxWidth="100%">
                             <Box>
                                 <CloudinaryImage

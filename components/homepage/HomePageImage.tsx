@@ -1,5 +1,4 @@
 'use client'
-
 import {Box, Image, ImageProps, keyframes} from "@chakra-ui/react";
 import {useMemo, useState} from "react";
 import useImagePreloader from "@/hooks/useImagePreloader";

@@ -10,7 +10,7 @@ import FeaturedProjectsScreen from "@/components/homepage/screens/FeaturedProjec
 
 export default function Home() {
     return (
-        <VStack w="100%" gap={[4, 4, 8, 16]}>
+        <VStack w="100%" gap={[20, 20, 32, 44]}>
             <FeatureScreen />
             <FlashlightScreen />
             <JoIntroScreen />

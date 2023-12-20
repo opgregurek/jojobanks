@@ -8,10 +8,13 @@ import {
 import cloudinaryImage from "@/utils/cloudinaryImage";
 import useImagePreloader from "@/hooks/useImagePreloader";
 import fiveMinuteCacheImage from "@/utils/fiveMinuteCacheImage";
-import {useMemo} from "react";
+import {useEffect, useMemo, useState} from "react";
 import MobileNavBar from "@/components/MobileNavBar";
 import DesktopNavBar from "@/components/DesktopNavBar";
 import {useRouter} from "next/navigation";
+import useScrollPosition from "@/hooks/useScrollbar";
+import {useRecoilState} from "recoil";
+import {NavBarBackground, NavBarShadow} from "@/stores/NavBarState";
 
 export interface NavItem {
     label: string;
@@ -26,6 +29,15 @@ const NavItems: Array<NavItem> = [
 ];
 
 const NavBar = () => {
+    const [navBarShadow, setNavBarShadow] = useRecoilState(NavBarShadow);
+    const scroll = useScrollPosition();
+
+    useEffect(() => {
+        setNavBarShadow(scroll > 50);
+    }, [scroll]);
+
+    const [navBarBackground, setNavBarBackground] = useRecoilState(NavBarBackground);
+
     const router = useRouter();
     const pinkMushroomString = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('homepage/mushroom-pink')),
         []);
@@ -74,8 +86,9 @@ const NavBar = () => {
                 left={0}
                 width="100vw"
                 p={['24px', '24px', '24px', '60px 60px 24px 60px']}
-                bg="white"
+                bg={navBarBackground}
                 zIndex="10"
+                boxShadow={navBarShadow ? '0px 4px 20px 0px rgba(0, 0, 0, 0.05);' : undefined}
             >
                 {navBar}
             </HStack>

@@ -7,6 +7,8 @@ import {Box, HStack, Image} from "@chakra-ui/react";
 import {usePathname} from "next/navigation";
 import {Link} from "@chakra-ui/next-js";
 import {NavItem} from "@/components/NavBar";
+import {useRecoilState} from "recoil";
+import {NavBarActiveIcon, NavBarBackground, NavBarColor, NavBarShadow} from "@/stores/NavBarState";
 
 export interface DesktopNavBarProps {
     navItems: Array<NavItem>;
@@ -14,8 +16,11 @@ export interface DesktopNavBarProps {
 
 const DesktopNavBar = (props: DesktopNavBarProps) => {
     const { navItems } = props;
-    const navActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-active', 13, undefined, true)),
-        []);
+    const [navBarColor, setNavBarColor] = useRecoilState(NavBarColor);
+    const [navBarActiveIcon, setNavBarActiveIcon] = useRecoilState(NavBarActiveIcon);
+
+    const navActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage(navBarActiveIcon, 13, undefined, true)),
+        [navBarActiveIcon]);
     const navNonActive = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-nonactive', 13, undefined, true)),
         []);
 
@@ -40,7 +45,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
             <Link
                 key={`navbar-link-${label.toLowerCase().replace(' ', '-')}`}
                 textTransform="uppercase"
-                color={isActive ? 'text.blue' : 'text.lightGrey'}
+                color={isActive ? navBarColor : 'text.lightGrey'}
                 href={href}
                 fontWeight={isActive ? 600 : 400}
                 display="flex"
@@ -52,7 +57,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
                 {label}
             </Link>
         )
-    }, [pathname, navCircle]);
+    }, [pathname, navCircle, navBarColor]);
 
     return (
         <HStack gap="48px">

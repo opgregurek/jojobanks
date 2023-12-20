@@ -6,12 +6,14 @@ import {
     Flex,
     Text,
     VStack,
-    chakra,
+    ScaleFade,
 } from "@chakra-ui/react";
 import {ArrowForwardIcon} from "@chakra-ui/icons";
 import {Link} from "@chakra-ui/next-js";
-import {ReactNode, useMemo} from "react";
+import {Fragment, ReactNode, useMemo} from "react";
 import ViewAllProjectsButton from "@/components/projects/ViewAllProjectsButton";
+import {InView} from "react-intersection-observer";
+import FullScreenStack from "@/components/FullScreenStack";
 
 export interface ProjectPageProps {
     headerImg: string;
@@ -27,21 +29,6 @@ export interface ProjectPageProps {
         href: string,
     },
 }
-
-const FullPageComponent = chakra(VStack, {
-    baseStyle: {
-        maxWidth: "1440px",
-        marginLeft: "auto",
-        marginRight: "auto",
-        minHeight: [
-            "calc(100vh - 130px)",
-            "calc(100vh - 130px)",
-            "calc(100vh - 130px)",
-            "calc(100vh - 230px)",
-        ],
-        alignItems: "flex-start",
-    },
-});
 
 export const Project = (props: ProjectPageProps) => {
     const {
@@ -64,11 +51,17 @@ export const Project = (props: ProjectPageProps) => {
         }
 
         return (
-            <Center w="100%" h="629px" p="20%">
-                <Text fontSize={["16px", "20px", "22px", "24px"]}>
-                    {preSlideContent}
-                </Text>
-            </Center>
+            <InView rootMargin="-35%" triggerOnce>
+                {({inView, ref}) => (
+                    <Center w="100%" h="629px" p={['5%', '5%', '10%', '20%']} ref={ref}>
+                        <ScaleFade in={inView} transition={{ enter: { duration: 0.7 }}}>
+                            <Text fontSize={["16px", "20px", "22px", "24px"]}>
+                                {preSlideContent}
+                            </Text>
+                        </ScaleFade>
+                    </Center>
+                )}
+            </InView>
         );
     }, [preSlideContent]);
 
@@ -83,14 +76,23 @@ export const Project = (props: ProjectPageProps) => {
             <Flex justifyContent="center" flexDirection="column">
                 {slideImages.map((item, index) => {
                     return (
-                        <CloudinaryImage
-                            cloudinaryImageName={`projectPages/${item}`}
-                            alt={`${projectName} Slide ${index + 1}`}
-                            imageProps={{
-                                minWidth: "100%",
-                            }}
-                            key={`${item}-slide`}
-                        />
+                        <Fragment key={`${item}-slide`}>
+                            <InView rootMargin="-35%" triggerOnce>
+                                {({inView, ref}) => (
+                                    <ScaleFade in={inView} transition={{ enter: { duration: 0.7 }}}>
+                                        <Box ref={ref}>
+                                            <CloudinaryImage
+                                                cloudinaryImageName={`projectPages/${item}`}
+                                                alt={`${projectName} Slide ${index + 1}`}
+                                                imageProps={{
+                                                    minWidth: "100%",
+                                                }}
+                                            />
+                                        </Box>
+                                    </ScaleFade>
+                                )}
+                            </InView>
+                        </Fragment>
                     )
                 })}
             </Flex>
@@ -105,11 +107,17 @@ export const Project = (props: ProjectPageProps) => {
         }
 
         return (
-            <Center w="100%" h="629px" p="20%">
-                <Text fontSize={["16px", "20px", "22px", "24px"]} fontWeight="400">
-                    {postSlideContent}
-                </Text>
-            </Center>
+            <InView rootMargin="-35%" triggerOnce>
+                {({inView, ref}) => (
+                    <Center w="100%" h="629px" p={['5%', '5%', '10%', '20%']} ref={ref}>
+                        <ScaleFade in={inView} transition={{ enter: { duration: 0.7 }}}>
+                            <Text fontSize={["16px", "20px", "22px", "24px"]} fontWeight="400">
+                                {postSlideContent}
+                            </Text>
+                        </ScaleFade>
+                    </Center>
+                )}
+            </InView>
         );
     }, [postSlideContent]);
 
@@ -151,56 +159,57 @@ export const Project = (props: ProjectPageProps) => {
     return (
         <Box w="100%">
             <VStack alignItems="flex-start">
-                <FullPageComponent gap={10}>
-                    <VStack alignItems="flex-start" gap={2} maxW="982px">
-                        <VStack alignItems="flex-start" gap={10}>
-                            <Text
-                                fontSize="16px"
-                                fontWeight="400"
-                                color="text.lightGrey"
-                            >
-                                {projectLabel}
-                            </Text>
-                            <Text
-                                fontSize="36px"
-                                fontWeight="300"
-                                color="text.lightGrey"
-                            >
-                                {projectName}
-                            </Text>
-                        </VStack>
-                        <Text
-                            fontWeight="700"
-                            lineHeight={["60px", "60px", "60px", "80px"]}
-                            fontSize={["60px", "60px", "60px", "80px"]}
-                            marginBottom={['40px', '40px', '100px', '150px']}
-                        >
-                            {projectFeatureText}
-                        </Text>
-                        <Text
-                            fontSize={["16px", "20px", "22px", "24px"]}
-                            fontWeight="400"
-                            color="text.lightGrey"
-                        >
-                            {projectDescription}
-                        </Text>
-                    </VStack>
-
-                    <Flex justifyContent="center">
-                        <CloudinaryImage
-                            cloudinaryImageName={`projectPages/${headerImg}`}
-                            alt={`${headerImg}`}
-                            pixelWidth={1440}
-                            imageProps={{
-                                width: "100%",
-                            }}
-                        />
-                    </Flex>
+                <FullScreenStack gap={10}>
+                    <InView triggerOnce>
+                        {({inView, ref}) => (
+                            <Fragment>
+                                <ScaleFade in={inView} transition={{ enter: { duration: 0.7 }}}>
+                                    <VStack alignItems="flex-start" gap={2} maxW="982px">
+                                        <VStack alignItems="flex-start" gap={10}>
+                                            <Text fontSize="16px" fontWeight="400" color="text.lightGrey">
+                                                {projectLabel}
+                                            </Text>
+                                            <Text fontSize="36px" fontWeight="300" color="text.lightGrey">
+                                                {projectName}
+                                            </Text>
+                                        </VStack>
+                                        <Text
+                                            fontWeight="700"
+                                            lineHeight={["60px", "60px", "60px", "80px"]}
+                                            fontSize={["60px", "60px", "60px", "80px"]}
+                                            marginBottom={['40px', '40px', '100px', '150px']}
+                                        >
+                                            {projectFeatureText}
+                                        </Text>
+                                        <Text
+                                            fontSize={["16px", "20px", "22px", "24px"]}
+                                            fontWeight="400"
+                                            color="text.lightGrey"
+                                        >
+                                            {projectDescription}
+                                        </Text>
+                                    </VStack>
+                                </ScaleFade>
+                                <Flex justifyContent="center" ref={ref}>
+                                    <ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 0.5 }}}>
+                                        <CloudinaryImage
+                                            cloudinaryImageName={`projectPages/${headerImg}`}
+                                            alt={`${headerImg}`}
+                                            pixelWidth={1440}
+                                            imageProps={{
+                                                width: "100%",
+                                            }}
+                                        />
+                                    </ScaleFade>
+                                </Flex>
+                            </Fragment>
+                        )}
+                    </InView>
 
                     {preSlides}
                     {slides}
                     {postSlides}
-                </FullPageComponent>
+                </FullScreenStack>
 
                 {nextPageButton}
 

@@ -22,7 +22,7 @@ export default function JoDescriptionScreen() {
                         </Text>
                     </ScaleFade>
 
-                    <ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 1 }}}>
+                    <ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 0.75 }}}>
                         <Text
                             fontSize={['20px', '20px', '20px', '28px']}
                             fontWeight={300}
@@ -34,7 +34,7 @@ export default function JoDescriptionScreen() {
                             requirements • building roadmaps.
                         </Text>
                     </ScaleFade>
-                    <ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 1.5 }}}>
+                    <ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 1 }}}>
                         <Box>
                             <CloudinaryImage
                                 cloudinaryImageName="homepage/mushroom-3"

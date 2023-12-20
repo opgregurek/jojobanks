@@ -1,5 +1,4 @@
 'use client'
-
 import {Box, Divider, HStack, SimpleGrid, Text, VStack} from "@chakra-ui/react"
 import FullScreenStack from "@/components/FullScreenStack";
 import {Fragment, ReactNode, useCallback, useMemo, useState} from "react";
@@ -121,7 +120,6 @@ const ToolkitSteps = () => {
                 <></>
             )
         }
-
 
         return (
             <Fragment>

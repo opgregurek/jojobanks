@@ -1,3 +1,4 @@
+'use client'
 import {Link, LinkProps} from "@chakra-ui/next-js";
 
 export interface ViewAllProjectsButtonProps extends Omit<LinkProps, "href"> {

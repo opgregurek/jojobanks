@@ -46,6 +46,11 @@ const theme = extendTheme({
             baseStyle: () => ({
                 color: 'text.dark',
             })
+        },
+        Link: {
+            baseStyle: () => ({
+                color: 'text.dark',
+            })
         }
     }
 })

@@ -1,9 +1,11 @@
 'use client'
 import {useEffect, useMemo, useRef, useState} from "react";
 import useMousePosition from "@/hooks/useMousePosition";
-import useWindowDimensions from "@/hooks/useWindowDimentions";
 import useDebouncedEffect from "use-debounced-effect";
 import {Box, Text, useBreakpoint, VStack} from "@chakra-ui/react";
+import useScrollPosition from "@/hooks/useScrollbar";
+import {useRecoilState} from "recoil";
+import {NavBarActiveIcon, NavBarBackground, NavBarColor, NavBarShadow} from "@/stores/NavBarState";
 
 export default function FlashlightScreen() {
     const [hidden, setHidden] = useState(true);
@@ -17,10 +19,14 @@ export default function FlashlightScreen() {
         top: '200px',
         left: '50px',
     });
-    const {width, height} = useWindowDimensions();
     const containerRef = useRef<HTMLDivElement>(null);
     const hiddenTextRef = useRef<HTMLParagraphElement>(null);
     const breakpoint = useBreakpoint();
+    const scroll = useScrollPosition();
+    const [navBarBackground, setNavBarBackground] = useRecoilState(NavBarBackground);
+    const [navBarColor, setNavBarColor] = useRecoilState(NavBarColor);
+    const [navBarActiveIcon, setNavBarActiveIcon] = useRecoilState(NavBarActiveIcon);
+    const [navBarShadow, setNavBarShadow] = useRecoilState(NavBarShadow);
 
     useDebouncedEffect(() => {
         const boundingX = containerRef.current?.getBoundingClientRect().x ?? 0;
@@ -54,6 +60,22 @@ export default function FlashlightScreen() {
         })
     }, [hiddenTextRef, containerRef]);
 
+    useEffect(() => {
+        const y = containerRef.current?.getBoundingClientRect().y ?? 60;
+        const bottom = containerRef.current?.getBoundingClientRect().bottom ?? 75;
+        if ((y < 60 && bottom > 75) || (bottom < 75 && y > 0)) {
+            setNavBarBackground('transparent');
+            setNavBarColor('white');
+            setNavBarActiveIcon('misc/nav-active-blue');
+            setNavBarShadow(false);
+        } else {
+            setNavBarBackground('white');
+            setNavBarColor('text.blue');
+            setNavBarActiveIcon('misc/nav-active');
+            setNavBarShadow(true);
+        }
+    }, [scroll, containerRef, setNavBarColor, setNavBarActiveIcon, setNavBarBackground, setNavBarShadow]);
+
     const squareContent = useMemo(() => {
         if (hidden) {
             return (
@@ -86,8 +108,8 @@ export default function FlashlightScreen() {
                 alignItems="center"
                 justifyContent="space-between"
                 overflow="hidden"
-                w={width - 15}
-                h={height}
+                w="100vw"
+                h="110vh"
                 position="relative"
                 ref={containerRef}
             >

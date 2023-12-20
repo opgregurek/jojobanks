@@ -8,26 +8,28 @@ interface ProjectItem {
     year: string;
     projectName: string;
     href: string;
+    isFeatured?: boolean;
 }
 
 const ProjectItems: Array<ProjectItem> = [
-    {label: '3D modelling', year: '2023', projectName: 'OBJECTS', href: '/projects/objects'},
-    {label: 'Print', year: '2022', projectName: 'Evolution', href: '/projects/evolution'},
+    {label: '3D modelling', year: '2023', projectName: 'OBJECTS', href: '/projects/objects', isFeatured: true},
+    {label: 'Print', year: '2022', projectName: 'Evolution', href: '/projects/evolution', isFeatured: true},
     {label: 'Animation', year: '2021', projectName: '404 animation', href: '/projects/404-animation'},
-    {label: 'UX/UI Design', year: '2021', projectName: 'Music controller', href: '/projects/music-controller'},
+    {label: 'UX/UI Design', year: '2021', projectName: 'Music controller', href: '/projects/music-controller', isFeatured: true},
     {label: '3D modelling', year: '2021', projectName: 'Incrementum', href: '/projects/incrementum'},
     {label: 'UX/UI Design', year: '2021', projectName: 'Road maintenance', href: '/projects/road-maintenance'},
 ];
 
 export interface ProjectsNavigationProps extends SimpleGridProps {
     excludeLabels?: boolean;
+    useFeatured?: boolean;
 }
 
 export default function ProjectsNavigation(props: ProjectsNavigationProps) {
-    const { excludeLabels, ...rest } = props;
+    const { excludeLabels, useFeatured, ...rest } = props;
     return (
-        <SimpleGrid templateColumns={['auto', 'auto', 'auto 1fr']} gap={[0, 0, 16]} {...rest}>
-            {ProjectItems.map((item, key) => {
+        <SimpleGrid templateColumns={['auto', 'auto', 'auto 1fr']} columnGap={[0, 0, 24]} rowGap={[0, 0, 10]} {...rest}>
+            {ProjectItems.filter(item => useFeatured ? item.isFeatured : true).map((item, key) => {
                 return (
                     <Fragment
                         key={[item.label, item.year, item.href]
@@ -37,7 +39,7 @@ export default function ProjectsNavigation(props: ProjectsNavigationProps) {
                     >
                         {excludeLabels ? null : (
                             <Text fontSize={"16px"} fontWeight="400" color="text.lightGrey">
-                                {item.label}<br />{item.year}
+                                {item.year}<br />{item.label}
                             </Text>
                         )}
                         <Link
@@ -48,9 +50,9 @@ export default function ProjectsNavigation(props: ProjectsNavigationProps) {
                                 textDecoration: 'underline'
                             }}
                             fontSize={['48px', '48px', '60px', '80px']}
-                            lineHeight={['48px', '48px', 'unset', 'unset']}
+                            lineHeight={['48px', '48px', '48px', '60px']}
                             fontWeight="500"
-                            marginBottom={['16px', '16px', '0']}
+                            marginBottom={[8, 8, 0]}
                             width="fit-content"
                         >
                             {item.projectName}

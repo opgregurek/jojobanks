@@ -20,6 +20,8 @@ export default function ViewAllProjectsButton(props: ViewAllProjectsButtonProps)
                 bg: 'gray.100',
             }}
             marginTop={[4, 4, 8, 16]}
+            color="text.dark"
+            borderColor="background.dark"
             {...props}
         >
             View all projects

@@ -6,7 +6,7 @@ import FlashlightScreen from "@/components/homepage/screens/FlashlightScreen";
 import FeatureScreen from "@/components/homepage/screens/FeatureScreen";
 import JoIntroScreen from "@/components/homepage/screens/JoIntroScreen";
 import JoDescriptionScreen from "@/components/homepage/screens/JoDescriptionScreen";
-import ProjectsScreen from "@/components/homepage/screens/ProjectsScreen";
+import FeaturedProjectsScreen from "@/components/homepage/screens/FeaturedProjectsScreen";
 
 export default function Home() {
     return (
@@ -15,7 +15,7 @@ export default function Home() {
             <FlashlightScreen />
             <JoIntroScreen />
             <JoDescriptionScreen />
-            <ProjectsScreen />
+            <FeaturedProjectsScreen />
         </VStack>
     )
 }

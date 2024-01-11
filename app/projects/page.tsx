@@ -1,18 +1,11 @@
-'use client'
-import {Box} from "@chakra-ui/react";
-import ProjectsNavigation from "@/components/projects/ProjectsNavigation";
-
-interface ProjectItem {
-    label: string;
-    year: string;
-    projectName: string;
-    href: string;
-}
+'use client';
+import { Box } from '@chakra-ui/react';
+import ProjectsNavigation from '@/components/projects/ProjectsNavigation';
 
 export default function Projects() {
-    return (
-        <Box w="100%">
-            <ProjectsNavigation />
-        </Box>
-    )
+	return (
+		<Box w="100%" maxWidth="1440px" marginLeft="auto" marginRight="auto">
+			<ProjectsNavigation />
+		</Box>
+	);
 }

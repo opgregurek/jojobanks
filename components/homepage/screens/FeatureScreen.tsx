@@ -55,7 +55,6 @@ export default function FeatureScreen() {
 							useOverhang: true,
 							overhangImageSpeed: 1,
 							overhangImageProps: {
-								position: 'absolute',
 								width: '80%',
 								left: '10%',
 								top: '10%',

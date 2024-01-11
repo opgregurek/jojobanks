@@ -63,12 +63,11 @@ const HomePageImage = (props: HomePageImageProps) => {
 	}
 
 	return (
-		<Box position="relative" maxW="187px" maxH="187px">
+		<Box position="relative" maxW="187px">
 			<Image
 				src={fiveMinuteCacheImage(src)}
 				alt={alt}
 				maxW="100%"
-				maxH="100%"
 				borderRadius={circleImage ? '100%' : undefined}
 				onMouseEnter={() => setUseHover(true)}
 				onMouseLeave={() => setUseHover(false)}

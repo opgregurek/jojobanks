@@ -1,17 +1,11 @@
-import {Fragment} from "react";
-import type {Metadata} from "next";
+import { Fragment } from 'react';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Music controller',
-    description: 'JOJO banks',
-}
+	title: 'Music controller',
+	description: 'JOJO banks',
+};
 
-export default function Layout({children}: {
-    children: React.ReactNode
-}) {
-    return (
-        <Fragment>
-            {children}
-        </Fragment>
-    )
+export default function Layout({ children }: { children: React.ReactNode }) {
+	return <Fragment>{children}</Fragment>;
 }

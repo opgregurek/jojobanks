@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Box, keyframes, Text, VStack } from '@chakra-ui/react';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 
 const fadeOut = keyframes`
 	0% { opacity: 1 }
@@ -10,7 +11,19 @@ const fadeOut = keyframes`
 export default function LoadingScreen() {
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
-		setTimeout(() => setLoading(false), 1500);
+		const targetElement = document.querySelector('#root');
+		setTimeout(() => {
+			setLoading(false);
+			if (targetElement !== null) {
+				enableBodyScroll(targetElement);
+			}
+		}, 1500);
+		if (targetElement !== null) {
+			disableBodyScroll(targetElement);
+		}
+		return () => {
+			clearAllBodyScrollLocks();
+		};
 	}, []);
 
 	if (loading) {
@@ -19,14 +32,14 @@ export default function LoadingScreen() {
 				animation={`${fadeOut} ease 0.5s`}
 				w="100vw"
 				h="100vh"
-				position="absolute"
+				position="fixed"
 				top={0}
 				left={0}
 				backgroundColor="#1E1E1E"
 				zIndex={1000}
 				sx={{
-					'animation-delay': '1s',
-					'animation-fill-mode': 'forwards',
+					animationDelay: '1s',
+					animationFillMode: 'forwards',
 				}}
 			>
 				<VStack w="100%" h="100%" alignItems="center" justifyContent="center" gap={6}>

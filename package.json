@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/ibm-plex-mono": "^5.0.8",
     "@fontsource/inter": "^5.0.16",
+    "body-scroll-lock": "^4.0.0-beta.0",
     "framer-motion": "^10.16.5",
     "next": "14.0.3",
     "react": "^18",
@@ -25,6 +26,7 @@
     "use-debounced-effect": "^2.0.1"
   },
   "devDependencies": {
+    "@types/body-scroll-lock": "^3.1.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -22,10 +22,10 @@ export default function FlashlightScreen() {
 	});
 
 	// setters for navBar state that change because of this component
-	const [navBarBackground, setNavBarBackground] = useRecoilState(NavBarBackground);
-	const [navBarColor, setNavBarColor] = useRecoilState(NavBarColor);
-	const [navBarActiveIcon, setNavBarActiveIcon] = useRecoilState(NavBarActiveIcon);
-	const [navBarShadow, setNavBarShadow] = useRecoilState(NavBarShadow);
+	const [, setNavBarBackground] = useRecoilState(NavBarBackground);
+	const [, setNavBarColor] = useRecoilState(NavBarColor);
+	const [, setNavBarActiveIcon] = useRecoilState(NavBarActiveIcon);
+	const [, setNavBarShadow] = useRecoilState(NavBarShadow);
 
 	// listen on mouse position, breakpoint and scroll
 	const mousePosition = useMousePosition();
@@ -82,7 +82,7 @@ export default function FlashlightScreen() {
 		const y = containerRef.current?.getBoundingClientRect().y ?? 60;
 		const bottom = containerRef.current?.getBoundingClientRect().bottom ?? 75;
 
-		if ((y < 60 && bottom > 75) || (bottom < 75 && y > 0)) {
+		if (((y < 60 && bottom > 75) || (bottom < 75 && y > 0)) && hidden) {
 			setNavBarBackground('transparent');
 			setNavBarColor('white');
 			setNavBarActiveIcon('misc/nav-active-blue');
@@ -92,7 +92,7 @@ export default function FlashlightScreen() {
 			setNavBarColor('text.blue');
 			setNavBarActiveIcon('misc/nav-active');
 		}
-	}, [scroll, containerRef, setNavBarColor, setNavBarActiveIcon, setNavBarBackground, setNavBarShadow]);
+	}, [hidden, scroll, containerRef, setNavBarColor, setNavBarActiveIcon, setNavBarBackground, setNavBarShadow]);
 
 	// the content for what's above the square, changes when content is hidden
 	const squareContent = useMemo(() => {

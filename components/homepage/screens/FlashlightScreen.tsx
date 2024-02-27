@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import useMousePosition from '@/hooks/useMousePosition';
 import useDebouncedEffect from 'use-debounced-effect';
-import { Box, Text, useBreakpoint, VStack } from '@chakra-ui/react';
+import { Box, Fade, Text, useBreakpoint, VStack } from '@chakra-ui/react';
 import useScrollPosition from '@/hooks/useScrollbar';
 import { useRecoilState } from 'recoil';
 import { NavBarActiveIcon, NavBarBackground, NavBarColor, NavBarShadow } from '@/stores/NavBarState';
@@ -144,7 +144,7 @@ export default function FlashlightScreen() {
 				position="relative"
 				ref={containerRef}
 			>
-				{hidden ? (
+				<Fade in={hidden} transition={{ enter: { duration: 0.4 }, exit: { duration: 0.4 } }}>
 					<Box
 						position="absolute"
 						width="300px"
@@ -153,7 +153,7 @@ export default function FlashlightScreen() {
 						boxShadow="0 0 0 9999px #072165"
 						{...flashlightPosition}
 					/>
-				) : null}
+				</Fade>
 				<VStack position="absolute" top={6}>
 					{squareContent}
 				</VStack>

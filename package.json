@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/ibm-plex-mono": "^5.0.8",
     "@fontsource/inter": "^5.0.16",
+    "@fontsource/source-serif-pro": "^5.0.8",
     "body-scroll-lock": "^4.0.0-beta.0",
     "framer-motion": "^10.16.5",
     "next": "14.0.3",

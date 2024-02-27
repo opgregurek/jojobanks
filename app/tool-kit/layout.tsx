@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import type { Metadata } from 'next';
+import './toolkit.css';
 
 export const metadata: Metadata = {
 	title: 'TOOL-KIT',

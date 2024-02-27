@@ -4,6 +4,8 @@ import FullScreenStack from '@/components/FullScreenStack';
 import { Fragment, ReactNode, useCallback, useMemo, useState } from 'react';
 import { Link } from '@chakra-ui/next-js';
 import { ArrowUpIcon } from '@chakra-ui/icons';
+import useScrollPosition from '@/hooks/useScrollbar';
+import CloudinaryImage from '@/components/CloudinaryImage';
 
 interface Step {
 	title: string;
@@ -187,61 +189,60 @@ const ToolkitSteps = () => {
 		</SimpleGrid>
 	);
 };
+
 export default function ToolKit() {
+	const scroll = useScrollPosition();
+
 	return (
-		<FullScreenStack w="100%" alignItems="flex-start" gap={[16, 16, 24, 64]}>
-			<VStack alignItems="flex-start" width="100%">
-				<Text
-					fontWeight={500}
-					fontSize={['9vw', '9vw', '9vw', '9vw', '9vw', '200px']}
-					marginLeft={['10%', '10%', '10%', '10%', '10%', '0']}
-				>
-					WHAT&apos;S IN
-				</Text>
-				<Text fontWeight={500} fontSize={['9vw', '9vw', '9vw', '9vw', '9vw', '200px']} marginLeft={['auto']}>
-					MY TOOL-KIT
-				</Text>
-			</VStack>
-			<VStack gap={[8, 8, 16]} w={['100%', '100%', '80%']} marginLeft="auto" marginRight="auto">
-				<Text textAlign="center" fontSize={['24px', '24px', '40px', '64px']} fontWeight={600}>
-					A wise person once told me being a designer is like being a chef.
-				</Text>
-				<SimpleGrid columns={[1, 1, 2, 2]} gap={[8, 8, 16, 16]} alignItems="flex-start">
-					<Text fontSize={['16px', '16px', '16px', '22px']}>
-						Not in the literal sense. But in both professions you have your foundations, base combinations
-						and ingredients that you use compose dishes. Your outputs becoming culinary creations :)
+		<div id="toolkit-page">
+			<Box className="ghost" />
+			<FullScreenStack
+				className="horizontal-scroll"
+				maxWidth="unset"
+				position="fixed"
+				top={['120px', '120px', '120px', '150px']}
+				marginLeft={`${-scroll}px`}
+			>
+				<CloudinaryImage
+					cloudinaryImageName="toolkit/header-pic"
+					alt="header"
+					pixelWidth={1500}
+					imageProps={{
+						width: '50%',
+						marginLeft: 'auto',
+						marginRight: 'auto',
+					}}
+				/>
+				<Text className="text">
+					<Text as="b">WHAT&apos;S IN MY</Text>{' '}
+					<Text as="em" fontFamily="Source Serif Pro">
+						TOOL-KIT
 					</Text>
-					<Text fontSize={['16px', '16px', '16px', '22px']}>
-						I wanted to share my go-to prompts and activities when approaching a problem space and creating
-						digital solutions that solve it. <br />
-						<br />
-						My intentions for this page is for it to be a starting guide for building purposeful software
-						products. I also think some of these points transcend software design and offer insights into
-						approaching general problems. Let me know what you make of it.
-					</Text>
-				</SimpleGrid>
-			</VStack>
-			<Divider w={['100%', '100%', '80%']} borderColor="background.dark" marginLeft="auto" marginRight="auto" />
-			<VStack w="100%">
-				<Text fontSize={['40px', '40px', '80px', '120px', '160px']} fontWeight={700} color="text.lightGrey">
-					COLLECT
 				</Text>
-				<HStack gap={[4, 4, 8, 12, 16]}>
-					<Box
-						w={['40px', '40px', '80px', '120px', '160px']}
-						h={['40px', '40px', '80px', '120px', '160px']}
-						bg="background.dark"
-						borderRadius="50%"
-					/>
-					<Text fontSize={['40px', '40px', '80px', '120px', '160px']} fontWeight={700}>
-						— CREATE
+			</FullScreenStack>
+			<FullScreenStack w="100%" alignItems="flex-start" gap={[16, 16, 24, 64]}>
+				<VStack gap={[8, 8, 16]} w={['100%', '100%', '80%']} marginLeft="auto" marginRight="auto">
+					<Text textAlign="center" fontSize={['24px', '24px', '40px', '64px']} fontWeight={600}>
+						A wise person once told me being a designer is like being a chef.
 					</Text>
-				</HStack>
-				<Text fontSize={['40px', '40px', '80px', '120px', '160px']} fontWeight={700}>
-					COMMIT
-				</Text>
-			</VStack>
-			<ToolkitSteps />
-		</FullScreenStack>
+					<SimpleGrid columns={[1, 1, 2, 2]} gap={[8, 8, 16, 16]} alignItems="flex-start">
+						<Text fontSize={['16px', '16px', '16px', '22px']}>
+							Not in the literal sense. But in both professions you have your foundations, base
+							combinations and ingredients that you use compose dishes. Your outputs becoming culinary
+							creations :)
+						</Text>
+						<Text fontSize={['16px', '16px', '16px', '22px']}>
+							I wanted to share my go-to prompts and activities when approaching a problem space and
+							creating digital solutions that solve it. <br />
+							<br />
+							My intentions for this page is for it to be a starting guide for building purposeful
+							software products. I also think some of these points transcend software design and offer
+							insights into approaching general problems. Let me know what you make of it.
+						</Text>
+					</SimpleGrid>
+				</VStack>
+				<ToolkitSteps />
+			</FullScreenStack>
+		</div>
 	);
 }

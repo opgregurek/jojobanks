@@ -7,6 +7,7 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
+import '@fontsource/source-serif-pro/400-italic.css'; // Specify weight and style
 import '@fontsource/ibm-plex-mono/400.css';
 
 const theme = extendTheme({

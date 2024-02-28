@@ -2,12 +2,14 @@
 import { Box, ScaleFade, SimpleGrid, Text, VStack } from '@chakra-ui/react';
 import FullScreenStack from '@/components/FullScreenStack';
 import { InView } from 'react-intersection-observer';
+import fiveMinuteCache from '@/utils/fiveMinuteCache';
+import cloudinaryVideo from '@/utils/cloudinaryVideo';
 
 export default function JoIntroScreen() {
 	return (
 		<InView rootMargin="-30%" triggerOnce>
 			{({ inView, ref }) => (
-				<Box ref={ref} borderTop="1px solid" borderTopColor="background.dark" width="100vw" paddingTop={16}>
+				<Box ref={ref} width="100vw">
 					<FullScreenStack
 						gap={[6, 6, 6, 10]}
 						minHeight="unset"
@@ -25,11 +27,8 @@ export default function JoIntroScreen() {
 						</ScaleFade>
 
 						<ScaleFade in={inView} transition={{ enter: { duration: 0.7, delay: 0.5 } }}>
-							<video controls autoPlay muted loop playsInline preload="none">
-								<source
-									src="https://res.cloudinary.com/dwet4ad3d/video/upload/v1709051374/homepage/heron.mov"
-									type="video/mp4"
-								/>
+							<video autoPlay muted loop playsInline preload="none">
+								<source src={fiveMinuteCache(cloudinaryVideo('homepage/heron'))} type="video/mp4" />
 								Your browser does not support the video tag.
 							</video>
 						</ScaleFade>

@@ -151,7 +151,7 @@ export default function FlashlightScreen() {
 							width: '300px',
 							height: '300px',
 							borderRadius: '50%',
-							boxShadow: '0 0 0 9999px #072165',
+							boxShadow: '0 0 0 10000px #072165',
 							...flashlightPosition,
 						}}
 					/>

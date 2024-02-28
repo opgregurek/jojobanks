@@ -3,7 +3,7 @@ import { Box, Image, ImageProps } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import useImagePreloader from '@/hooks/useImagePreloader';
 import cloudinaryImage from '@/utils/cloudinaryImage';
-import fiveMinuteCacheImage from '@/utils/fiveMinuteCacheImage';
+import fiveMinuteCache from '@/utils/fiveMinuteCache';
 
 export interface CloudinaryImageProps {
 	cloudinaryImageName: string;
@@ -31,9 +31,7 @@ const CloudinaryImage = (props: CloudinaryImageProps) => {
 	const height = pixelHeight ? `${pixelHeight}px` : undefined;
 
 	const imageString = useMemo(() => {
-		return fiveMinuteCacheImage(
-			cloudinaryImage(cloudinaryImageName, pixelWidth, undefined, ignoreCloudinaryParams),
-		);
+		return fiveMinuteCache(cloudinaryImage(cloudinaryImageName, pixelWidth, undefined, ignoreCloudinaryParams));
 	}, [cloudinaryImageName, pixelWidth, ignoreCloudinaryParams]);
 
 	const { imagesPreloaded } = useImagePreloader([imageString]);

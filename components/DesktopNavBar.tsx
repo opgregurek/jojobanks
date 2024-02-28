@@ -1,6 +1,6 @@
 'use client';
 import { useCallback, useMemo } from 'react';
-import fiveMinuteCacheImage from '@/utils/fiveMinuteCacheImage';
+import fiveMinuteCache from '@/utils/fiveMinuteCache';
 import cloudinaryImage from '@/utils/cloudinaryImage';
 import { HStack, Image } from '@chakra-ui/react';
 import { usePathname } from 'next/navigation';
@@ -20,13 +20,10 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
 	const [navBarActiveIcon] = useRecoilState(NavBarActiveIcon);
 
 	const navActive = useMemo(
-		() => fiveMinuteCacheImage(cloudinaryImage(navBarActiveIcon, 13, undefined, true)),
+		() => fiveMinuteCache(cloudinaryImage(navBarActiveIcon, 13, undefined, true)),
 		[navBarActiveIcon],
 	);
-	const navNonActive = useMemo(
-		() => fiveMinuteCacheImage(cloudinaryImage('misc/nav-nonactive', 13, undefined, true)),
-		[],
-	);
+	const navNonActive = useMemo(() => fiveMinuteCache(cloudinaryImage('misc/nav-nonactive', 13, undefined, true)), []);
 
 	// the navCircle is different depending on whether the link is active
 	const navCircle = useCallback(

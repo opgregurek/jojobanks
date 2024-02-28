@@ -3,6 +3,8 @@ import { InView } from 'react-intersection-observer';
 import FullScreenStack from '@/components/FullScreenStack';
 import { Box, ScaleFade } from '@chakra-ui/react';
 import CloudinaryImage from '@/components/CloudinaryImage';
+import fiveMinuteCache from '@/utils/fiveMinuteCache';
+import cloudinaryVideo from '@/utils/cloudinaryVideo';
 
 export default function UnpackingScreen() {
 	return (
@@ -22,9 +24,9 @@ export default function UnpackingScreen() {
 									width: '100%',
 								}}
 							/>
-							<video controls autoPlay muted loop playsInline preload="none">
+							<video autoPlay muted loop playsInline preload="none">
 								<source
-									src="https://res.cloudinary.com/dwet4ad3d/video/upload/v1709051362/homepage/orange-strip.mov"
+									src={fiveMinuteCache(cloudinaryVideo('homepage/orange-strip'))}
 									type="video/mp4"
 								/>
 								Your browser does not support the video tag.

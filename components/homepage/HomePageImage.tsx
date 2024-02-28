@@ -3,7 +3,7 @@ import { Box, Image, ImageProps, keyframes } from '@chakra-ui/react';
 import { useMemo, useState } from 'react';
 import useImagePreloader from '@/hooks/useImagePreloader';
 import cloudinaryImage from '@/utils/cloudinaryImage';
-import fiveMinuteCacheImage from '@/utils/fiveMinuteCacheImage';
+import fiveMinuteCache from '@/utils/fiveMinuteCache';
 
 export interface HomePageImageProps extends ImageProps {
 	imageName: string;
@@ -43,9 +43,9 @@ const HomePageImage = (props: HomePageImageProps) => {
 
 	// has the image preloaded
 	const { imagesPreloaded } = useImagePreloader([
-		fiveMinuteCacheImage(baseImageString),
-		fiveMinuteCacheImage(hoverImageString),
-		useOverhang ? fiveMinuteCacheImage(overhangImageString) : null,
+		fiveMinuteCache(baseImageString),
+		fiveMinuteCache(hoverImageString),
+		useOverhang ? fiveMinuteCache(overhangImageString) : null,
 	]);
 
 	// if the images aren't loaded we use a gray box
@@ -65,7 +65,7 @@ const HomePageImage = (props: HomePageImageProps) => {
 	return (
 		<Box position="relative" maxW="187px">
 			<Image
-				src={fiveMinuteCacheImage(src)}
+				src={fiveMinuteCache(src)}
 				alt={alt}
 				maxW="100%"
 				borderRadius={circleImage ? '100%' : undefined}
@@ -75,7 +75,7 @@ const HomePageImage = (props: HomePageImageProps) => {
 			{/* if there is an overhang image display it */}
 			{useOverhang && useHover ? (
 				<Image
-					src={fiveMinuteCacheImage(overhangImageString)}
+					src={fiveMinuteCache(overhangImageString)}
 					alt={alt + ' overhang'}
 					position="absolute"
 					maxW="100%"

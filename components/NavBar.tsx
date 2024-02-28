@@ -1,7 +1,7 @@
 'use client';
 import { Box, HStack, Image } from '@chakra-ui/react';
 import cloudinaryImage from '@/utils/cloudinaryImage';
-import fiveMinuteCacheImage from '@/utils/fiveMinuteCacheImage';
+import fiveMinuteCache from '@/utils/fiveMinuteCache';
 import { useEffect, useMemo } from 'react';
 import MobileNavBar from '@/components/MobileNavBar';
 import DesktopNavBar from '@/components/DesktopNavBar';
@@ -33,7 +33,7 @@ const NavBar = () => {
 		setNavBarShadow(scroll > 50);
 	}, [scroll, setNavBarShadow]);
 
-	const pinkMushroomString = useMemo(() => fiveMinuteCacheImage(cloudinaryImage('homepage/mushroom-pink')), []);
+	const pinkMushroomString = useMemo(() => fiveMinuteCache(cloudinaryImage('homepage/mushroom-pink')), []);
 
 	return (
 		<>

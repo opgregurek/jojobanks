@@ -144,16 +144,18 @@ export default function FlashlightScreen() {
 				position="relative"
 				ref={containerRef}
 			>
-				<div
-					style={{
-						position: 'absolute',
-						width: '300px',
-						height: '300px',
-						borderRadius: '50%',
-						boxShadow: '0 0 0 9999px #072165',
-						...flashlightPosition,
-					}}
-				/>
+				<Fade in={hidden} transition={{ enter: { duration: 0.4 }, exit: { duration: 0.4 } }}>
+					<div
+						style={{
+							position: 'absolute',
+							width: '300px',
+							height: '300px',
+							borderRadius: '50%',
+							boxShadow: '0 0 0 9999px #072165',
+							...flashlightPosition,
+						}}
+					/>
+				</Fade>
 				<VStack position="absolute" top={6}>
 					{squareContent}
 				</VStack>

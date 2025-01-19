@@ -1,7 +1,7 @@
 import { Tinos } from "next/font/google";
 
 const tinos = Tinos({
-  subsets: ['latin'],
+  subsets: ["latin"],
   weight: ["400"],
   style: ["normal", "italic"],
 });

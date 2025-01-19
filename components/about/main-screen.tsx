@@ -7,20 +7,22 @@ import { Box, Grid, HStack, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 
 export default function MainScreen() {
-    const containerId = 'movingContainer';
+  const containerId = "movingContainer";
   const containerRef = useRef<HTMLDivElement>(null);
   const { width } = useContainerDimensions(containerId);
-  const [containerWidth, setContainerWidth] = useState(window.innerHeight);
+  const [containerWidth, setContainerWidth] = useState<number | undefined>(
+    undefined,
+  );
 
-useEffect(() => {
+  useEffect(() => {
     const _width = width ?? 0;
     setContainerWidth(_width + 140);
-}, [width]);
+  }, [width]);
 
   const scroll = useScrollPosition();
   return (
     <>
-      <Box height={containerWidth} width="100vw" />
+      <Box height={containerWidth ?? "100vh"} width="100vw" />
       <Grid
         height={[
           "calc(100vh - 100px)",

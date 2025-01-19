@@ -1,0 +1,16 @@
+.carousel-track {
+  animation: slide 60s linear infinite;
+  animation-delay: 1s;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes slide {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: 100%;
+  }
+}

@@ -1,23 +1,24 @@
 "use client";
-import FlashlightScreen from "@/components/homepage/flashlight-screen";
-import { MainScreen } from "@/components/homepage/main-screen";
-import { ProjectsScreen } from "@/components/homepage/projects-screen";
+
+import ContentScreen from "@/components/about/content-screen";
+import MainScreen from "@/components/about/main-screen";
 import { useFooterState } from "@/stores/footer-state";
 import { VStack } from "@chakra-ui/react";
 import { useEffect } from "react";
 
-export default function Home() {
+export default function About() {
   const setEnableFooter = useFooterState((state) => state.setEnableFooter);
 
   useEffect(() => {
-    setEnableFooter(true);
+    setEnableFooter(false);
   }, []);
 
   return (
     <VStack>
+      {/* main screen */}
       <MainScreen />
-      <ProjectsScreen />
-      <FlashlightScreen />
+      {/* content screen */}
+      <ContentScreen />
     </VStack>
   );
 }

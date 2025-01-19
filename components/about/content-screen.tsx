@@ -1,0 +1,325 @@
+import { ibmPlexMonoStyles } from "@/utils/ibm-plex-mono-font";
+import { interStyles } from "@/utils/inter-font";
+import { tinosStyles } from "@/utils/tinos-font";
+import { Flex, HStack, Span, Text, VStack } from "@chakra-ui/react";
+import CloudinaryImage from "../ui/cloudinary-image";
+
+export default function ContentScreen() {
+  return (
+    <VStack
+      maxWidth="1440px"
+      width="100%"
+      padding={["100px 24px", "100px 24px", "100px 24px", "112px 120px"]}
+    >
+      <HStack
+        width="100%"
+        py="8px"
+        borderBottom="1px solid #A5A5A5"
+        justifyContent="space-between"
+      >
+        <Text
+          textTransform="uppercase"
+          fontSize="13px"
+          color="#7F7F7F"
+          style={ibmPlexMonoStyles}
+        >
+          [ cv ]
+        </Text>
+        <Text
+          textTransform="uppercase"
+          fontSize="13px"
+          color="#7F7F7F"
+          style={ibmPlexMonoStyles}
+        >
+          JOJO Banks
+        </Text>
+        <Text
+          textTransform="uppercase"
+          fontSize="13px"
+          color="#7F7F7F"
+          style={ibmPlexMonoStyles}
+        >
+          services / places / qualifications /links
+        </Text>
+      </HStack>
+      <Flex
+        pb={["40px", "40px", "40px", "120px"]}
+        flexDir="row"
+        justifyContent="space-between"
+        width="100%"
+        gap="48px"
+        flexWrap="wrap"
+      >
+        <Flex gap="40px" flexDir={["column", "column", "column", "row"]}>
+          <Text
+            fontSize="16px"
+            textAlign="justify"
+            style={tinosStyles}
+            maxWidth={["unset", "unset", "unset", "300px"]}
+          >
+            Jojo brings over seven years of experience advocating for
+            user-centric design principles when creation of digital solutions.
+            <br />
+            <br />
+            Her expertise lies in ensuring that the needs, behaviours, and goals
+            of users are at the heart of every project, ensuring experiences are
+            both impactful and meaningful.
+            <br />
+            <br />
+            She prioritises solving the core issue before transitioning to the
+            visual design phase, ensuring that the final product not only looks
+            polished but also serves its intended purpose effectively.
+          </Text>
+          <Text
+            fontSize="16px"
+            textAlign="justify"
+            style={tinosStyles}
+            maxWidth={["unset", "unset", "unset", "300px"]}
+          >
+            This approach serves as a reminder that every action we take—whether
+            it&apos;s unlocking our phone or opening a browser, carries intent
+            and meaning.
+            <br />
+            <br />
+            As our dependence on digital devices grow, it&apos;s more
+            impertinent than ever for designers and builders to recognise the
+            gains and pitfalls of human behaviour.
+            <br />
+            <br />
+            It is our responsibility to craft experiences that are equally
+            positive and ethical for societal development.
+          </Text>
+        </Flex>
+        <VStack
+          gap="48px"
+          maxWidth="390px"
+          width="100%"
+          alignItems="flex-start"
+        >
+          <VStack gap="24px" alignItems="flex-start">
+            <Text
+              textTransform="uppercase"
+              fontSize="14px"
+              fontWeight="500"
+              color="#7F7F7F"
+              style={interStyles}
+            >
+              Services
+            </Text>
+            <VStack gap="2px" alignItems="flex-start">
+              <Text fontSize="16px" style={tinosStyles} color="#262626">
+                Digital
+              </Text>
+              <Text fontSize="16px" style={tinosStyles} color="#262626">
+                Brand identity
+              </Text>
+              <Text fontSize="16px" style={tinosStyles} color="#262626">
+                Creative direction
+              </Text>
+              <Text fontSize="16px" style={tinosStyles} color="#262626">
+                UX/UI Design
+              </Text>
+              <Text fontSize="16px" style={tinosStyles} color="#262626">
+                3D modeling
+              </Text>
+            </VStack>
+          </VStack>
+          <VStack gap="24px" alignItems="flex-start">
+            <Text
+              textTransform="uppercase"
+              fontSize="14px"
+              fontWeight="500"
+              color="#7F7F7F"
+              style={interStyles}
+            >
+              Places
+            </Text>
+            <VStack gap="2px" alignItems="flex-start">
+              <Text
+                fontSize="16px"
+                style={tinosStyles}
+                color="#262626"
+                display="flex"
+                gap="6px"
+                alignItems="center"
+              >
+                Westpac Bank, Sydney
+                <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
+                  2016 – 2018
+                </Span>
+              </Text>
+              <Text
+                fontSize="16px"
+                style={tinosStyles}
+                color="#262626"
+                display="flex"
+                gap="6px"
+                alignItems="center"
+              >
+                Macquarie Bank, Sydney
+                <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
+                  2018 – 2020
+                </Span>
+              </Text>
+              <Text
+                fontSize="16px"
+                style={tinosStyles}
+                color="#262626"
+                display="flex"
+                gap="6px"
+                alignItems="center"
+              >
+                WorkingMouse, Brisbane
+                <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
+                  2020 – 2023
+                </Span>
+              </Text>
+              <Text
+                fontSize="16px"
+                style={tinosStyles}
+                color="#262626"
+                display="flex"
+                gap="6px"
+                alignItems="center"
+              >
+                Digital Freelancer
+                <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
+                  2023 – PRESENT
+                </Span>
+              </Text>
+              <Text
+                fontSize="16px"
+                style={tinosStyles}
+                color="#262626"
+                display="flex"
+                gap="6px"
+                alignItems="center"
+              >
+                Apas Port, Tokyo
+                <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
+                  2024 – PRESENT
+                </Span>
+              </Text>
+            </VStack>
+          </VStack>
+          <VStack gap="24px" alignItems="flex-start">
+            <Text
+              textTransform="uppercase"
+              fontSize="14px"
+              fontWeight="500"
+              color="#7F7F7F"
+              style={interStyles}
+            >
+              Qualifications
+            </Text>
+            <VStack gap="2px" alignItems="flex-start">
+              <Text
+                fontSize="16px"
+                style={tinosStyles}
+                color="#262626"
+                display="flex"
+                gap="6px"
+                alignItems="center"
+              >
+                Information and Technology
+                <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
+                  2013 – 2025
+                </Span>
+              </Text>
+              <Text
+                fontSize="16px"
+                style={tinosStyles}
+                color="#262626"
+                display="flex"
+                gap="6px"
+                alignItems="center"
+              >
+                Science of Wellbeing
+                <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
+                  2020
+                </Span>
+              </Text>
+              <Text
+                fontSize="16px"
+                style={tinosStyles}
+                color="#262626"
+                display="flex"
+                gap="6px"
+                alignItems="center"
+              >
+                School of Moribana (Flower arranging)
+                <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
+                  2023 – PRESENT
+                </Span>
+              </Text>
+            </VStack>
+          </VStack>
+          <HStack gap="8px">
+            <a href="https://instagram.com/jojobanks.jpg">
+              <CloudinaryImage
+                cloudinaryImageName="contact/instagram"
+                alt="Instagram"
+                pixelHeight={37}
+                pixelWidth={37}
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/josephinenguyen1/">
+              <CloudinaryImage
+                cloudinaryImageName="contact/linkedin"
+                alt="LinkedIn"
+                pixelHeight={37}
+                pixelWidth={37}
+              />
+            </a>
+            <a href="https://x.com/oysterqueen300">
+              <CloudinaryImage
+                cloudinaryImageName="contact/x"
+                alt="X"
+                pixelHeight={37}
+                pixelWidth={37}
+              />
+            </a>
+            <a href="https://dribbble.com/jojobankss">
+              <CloudinaryImage
+                cloudinaryImageName="contact/dribbble"
+                alt="Dribbble"
+                pixelHeight={37}
+                pixelWidth={37}
+              />
+            </a>
+          </HStack>
+        </VStack>
+      </Flex>
+      <HStack width="100%" py="8px" borderTop="1px solid #A5A5A5" gap="120px">
+        <HStack width="100%" alignItems="center" justifyContent="space-between">
+          <Text
+            textTransform="uppercase"
+            fontSize="13px"
+            color="#7F7F7F"
+            style={ibmPlexMonoStyles}
+          >
+            Click to Copy
+          </Text>
+          <Text
+            textTransform="uppercase"
+            fontSize="13px"
+            color="#7F7F7F"
+            style={ibmPlexMonoStyles}
+          >
+            [ email ]
+          </Text>
+        </HStack>
+        <Text
+          textTransform="uppercase"
+          fontSize="13px"
+          color="#7F7F7F"
+          p="3px 6px"
+          border="1px solid black"
+          style={ibmPlexMonoStyles}
+        >
+          josephinenguyendesigns@gmail.com
+        </Text>
+      </HStack>
+    </VStack>
+  );
+}

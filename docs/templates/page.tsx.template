@@ -1,7 +1,0 @@
-'use client';
-
-export default function PageName() {
-	return (
-	   // JSX/HTML content goes here
-	);
-}

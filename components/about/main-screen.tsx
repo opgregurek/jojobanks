@@ -4,8 +4,7 @@ import useScrollPosition from "@/hooks/use-scrollbar";
 import { interStyles } from "@/utils/inter-font";
 import { tinosStyles } from "@/utils/tinos-font";
 import { Box, Grid, HStack, Text } from "@chakra-ui/react";
-import { useMeasure } from "@uidotdev/usehooks";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function MainScreen() {
     const containerId = 'movingContainer';

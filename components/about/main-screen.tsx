@@ -3,26 +3,40 @@ import { useContainerDimensions } from "@/hooks/use-container-dimensions";
 import useScrollPosition from "@/hooks/use-scrollbar";
 import { interStyles } from "@/utils/inter-font";
 import { tinosStyles } from "@/utils/tinos-font";
-import { Box, Grid, HStack, Text } from "@chakra-ui/react";
+import { Box, Grid, HStack, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
+import CloudinaryImage from "../ui/cloudinary-image";
 
 export default function MainScreen() {
   const containerId = "movingContainer";
-  const containerRef = useRef<HTMLDivElement>(null);
+  const textContainerId = "textContainer";
   const { width } = useContainerDimensions(containerId);
-  const [containerWidth, setContainerWidth] = useState<number | undefined>(
-    undefined,
-  );
+  const { height } = useContainerDimensions(textContainerId);
+  const [containerWidth, setContainerWidth] = useState<string>("100vh");
+  const [textContainerHeight, setContainerHeight] = useState<string>("190px")
 
   useEffect(() => {
     const _width = width ?? 0;
-    setContainerWidth(_width + 140);
+    setContainerWidth(`${_width + 140}px`);
   }, [width]);
+
+  useEffect(() => {
+    const _height = height ?? 0;
+    setContainerHeight(`${_height}px`);
+  }, [height]);
 
   const scroll = useScrollPosition();
   return (
     <>
-      <Box height={containerWidth ?? "100vh"} width="100vw" />
+      <Box
+        height={[
+          `calc(${containerWidth} + 300px)`,
+          `calc(${containerWidth} + 300px)`,
+          `calc(${containerWidth} + 300px)`,
+          `calc(${containerWidth} + 450px)`,
+        ]}
+        width="100vw"
+      />
       <Grid
         height={[
           "calc(100vh - 100px)",
@@ -33,15 +47,36 @@ export default function MainScreen() {
         position="fixed"
         left={`${-scroll}px`}
         templateRows={["1fr auto"]}
-        // marginLeft={`${-scroll}px`}
         id={containerId}
-        ref={containerRef}
       >
-        <Box></Box>
-        <HStack px={["140px"]}>
+        <VStack
+          bg="#D80000"
+          justifyContent="center"
+          alignItems="flex-start"
+          pl={["200px"]}
+        >
+          <CloudinaryImage
+            cloudinaryImageName="about/the-good-fight"
+            alt="The Good Fight"
+            imageProps={{
+              maxH: [`calc(100vh - 138px - ${textContainerHeight})`],
+            }}
+            boxProps={{
+              maxH: [`calc(100vh - 138px - ${textContainerHeight})`],
+            }}
+            pixelHeight={495}
+            pixelWidth={502}
+          />
+        </VStack>
+        <HStack
+          pl={["140px"]}
+          pr={["200px", "200px", "200px", "400px"]}
+          marginBottom={["100px", "100px", "100px", "0"]}
+          id={textContainerId}
+        >
           <Text
             fontWeight={700}
-            fontSize="176px"
+            fontSize={["110px", "110px", "110px", "190px"]}
             textTransform="uppercase"
             style={interStyles}
             whiteSpace="nowrap"
@@ -49,7 +84,7 @@ export default function MainScreen() {
             Nothing Without{" "}
           </Text>
           <Text
-            fontSize="190px"
+            fontSize={["110px", "110px", "110px", "190px"]}
             fontStyle="italic"
             textTransform="uppercase"
             style={tinosStyles}

@@ -15,6 +15,8 @@ export default function ContentScreen() {
         width="100%"
         py="8px"
         borderBottom="1px solid #A5A5A5"
+        flexDir={["column", "column", "column", "row"]}
+        alignItems={["flex-start", "flex-start", "flex-start", "center"]}
         justifyContent="space-between"
       >
         <Text
@@ -290,8 +292,20 @@ export default function ContentScreen() {
           </HStack>
         </VStack>
       </Flex>
-      <HStack width="100%" py="8px" borderTop="1px solid #A5A5A5" gap="120px">
-        <HStack width="100%" alignItems="center" justifyContent="space-between">
+      <HStack
+        alignItems={["flex-start", "flex-start", "flex-start", "center"]}
+        flexDir={["column", "column", "column", "row"]}
+        width="100%"
+        py="8px"
+        borderTop="1px solid #A5A5A5"
+        gap={["20px", "20px", "20px", "120px"]}
+      >
+        <HStack
+          alignItems={["flex-start", "flex-start", "flex-start", "center"]}
+          flexDir={["column", "column", "column", "row"]}
+          width="100%"
+          justifyContent="space-between"
+        >
           <Text
             textTransform="uppercase"
             fontSize="13px"

@@ -58,6 +58,20 @@ export const projects: ProjectInterface[] = [
     link: "evolution",
   },
   {
+    title: "Music Controller",
+    category: "Mobile app",
+    comingSoon: false,
+    image: "projectPages/MusicController/thumbnail",
+    link: "music-controller",
+  },
+  {
+    title: "404 for WM",
+    category: "Animation",
+    comingSoon: false,
+    image: "projectPages/404/thumbnail",
+    link: "404",
+  },
+  {
     title: "Incrementum",
     category: "3D Modelling",
     comingSoon: false,
@@ -70,20 +84,6 @@ export const projects: ProjectInterface[] = [
     comingSoon: false,
     image: "projectPages/RPQ/thumbnail",
     link: "road-maintenance",
-  },
-  {
-    title: "Music Curation",
-    category: "Mobile app",
-    comingSoon: false,
-    image: "projectPages/MustardMusic/thumbnail",
-    link: "music-curation",
-  },
-  {
-    title: "404 for WM",
-    category: "Animation",
-    comingSoon: false,
-    image: "projectPages/404/thumbnail",
-    link: "404",
   },
 ];
 

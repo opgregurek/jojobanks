@@ -102,6 +102,8 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
       <Image
         src={signature}
         alt="JOJOBanks Signature"
+        width="132px"
+        height="64px"
         onClick={() => {
           router.push("/");
         }}

@@ -82,7 +82,8 @@ export default function Footer() {
                 style={interStyles}
                 _hover={{
                   textDecoration: "underline",
-                  textUnderlineOffset: "2px",
+                  textUnderlineOffset: "3px",
+                  color: "#072165",
                 }}
               >
                 <NextLink href={navItem.href}>{navItem.label}</NextLink>
@@ -171,9 +172,13 @@ export default function Footer() {
           >
             Development by{" "}
             <Link
-              textDecoration="underline"
               textUnderlineOffset="3px"
               href="https://www.linkedin.com/in/oskar-poonkam-gregurek/"
+              _hover={{
+                textDecoration: "underline",
+                textUnderlineOffset: "3px",
+                color: "#072165",
+              }}
             >
               Oskar the g-unit
             </Link>

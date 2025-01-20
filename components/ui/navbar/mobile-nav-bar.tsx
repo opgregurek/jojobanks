@@ -47,6 +47,8 @@ const MobileNavBar = (props: MobileNavBarProps) => {
         <Image
           src={signature}
           alt="JOJOBanks Signature"
+          width="91px"
+          height="44px"
           onClick={() => {
             router.push("/");
           }}

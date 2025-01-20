@@ -1,10 +1,25 @@
+"use client";
 import { ibmPlexMonoStyles } from "@/utils/ibm-plex-mono-font";
 import { interStyles } from "@/utils/inter-font";
 import { tinosStyles } from "@/utils/tinos-font";
 import { Flex, HStack, Span, Text, VStack } from "@chakra-ui/react";
 import CloudinaryImage from "../ui/cloudinary-image";
+import { useEffect, useState } from "react";
+import copyTextToClipboard from "@/utils/copy-to-clipboard";
+import { Tooltip } from "../ui/tooltip";
 
 export default function ContentScreen() {
+  const [copied, setCopied] = useState(false);
+  useEffect(() => {
+    if (copied) {
+      const timer = setTimeout(() => {
+        setCopied(false);
+      }, 2000); // Reset after 2 seconds
+
+      return () => clearTimeout(timer); // Cleanup the timer on component unmount
+    }
+  }, [copied]);
+
   return (
     <VStack
       maxWidth="1440px"
@@ -57,6 +72,7 @@ export default function ContentScreen() {
             fontSize="16px"
             textAlign="justify"
             style={tinosStyles}
+            color="#black"
             maxWidth={["unset", "unset", "unset", "300px"]}
           >
             Jojo brings over seven years of experience advocating for
@@ -76,6 +92,7 @@ export default function ContentScreen() {
             fontSize="16px"
             textAlign="justify"
             style={tinosStyles}
+            color="#171717"
             maxWidth={["unset", "unset", "unset", "300px"]}
           >
             This approach serves as a reminder that every action we take—whether
@@ -323,16 +340,28 @@ export default function ContentScreen() {
             [ email ]
           </Text>
         </HStack>
-        <Text
-          textTransform="uppercase"
-          fontSize="13px"
-          color="#7F7F7F"
-          p="3px 6px"
-          border="1px solid black"
-          style={ibmPlexMonoStyles}
+        <Tooltip
+          content="COPIED!"
+          open={copied}
+          positioning={{ placement: "top" }}
+          contentProps={{ css: { "--tooltip-bg": "#A5A5A5" } }}
         >
-          josephinenguyendesigns@gmail.com
-        </Text>
+          <Text
+            textTransform="uppercase"
+            fontSize="13px"
+            color="black"
+            p="3px 6px"
+            border="1px solid black"
+            style={ibmPlexMonoStyles}
+            cursor="pointer"
+            onClick={() => {
+              copyTextToClipboard("josephinenguyendesigns@gmail.com");
+              setCopied(true);
+            }}
+          >
+            josephinenguyendesigns@gmail.com
+          </Text>
+        </Tooltip>
       </HStack>
     </VStack>
   );

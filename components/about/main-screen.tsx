@@ -4,7 +4,7 @@ import useScrollPosition from "@/hooks/use-scrollbar";
 import { interStyles } from "@/utils/inter-font";
 import { tinosStyles } from "@/utils/tinos-font";
 import { Box, Grid, HStack, Text, VStack } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import CloudinaryImage from "../ui/cloudinary-image";
 
 export default function MainScreen() {
@@ -13,7 +13,7 @@ export default function MainScreen() {
   const { width } = useContainerDimensions(containerId);
   const { height } = useContainerDimensions(textContainerId);
   const [containerWidth, setContainerWidth] = useState<string>("100vh");
-  const [textContainerHeight, setContainerHeight] = useState<string>("190px")
+  const [textContainerHeight, setContainerHeight] = useState<string>("190px");
 
   useEffect(() => {
     const _width = width ?? 0;

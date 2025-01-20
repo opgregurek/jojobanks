@@ -1,7 +1,7 @@
 "use client";
 import { ibmPlexMonoStyles } from "@/utils/ibm-plex-mono-font";
 import { interStyles } from "@/utils/inter-font";
-import { tinosStyles } from "@/utils/tinos-font";
+import { timesNewRomanStyles } from "@/utils/times-new-roman-font";
 import { Flex, HStack, Span, Text, VStack } from "@chakra-ui/react";
 import CloudinaryImage from "../ui/cloudinary-image";
 import { useEffect, useState } from "react";
@@ -60,6 +60,7 @@ export default function ContentScreen() {
         </Text>
       </HStack>
       <Flex
+        pt="40px"
         pb={["40px", "40px", "40px", "120px"]}
         flexDir="row"
         justifyContent="space-between"
@@ -71,12 +72,12 @@ export default function ContentScreen() {
           <Text
             fontSize="16px"
             textAlign="justify"
-            style={tinosStyles}
-            color="#black"
+            style={timesNewRomanStyles}
+            color="#171717"
             maxWidth={["unset", "unset", "unset", "300px"]}
           >
             Jojo brings over seven years of experience advocating for
-            user-centric design principles when creation of digital solutions.
+            user-centric design principles when creating digital solutions.
             <br />
             <br />
             Her expertise lies in ensuring that the needs, behaviours, and goals
@@ -91,7 +92,7 @@ export default function ContentScreen() {
           <Text
             fontSize="16px"
             textAlign="justify"
-            style={tinosStyles}
+            style={timesNewRomanStyles}
             color="#171717"
             maxWidth={["unset", "unset", "unset", "300px"]}
           >
@@ -126,19 +127,19 @@ export default function ContentScreen() {
               Services
             </Text>
             <VStack gap="2px" alignItems="flex-start">
-              <Text fontSize="16px" style={tinosStyles} color="#262626">
+              <Text fontSize="16px" style={timesNewRomanStyles} color="#262626">
                 Digital
               </Text>
-              <Text fontSize="16px" style={tinosStyles} color="#262626">
+              <Text fontSize="16px" style={timesNewRomanStyles} color="#262626">
                 Brand identity
               </Text>
-              <Text fontSize="16px" style={tinosStyles} color="#262626">
+              <Text fontSize="16px" style={timesNewRomanStyles} color="#262626">
                 Creative direction
               </Text>
-              <Text fontSize="16px" style={tinosStyles} color="#262626">
+              <Text fontSize="16px" style={timesNewRomanStyles} color="#262626">
                 UX/UI Design
               </Text>
-              <Text fontSize="16px" style={tinosStyles} color="#262626">
+              <Text fontSize="16px" style={timesNewRomanStyles} color="#262626">
                 3D modeling
               </Text>
             </VStack>
@@ -156,7 +157,7 @@ export default function ContentScreen() {
             <VStack gap="2px" alignItems="flex-start">
               <Text
                 fontSize="16px"
-                style={tinosStyles}
+                style={timesNewRomanStyles}
                 color="#262626"
                 display="flex"
                 gap="6px"
@@ -169,7 +170,7 @@ export default function ContentScreen() {
               </Text>
               <Text
                 fontSize="16px"
-                style={tinosStyles}
+                style={timesNewRomanStyles}
                 color="#262626"
                 display="flex"
                 gap="6px"
@@ -182,7 +183,7 @@ export default function ContentScreen() {
               </Text>
               <Text
                 fontSize="16px"
-                style={tinosStyles}
+                style={timesNewRomanStyles}
                 color="#262626"
                 display="flex"
                 gap="6px"
@@ -195,7 +196,7 @@ export default function ContentScreen() {
               </Text>
               <Text
                 fontSize="16px"
-                style={tinosStyles}
+                style={timesNewRomanStyles}
                 color="#262626"
                 display="flex"
                 gap="6px"
@@ -208,7 +209,7 @@ export default function ContentScreen() {
               </Text>
               <Text
                 fontSize="16px"
-                style={tinosStyles}
+                style={timesNewRomanStyles}
                 color="#262626"
                 display="flex"
                 gap="6px"
@@ -234,7 +235,7 @@ export default function ContentScreen() {
             <VStack gap="2px" alignItems="flex-start">
               <Text
                 fontSize="16px"
-                style={tinosStyles}
+                style={timesNewRomanStyles}
                 color="#262626"
                 display="flex"
                 gap="6px"
@@ -242,12 +243,12 @@ export default function ContentScreen() {
               >
                 Information and Technology
                 <Span fontSize="14px" color="#7F7F7F" style={interStyles}>
-                  2013 – 2025
+                  2013 – 2015
                 </Span>
               </Text>
               <Text
                 fontSize="16px"
-                style={tinosStyles}
+                style={timesNewRomanStyles}
                 color="#262626"
                 display="flex"
                 gap="6px"
@@ -260,7 +261,7 @@ export default function ContentScreen() {
               </Text>
               <Text
                 fontSize="16px"
-                style={tinosStyles}
+                style={timesNewRomanStyles}
                 color="#262626"
                 display="flex"
                 gap="6px"
@@ -344,19 +345,27 @@ export default function ContentScreen() {
           content="COPIED!"
           open={copied}
           positioning={{ placement: "top" }}
-          contentProps={{ css: { "--tooltip-bg": "#A5A5A5" } }}
+          contentProps={{
+            css: { "--tooltip-bg": "#A5A5A5" },
+            style: ibmPlexMonoStyles,
+            color: "white",
+          }}
         >
           <Text
             textTransform="uppercase"
             fontSize="13px"
-            color="black"
+            color="#171717"
             p="3px 6px"
-            border="1px solid black"
+            border="1px solid #171717"
             style={ibmPlexMonoStyles}
             cursor="pointer"
             onClick={() => {
               copyTextToClipboard("josephinenguyendesigns@gmail.com");
               setCopied(true);
+            }}
+            _hover={{
+              color: "#072165",
+              borderColor: "#072165",
             }}
           >
             josephinenguyendesigns@gmail.com

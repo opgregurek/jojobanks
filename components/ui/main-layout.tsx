@@ -1,3 +1,4 @@
+"use client";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./navbar/nav-bar";
 import Footer from "./footer";

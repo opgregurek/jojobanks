@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { NavItem } from "./nav-bar";
 import { useNavBarState } from "@/stores/nav-bar-state";
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import fiveMinuteCache from "@/utils/five-minute-cache";
 import cloudinaryImage from "@/utils/cloudinary-image";
 import { HStack, Image, Link } from "@chakra-ui/react";
@@ -34,15 +34,32 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
       ),
     [],
   );
+  const navHover = useMemo(
+    () =>
+      fiveMinuteCache(cloudinaryImage("misc/nav-hover", 13, undefined, true)),
+    [],
+  );
 
   // the navCircle is different depending on whether the link is active
   const navCircle = useCallback(
-    (isActive: boolean) => {
+    (isActive: boolean, isHover: boolean) => {
+      console.log(isActive, isHover);
       if (isActive) {
         return (
           <Image
             src={navActive}
             alt="Black Circle"
+            width="13px"
+            height="13px"
+          />
+        );
+      }
+
+      if (isHover) {
+        return (
+          <Image
+            src={navHover}
+            alt="Dark Grey Circle"
             width="13px"
             height="13px"
           />
@@ -58,7 +75,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
         />
       );
     },
-    [navActive, navNonActive],
+    [navActive, navNonActive, navHover],
   );
 
   const renderNavBarItem = useCallback(
@@ -66,6 +83,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
       // the link is active if the path starts with our href
       const isActive =
         href !== "/" ? pathname.startsWith(href) : pathname === "/";
+      const [isHovered, setIsHovered] = useState(false);
       return (
         <Link
           key={`navbar-link-${label.toLowerCase().replace(" ", "-")}`}
@@ -80,10 +98,15 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
           _focus={{
             outline: "none",
           }}
+          _hover={{
+            color: isActive ? navBarColor : "#757575",
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           asChild
         >
           <NextLink href={href} prefetch>
-            {navCircle(isActive)}
+            {navCircle(isActive, isHovered)}
             {label}
           </NextLink>
         </Link>
@@ -98,7 +121,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
   );
 
   return (
-    <HStack width="100%" justifyContent="space-between">
+    <HStack width="100%" justifyContent="space-between" alignItems="flex-start">
       <Image
         src={signature}
         alt="JOJOBanks Signature"
@@ -111,7 +134,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
           cursor: "pointer",
         }}
       />
-      <HStack gap="40px">
+      <HStack gap="40px" alignItems="flex-start">
         {navItems.map(({ label, href }) => renderNavBarItem(label, href))}
       </HStack>
     </HStack>

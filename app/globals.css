@@ -24,5 +24,11 @@ body {
 }
 
 p {
-  color: black;
+  color: #171717;
+}
+
+p::selection,
+a::selection {
+  color: #171717;
+  background: #ebff00;
 }

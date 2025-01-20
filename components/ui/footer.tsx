@@ -18,6 +18,7 @@ export default function Footer() {
   return (
     <VStack
       alignItems="flex-start"
+      borderTop="1px solid #0000004D"
       padding={["32px 24px", "32px 24px", "32px 24px", "60px 80px"]}
       gap={["48px", "48px", "48px", "88px"]}
     >
@@ -80,6 +81,7 @@ export default function Footer() {
                 textTransform="uppercase"
                 fontSize="14px"
                 style={interStyles}
+                color="#171717"
                 _hover={{
                   textDecoration: "underline",
                   textUnderlineOffset: "3px",

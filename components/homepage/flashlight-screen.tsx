@@ -6,7 +6,7 @@ import { Box, Text, useBreakpoint, VStack } from "@chakra-ui/react";
 import useScrollPosition from "@/hooks/use-scrollbar";
 import { useNavBarState } from "@/stores/nav-bar-state";
 import { interStyles } from "@/utils/inter-font";
-import { tinosStyles } from "@/utils/tinos-font";
+import { timesNewRomanStyles } from "@/utils/times-new-roman-font";
 
 export default function FlashlightScreen() {
   // is the text covered by blue
@@ -129,7 +129,7 @@ export default function FlashlightScreen() {
           textTransform="uppercase"
           fontSize="14px"
           style={interStyles}
-          color="black"
+          color="#171717"
           textAlign="center"
           width="250px"
         >
@@ -163,7 +163,16 @@ export default function FlashlightScreen() {
       >
         <Box
           opacity={hidden ? 1 : 0}
-          transition="opacity 0.4 ease-in-out"
+          data-state={hidden ? "open" : "closed"}
+          _open={{
+            animationName: "fade-in, scale-in",
+            animationDuration: "400ms",
+          }}
+          _closed={{
+            animationName: "fade-out, scale-out",
+            animationDuration: "400ms",
+          }}
+          // transition="opacity 1 ease-out"
           style={{
             position: "absolute",
             width: "300px",
@@ -187,7 +196,10 @@ export default function FlashlightScreen() {
           <Text color="#7F7F7F" fontSize="20px" style={interStyles}>
             LAO TZU says
           </Text>
-          <Text fontSize={["40px", "40px", "40px", "81px"]} style={tinosStyles}>
+          <Text
+            fontSize={["40px", "40px", "40px", "81px"]}
+            style={timesNewRomanStyles}
+          >
             To clarify muddy waters,
             <br />
             you must hold yourself still

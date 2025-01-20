@@ -2,7 +2,7 @@
 import { useContainerDimensions } from "@/hooks/use-container-dimensions";
 import useScrollPosition from "@/hooks/use-scrollbar";
 import { interStyles } from "@/utils/inter-font";
-import { tinosStyles } from "@/utils/tinos-font";
+import { timesNewRomanStyles } from "@/utils/times-new-roman-font";
 import { Box, Grid, HStack, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import CloudinaryImage from "../ui/cloudinary-image";
@@ -87,7 +87,7 @@ export default function MainScreen() {
             fontSize={["110px", "110px", "110px", "190px"]}
             fontStyle="italic"
             textTransform="uppercase"
-            style={tinosStyles}
+            style={timesNewRomanStyles}
             whiteSpace="nowrap"
           >
             {" "}

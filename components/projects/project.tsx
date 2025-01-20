@@ -3,7 +3,7 @@ import cloudinaryVideo from "@/utils/cloudinary-video";
 import fiveMinuteCache from "@/utils/five-minute-cache";
 import { ibmPlexMonoStyles } from "@/utils/ibm-plex-mono-font";
 import { interStyles } from "@/utils/inter-font";
-import { tinosStyles } from "@/utils/tinos-font";
+import { timesNewRomanStyles } from "@/utils/times-new-roman-font";
 import { Box, HStack, Icon, Link, Text, VStack } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { ReactNode, useCallback, useState } from "react";
@@ -96,7 +96,7 @@ export default function Project(props: ProjectInterface) {
           fontSize={["40px", "40px", "40px", "80px"]}
           fontWeight="500"
           textDecoration={hovered ? "underline" : ""}
-          color={hovered ? "#072165" : "black"}
+          color={hovered ? "#072165" : "#171717"}
           style={interStyles}
         >
           {nextProject.name}
@@ -143,7 +143,7 @@ export default function Project(props: ProjectInterface) {
       </VStack>
       <Box
         maxW="1440px"
-        w="100%"
+        w="100vw"
         marginLeft="auto"
         marginRight="auto"
         py="60px"
@@ -173,7 +173,7 @@ export default function Project(props: ProjectInterface) {
                     key={`explanation-${index}`}
                     fontSize="16px"
                     textAlign="justify"
-                    style={tinosStyles}
+                    style={timesNewRomanStyles}
                   >
                     {explanation}
                   </Text>
@@ -182,12 +182,12 @@ export default function Project(props: ProjectInterface) {
             )}
           </VStack>
           <HStack
-            maxWidth="390px"
+            width="min(450px, 90vw)"
             gap="32px"
             alignItems="flex-start"
             flexDirection={["column", "column", "column", "row"]}
           >
-            <VStack gap="8px" alignItems="flex-start">
+            <VStack gap="8px" alignItems="flex-start" width="100px">
               <Text
                 textTransform="uppercase"
                 fontWeight={500}
@@ -197,7 +197,7 @@ export default function Project(props: ProjectInterface) {
               >
                 Year
               </Text>
-              <Text fontSize="16px" color="#171717" style={tinosStyles}>
+              <Text fontSize="16px" color="#171717" style={timesNewRomanStyles}>
                 {year}
               </Text>
             </VStack>
@@ -213,7 +213,11 @@ export default function Project(props: ProjectInterface) {
                   >
                     Client
                   </Text>
-                  <Text fontSize="16px" color="#171717" style={tinosStyles}>
+                  <Text
+                    fontSize="16px"
+                    color="#171717"
+                    style={timesNewRomanStyles}
+                  >
                     {client}
                   </Text>
                 </VStack>
@@ -235,7 +239,7 @@ export default function Project(props: ProjectInterface) {
                         href={link}
                         fontSize="16px"
                         color="#171717"
-                        style={tinosStyles}
+                        style={timesNewRomanStyles}
                         _hover={{
                           textDecor: "underline",
                           color: "#072165",
@@ -266,7 +270,11 @@ export default function Project(props: ProjectInterface) {
                   >
                     Type
                   </Text>
-                  <Text fontSize="16px" color="#171717" style={tinosStyles}>
+                  <Text
+                    fontSize="16px"
+                    color="#171717"
+                    style={timesNewRomanStyles}
+                  >
                     {type}
                   </Text>
                 </VStack>
@@ -287,7 +295,7 @@ export default function Project(props: ProjectInterface) {
                       key={`service-${index}`}
                       fontSize="16px"
                       color="#171717"
-                      style={tinosStyles}
+                      style={timesNewRomanStyles}
                     >
                       {service}
                     </Text>
@@ -311,9 +319,9 @@ export default function Project(props: ProjectInterface) {
                       href={href}
                       textTransform="uppercase"
                       fontSize="13px"
-                      color="black"
+                      color="#171717"
                       p="3px 6px"
-                      border="1px solid black"
+                      border="1px solid #171717"
                       style={ibmPlexMonoStyles}
                       cursor="pointer"
                     >
@@ -327,7 +335,7 @@ export default function Project(props: ProjectInterface) {
         </HStack>
       </Box>
       {images && images.length > 0 && (
-        <VStack gap={0} px={["24px", "24px", "24px", "120px"]}>
+        <VStack maxW="100vw" gap={0} px={["24px", "24px", "24px", "120px"]}>
           {images.map(({ image, alt }) => (
             <CloudinaryImage
               key={image}
@@ -373,6 +381,10 @@ export default function Project(props: ProjectInterface) {
           p="6px 12px"
           border="1px solid #171717"
           style={ibmPlexMonoStyles}
+          _hover={{
+            color: "#072165",
+            borderColor: "#072165",
+          }}
           asChild
         >
           <NextLink href="/">Back to Main</NextLink>

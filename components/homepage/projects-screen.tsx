@@ -1,6 +1,6 @@
 import { Box, HStack, Span, Text, VStack } from "@chakra-ui/react";
 import CloudinaryImage from "../ui/cloudinary-image";
-import { tinosStyles } from "@/utils/tinos-font";
+import { timesNewRomanStyles } from "@/utils/times-new-roman-font";
 import { interStyles } from "@/utils/inter-font";
 import Link from "next/link";
 import { useCallback, useState } from "react";
@@ -127,7 +127,7 @@ export function ProjectsScreen() {
           >
             {project.title}
           </Text>
-          <Text fontSize="13px" color="#A5A5A5" style={tinosStyles}>
+          <Text fontSize="13px" color="#A5A5A5" style={timesNewRomanStyles}>
             {project.category}
             {project.comingSoon && (
               <>

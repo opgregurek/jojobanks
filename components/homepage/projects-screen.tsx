@@ -1,16 +1,18 @@
-import { Box, HStack, Span, Text, VStack } from "@chakra-ui/react";
-import CloudinaryImage from "../ui/cloudinary-image";
-import { timesNewRomanStyles } from "@/utils/times-new-roman-font";
 import { interStyles } from "@/utils/inter-font";
+import { timesNewRomanStyles } from "@/utils/times-new-roman-font";
+import { Box, Flex, Span, Text, VStack } from "@chakra-ui/react";
+import AutoScroll from "embla-carousel-auto-scroll";
+import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
-import { useCallback, useState } from "react";
-import "./projects-screen.css";
+import { ReactNode, useEffect } from "react";
+import CloudinaryImage from "../ui/cloudinary-image";
 
 export interface ProjectInterface {
   title: string;
   category: string;
   comingSoon: boolean;
   image: string;
+  imageComponent?: ReactNode;
   link: string;
 }
 
@@ -20,6 +22,7 @@ export const projects: ProjectInterface[] = [
     category: "Branding & design system",
     comingSoon: true,
     image: "projectPages/Objecx/thumbnail",
+    imageComponent: <Box w="187px" h="215px" bg="#787878" />,
     link: "objecx",
   },
   {
@@ -88,80 +91,140 @@ export const projects: ProjectInterface[] = [
 ];
 
 export function ProjectsScreen() {
-  const renderProject = useCallback((project: ProjectInterface) => {
-    const [hovering, setHovering] = useState(false);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [
+      AutoScroll({
+        playOnInit: false,
+        startDelay: 1500,
+        speed: 0.8,
+      }),
+    ],
+  );
 
-    const obj = project.comingSoon
-      ? {}
-      : {
-          as: Link,
-          href: project.link,
-        };
+  useEffect(() => {
+    const autoScroll = emblaApi?.plugins()?.autoScroll;
+    console.log("hello 00", autoScroll);
+    if (!autoScroll) return;
 
-    return (
-      <VStack
-        gap="12px"
-        alignItems="flex-start"
-        key={project.link}
-        onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
-        {...obj}
-      >
-        <CloudinaryImage
-          cloudinaryImageName={project.image}
-          alt={project.title}
-          pixelWidth={hovering ? 210 : 187}
-          pixelHeight={hovering ? 250 : 215}
-          boxProps={{
-            width: hovering ? 210 : 187,
-            height: hovering ? 250 : 215,
-            transition: "width, height 0.3s ease-out",
-          }}
-        />
-        <VStack width="104px" gap="2px" alignItems="flex-start">
-          <Text
-            fontWeight="600"
-            fontSize="14px"
-            textTransform="uppercase"
-            style={interStyles}
-          >
-            {project.title}
-          </Text>
-          <Text fontSize="13px" color="#A5A5A5" style={timesNewRomanStyles}>
-            {project.category}
-            {project.comingSoon && (
-              <>
-                <br />
-                <Span textTransform="uppercase">Coming Soon</Span>
-              </>
-            )}
-          </Text>
-        </VStack>
-      </VStack>
-    );
-  }, []);
+    autoScroll.play();
+  }, [emblaApi]);
+
   return (
-    <Box
-      overflow="hidden"
-      position="relative"
-      width="100%"
-      maxWidth="1440px"
-      height={["350px", "350px", "350px", "500px"]}
-      padding={["12px", "12px", "12px", "56px 12px"]}
-    >
-      <HStack
-        className="carousel-track"
-        position="absolute"
-        right={0}
-        justifyContent="center"
-        alignItems="flex-start"
-        gap="8px"
-        width="200%"
-        height="100%"
+    <>
+      <Box
+        height={["350px", "350px", "350px", "500px"]}
+        padding={["12px", "12px", "12px", "56px 12px"]}
+        maxWidth="min(95vw, 1440px)"
+        marginLeft="auto"
+        marginRight={["", "", "", "auto"]}
+        width="100%"
       >
-        {projects.map((project) => renderProject(project))}
-        {projects.map((project) => renderProject(project))}
-      </HStack>
-    </Box>
+        <Box overflow="hidden" ref={emblaRef}>
+          <Flex touchAction="pan-y pinch-zoom" marginLeft="-2px">
+            {projects.map((project, index) => {
+              const obj = project.comingSoon
+                ? {}
+                : {
+                    as: Link,
+                    href: project.link,
+                  };
+              const imageComponent = project.imageComponent ?? (
+                <CloudinaryImage
+                  cloudinaryImageName={project.image}
+                  alt={project.title}
+                  pixelWidth={374}
+                  pixelHeight={430}
+                  boxProps={{
+                    width: 187,
+                    height: 215,
+                    transition: "width, height 0.3s ease-out",
+                  }}
+                />
+              );
+              const overlay = project.comingSoon ? (
+                <>
+                  <CloudinaryImage
+                    pixelHeight={215}
+                    pixelWidth={187}
+                    cloudinaryImageName="misc/noise"
+                    alt="noise overlay"
+                    boxProps={{
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+                      opacity: "0.4",
+                    }}
+                  />
+                  <CloudinaryImage
+                    pixelHeight={215}
+                    pixelWidth={187}
+                    cloudinaryImageName="misc/lock-overlay"
+                    alt="lock overlay"
+                    boxProps={{
+                      position: "absolute",
+                      left: 0,
+                      top: 0,
+                    }}
+                  />
+                </>
+              ) : null;
+              return (
+                <Box
+                  transform="translate3d(0, 0, 0)"
+                  flex="0 0 187px"
+                  paddingLeft="2px"
+                  key={index}
+                  onMouseEnter={() => {
+                    const autoScroll = emblaApi?.plugins()?.autoScroll;
+                    if (!autoScroll) return;
+                    autoScroll.stop();
+                  }}
+                  onMouseLeave={() => {
+                    const autoScroll = emblaApi?.plugins()?.autoScroll;
+                    if (!autoScroll) return;
+                    autoScroll.play();
+                  }}
+                >
+                  <VStack
+                    gap="12px"
+                    alignItems="flex-start"
+                    userSelect="none"
+                    role="group"
+                    {...obj}
+                  >
+                    {overlay}
+                    {imageComponent}
+                    <VStack width="104px" gap="2px" alignItems="flex-start">
+                      <Text
+                        fontWeight="600"
+                        fontSize="14px"
+                        textTransform="uppercase"
+                        style={interStyles}
+                      >
+                        {project.title}
+                      </Text>
+                      <Text
+                        fontSize="13px"
+                        color="#A5A5A5"
+                        style={timesNewRomanStyles}
+                      >
+                        {project.category}
+                        {project.comingSoon && (
+                          <>
+                            <br />
+                            <Span textTransform="uppercase">Coming Soon</Span>
+                          </>
+                        )}
+                      </Text>
+                    </VStack>
+                  </VStack>
+                </Box>
+              );
+            })}
+          </Flex>
+        </Box>
+      </Box>
+    </>
   );
 }

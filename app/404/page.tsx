@@ -1,15 +1,8 @@
 "use client";
 
 import Project from "@/components/projects/project";
-import { useNavBarState, defaultNavBarState } from "@/stores/nav-bar-state";
-import { useEffect } from "react";
 
 export default function Evolution() {
-  const setNavBarState = useNavBarState((state) => state.setNavBarState);
-
-  useEffect(() => {
-    setNavBarState(defaultNavBarState);
-  }, [setNavBarState]);
   return (
     <Project
       title="404"

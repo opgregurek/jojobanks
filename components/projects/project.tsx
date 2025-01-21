@@ -108,7 +108,7 @@ export default function Project(props: ProjectInterface) {
   return (
     <VStack alignItems="flex-start">
       <VStack
-        minHeight="100vh"
+        minHeight={["", "", "", "100vh"]}
         justifyContent="space-between"
         alignItems="flex-start"
       >

@@ -2,7 +2,6 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { NavItem } from "./nav-bar";
-import { useNavBarState } from "@/stores/nav-bar-state";
 import { useCallback, useMemo, useState } from "react";
 import fiveMinuteCache from "@/utils/five-minute-cache";
 import cloudinaryImage from "@/utils/cloudinary-image";
@@ -19,13 +18,10 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const navBarColor = useNavBarState((state) => state.navBarColor);
-  const navBarActiveIcon = useNavBarState((state) => state.navBarActiveIcon);
-
   const navActive = useMemo(
     () =>
-      fiveMinuteCache(cloudinaryImage(navBarActiveIcon, 13, undefined, true)),
-    [navBarActiveIcon],
+      fiveMinuteCache(cloudinaryImage("misc/nav-active", 13, undefined, true)),
+    [],
   );
   const navNonActive = useMemo(
     () =>
@@ -43,7 +39,6 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
   // the navCircle is different depending on whether the link is active
   const navCircle = useCallback(
     (isActive: boolean, isHover: boolean) => {
-      console.log(isActive, isHover);
       if (isActive) {
         return (
           <Image
@@ -88,7 +83,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
         <Link
           key={`navbar-link-${label.toLowerCase().replace(" ", "-")}`}
           textTransform="uppercase"
-          color={isActive ? navBarColor : "#B8B8B8"}
+          color={isActive ? "#171717" : "#B8B8B8"}
           fontWeight={isActive ? 600 : 400}
           display="flex"
           flexDirection="row"
@@ -99,7 +94,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
             outline: "none",
           }}
           _hover={{
-            color: isActive ? navBarColor : "#757575",
+            color: isActive ? "#171717" : "#757575",
           }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -112,7 +107,7 @@ const DesktopNavBar = (props: DesktopNavBarProps) => {
         </Link>
       );
     },
-    [pathname, navCircle, navBarColor],
+    [pathname, navCircle],
   );
 
   const signature = useMemo(

@@ -3,8 +3,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import useMousePosition from "@/hooks/use-mouse-position";
 import useDebouncedEffect from "use-debounced-effect";
 import { Box, Text, useBreakpoint, VStack } from "@chakra-ui/react";
-import useScrollPosition from "@/hooks/use-scrollbar";
-import { useNavBarState } from "@/stores/nav-bar-state";
 import { interStyles } from "@/utils/inter-font";
 import { timesNewRomanStyles } from "@/utils/times-new-roman-font";
 
@@ -22,16 +20,9 @@ export default function FlashlightScreen() {
     left: "50px",
   });
 
-  // setters for navBar state that change because of this component
-  const setNavBarColor = useNavBarState((state) => state.setNavBarColor);
-  const setNavBarActiveIcon = useNavBarState(
-    (state) => state.setNavBarActiveIcon,
-  );
-
   // listen on mouse position, breakpoint and scroll
   const mousePosition = useMousePosition();
   const breakpoint = useBreakpoint();
-  const scroll = useScrollPosition();
 
   const containerRef = useRef<HTMLDivElement>(null);
   const hiddenTextRef = useRef<HTMLParagraphElement>(null);
@@ -79,20 +70,6 @@ export default function FlashlightScreen() {
       left: `${left}px`,
     });
   }, [hiddenTextRef, containerRef]);
-
-  // listen on scroll to set navbar state when our component has reached the navbar
-  useEffect(() => {
-    const y = containerRef.current?.getBoundingClientRect().y ?? 60;
-    const bottom = containerRef.current?.getBoundingClientRect().bottom ?? 75;
-
-    if (((y < 60 && bottom > 75) || (bottom < 75 && y > 0)) && hidden) {
-      setNavBarColor("white");
-      setNavBarActiveIcon("misc/nav-active-blue");
-    } else {
-      setNavBarColor("text.blue");
-      setNavBarActiveIcon("misc/nav-active");
-    }
-  }, [hidden, scroll, containerRef, setNavBarColor, setNavBarActiveIcon]);
 
   // the content for what's above the square, changes when content is hidden
   const squareContent = useMemo(() => {

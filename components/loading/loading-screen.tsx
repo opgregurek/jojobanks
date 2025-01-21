@@ -12,7 +12,7 @@ import noise from "./noise.webp";
 import Image from "next/image";
 
 export default function LoadingScreen() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const targetElement = document.querySelector("#root");
     setTimeout(() => {

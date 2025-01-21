@@ -97,32 +97,48 @@ export default function Footer() {
               <CloudinaryImage
                 cloudinaryImageName="contact/instagram"
                 alt="Instagram"
-                pixelHeight={37}
-                pixelWidth={37}
+                boxProps={{
+                  width: "37px",
+                  height: "37px",
+                }}
+                pixelHeight={256}
+                pixelWidth={256}
               />
             </a>
             <a href="https://www.linkedin.com/in/josephinenguyen1/">
               <CloudinaryImage
                 cloudinaryImageName="contact/linkedin"
                 alt="LinkedIn"
-                pixelHeight={37}
-                pixelWidth={37}
+                boxProps={{
+                  width: "37px",
+                  height: "37px",
+                }}
+                pixelHeight={256}
+                pixelWidth={256}
               />
             </a>
             <a href="https://x.com/oysterqueen300">
               <CloudinaryImage
                 cloudinaryImageName="contact/x"
                 alt="X"
-                pixelHeight={37}
-                pixelWidth={37}
+                boxProps={{
+                  width: "37px",
+                  height: "37px",
+                }}
+                pixelHeight={256}
+                pixelWidth={256}
               />
             </a>
             <a href="https://dribbble.com/jojobankss">
               <CloudinaryImage
                 cloudinaryImageName="contact/dribbble"
                 alt="Dribbble"
-                pixelHeight={37}
-                pixelWidth={37}
+                boxProps={{
+                  width: "37px",
+                  height: "37px",
+                }}
+                pixelHeight={256}
+                pixelWidth={256}
               />
             </a>
           </HStack>

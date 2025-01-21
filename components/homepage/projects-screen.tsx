@@ -175,22 +175,22 @@ export function ProjectsScreen() {
                   flex="0 0 187px"
                   paddingLeft="2px"
                   key={index}
-                  onMouseEnter={() => {
-                    const autoScroll = emblaApi?.plugins()?.autoScroll;
-                    if (!autoScroll) return;
-                    autoScroll.stop();
-                  }}
-                  onMouseLeave={() => {
-                    const autoScroll = emblaApi?.plugins()?.autoScroll;
-                    if (!autoScroll) return;
-                    autoScroll.play();
-                  }}
                 >
                   <VStack
                     gap="12px"
                     alignItems="flex-start"
                     userSelect="none"
-                    role="group"
+                    onMouseEnter={() => {
+                      const autoScroll = emblaApi?.plugins()?.autoScroll;
+                      if (!autoScroll) return;
+                      autoScroll.stop();
+                    }}
+                    onMouseLeave={() => {
+                      const autoScroll = emblaApi?.plugins()?.autoScroll;
+                      if (!autoScroll) return;
+                      autoScroll.play();
+                    }}
+                    className={project.comingSoon ? "" : "group"}
                     {...obj}
                   >
                     {overlay}
@@ -201,6 +201,10 @@ export function ProjectsScreen() {
                         fontSize="14px"
                         textTransform="uppercase"
                         style={interStyles}
+                        _groupHover={{
+                          textDecor: "underline",
+                          color: "#072165",
+                        }}
                       >
                         {project.title}
                       </Text>

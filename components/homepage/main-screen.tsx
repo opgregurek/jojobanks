@@ -33,9 +33,9 @@ export function MainScreen() {
         maxWidth="367px"
         style={interStyles}
       >
-        This space showcaseS the evolving body of work of{" "}
-        <Span fontWeight={600}>JOJO BANKs</Span>, spanning across several years.
-        Explore THESE COLLECTIONS for insights into her creative journey.
+        This space showcases the evolving body of work of{" "}
+        <Span fontWeight={600}>Jojo Banks</Span>, spanning across several years.
+        Explore these collections for insights into her creative journey.
       </Text>
     </VStack>
   );

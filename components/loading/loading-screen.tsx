@@ -254,7 +254,7 @@ export default function LoadingScreen() {
             color="#A5A5A5"
             style={ibmPlexMonoStyles}
           >
-            Connecting you to the hyphae...
+            Connecting you to the hyphaeee...
           </Text>
         </VStack>
       </Box>

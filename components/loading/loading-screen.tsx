@@ -114,7 +114,7 @@ export default function LoadingScreen() {
           color="#A5A5A5"
           style={ibmPlexMonoStyles}
         >
-          New work coming soon
+          Coming soon
         </Text>
       </VStack>
     </Box>

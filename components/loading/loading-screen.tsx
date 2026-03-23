@@ -29,10 +29,8 @@ export default function LoadingScreen() {
     };
   }, []);
 
-  if (loading) {
     return (
       <Box
-        animation="fade-out ease 0.5s"
         w="100vw"
         h="100vh"
         position="fixed"
@@ -40,10 +38,6 @@ export default function LoadingScreen() {
         left={0}
         backgroundColor="#1E1E1E"
         zIndex={1000}
-        style={{
-          animationDelay: "infinite",
-          animationFillMode: "forwards",
-        }}
       >
         <Image
           src={noise}
@@ -254,7 +248,7 @@ export default function LoadingScreen() {
             color="#A5A5A5"
             style={ibmPlexMonoStyles}
           >
-            Coming soon
+            New work coming soon
           </Text>
         </VStack>
       </Box>

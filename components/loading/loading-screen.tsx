@@ -161,7 +161,7 @@ export default function LoadingScreen() {
             style={{ opacity: 0, animation: "fadeDown 0.4s ease forwards", animationDelay: "1.04s" }} />
 
           {/* Y: 168 */}
-          <path d="M141.749 181.262H154.058V168.954H141.749V181.262Z" fill="#FF54CF"
+          <path d="M141.749 181.262H154.058V168.954H141.749V181.262Z" fill="#ff8abb"
             style={{ opacity: 0, animation: "fadeDown 0.4s ease forwards, flash 1.2s ease-in-out 1.12s infinite", animationDelay: "1.12s" }} />
           <path d="M176.725 181.262H189.034V168.954H176.725V181.262Z" fill="#F0EEED"
             style={{ opacity: 0, animation: "fadeDown 0.4s ease forwards", animationDelay: "1.12s" }} />

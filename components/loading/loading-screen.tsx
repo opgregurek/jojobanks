@@ -41,7 +41,7 @@ export default function LoadingScreen() {
         backgroundColor="#1E1E1E"
         zIndex={1000}
         style={{
-          animationDelay: "1s",
+          animationDelay: "infinite",
           animationFillMode: "forwards",
         }}
       >
@@ -254,7 +254,7 @@ export default function LoadingScreen() {
             color="#A5A5A5"
             style={ibmPlexMonoStyles}
           >
-            Connecting you to the hyphaeee...
+            Coming soon
           </Text>
         </VStack>
       </Box>

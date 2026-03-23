@@ -23,7 +23,7 @@ export function MainScreen() {
         maxWidth="367px"
         style={interStyles}
       >
-        Curation & Design is a path to the self
+        Curation & Design is a path to the SELF
       </Text>
       <Text
         textAlign="center"

@@ -53,6 +53,12 @@ export default function LoadingScreen() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+        <style>{`
+          @keyframes flash {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        `}</style>
           <path d="M109.965 134.351H122.273V122.043H109.965V134.351Z" fill="#F0EEED" />
           <path d="M109.965 119.202H122.273V106.894H109.965V119.202Z" fill="#F0EEED" />
           <path d="M109.965 104.054H122.273V91.7451H109.965V104.054Z" fill="#F0EEED" />
@@ -85,7 +91,7 @@ export default function LoadingScreen() {
           <path d="M220.044 230.308H232.352V217.999H220.044V230.308Z" fill="#F0EEED" />
           <path d="M228.015 246.808H240.323V234.499H228.015V246.808Z" fill="#F0EEED" />
           <path d="M145.247 165.523H157.555V153.215H145.247V165.523Z" fill="#F0EEED" />
-          <path d="M141.749 181.262H154.058V168.954H141.749V181.262Z" fill="#FF54CF" />
+          <path d="M141.749 181.262H154.058V168.954H141.749V181.262Z" fill="#ff5cc6" style={{ animation: "flash 1.2s ease-in-out infinite" }} />
           <path d="M114.699 73.756H127.007V61.4476H114.699V73.756Z" fill="#F0EEED" />
           <path d="M130.699 73.7559H143.007V61.4475H130.699V73.7559Z" fill="#F0EEED" />
           <path d="M137 89.0576H149.308V76.7493H137V89.0576Z" fill="#F0EEED" />

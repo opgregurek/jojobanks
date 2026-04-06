@@ -1,34 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #e8e6e1;
+  --ink: #171717;
+  --ink-muted: #999;
+  --ink-ghost: #d0cdc8;
+  --nav-bg: #171717;
+  --nav-ink: #e8e6e1;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  overflow-y: auto;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Roboto Mono", "Courier New", monospace;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 p {
-  color: #171717;
+  color: var(--ink);
 }
 
 p::selection,
 a::selection {
-  color: #171717;
+  color: var(--ink);
   background: #ebff00;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

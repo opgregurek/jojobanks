@@ -1,22 +1,19 @@
-import MainLayout from "@/components/ui/main-layout";
-import { Provider } from "@/components/ui/provider";
+import type { Metadata } from "next";
 import "./globals.css";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "JOJO BANKS",
   description: "JOJO BANKS",
 };
 
-export default function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props;
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body>
-        <Provider>
-          <MainLayout>{children}</MainLayout>
-        </Provider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

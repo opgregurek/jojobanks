@@ -1,40 +1,30 @@
 "use client";
 
-import { Box, HStack } from "@chakra-ui/react";
-import DesktopNavBar from "./desktop-nav-bar";
-import MobileNavBar from "./mobile-nav-bar";
+import Link from "next/link";
+import styles from "./nav-bar.module.css";
 
-export interface NavItem {
-  label: string;
-  href: string;
-}
-
-export const NavItems: Array<NavItem> = [
-  { label: "Discover", href: "/" },
-  { label: "About", href: "/about" },
+const NAV_ITEMS = [
+  { label: "FRONT PAGE", href: "/" },
+  { label: "PROJECTS ON DISPLAY", href: "/projects" },
+  { label: "FORM", href: "/form" },
 ];
 
-const NavBar = () => {
+export default function NavBar() {
   return (
-    <HStack
-      alignItems="flex-start"
-      justifyContent="flex-end"
-      position="fixed"
-      top={0}
-      left={0}
-      width="100vw"
-      padding="24px"
-      background="transparent"
-      zIndex="10"
-    >
-      <Box width="100%" display={["block", "block", "block", "none"]}>
-        <MobileNavBar navItems={NavItems} />
-      </Box>
-      <Box width="100%" display={["none", "none", "none", "block"]}>
-        <DesktopNavBar navItems={NavItems} />
-      </Box>
-    </HStack>
+    <nav className={styles.nav}>
+      <div className={styles.dots}>
+        <span className={styles.dot} />
+        <span className={styles.dot} />
+      </div>
+      <ul className={styles.links}>
+        {NAV_ITEMS.map(({ label, href }) => (
+          <li key={href}>
+            <Link href={href} className={styles.link}>
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
-};
-
-export default NavBar;
+}

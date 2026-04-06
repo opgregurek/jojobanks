@@ -1,0 +1,283 @@
+/* ─────────────────────────────────────────
+   FLIP MECHANISM
+───────────────────────────────────────── */
+
+.flip-scene {
+  width: 100%;
+  height: 100vh;
+  perspective: 1800px;
+  overflow: hidden; /* no scroll on front */
+}
+
+/* Enable scroll when flipped */
+.flip-scene.is-back {
+  overflow-y: auto;
+}
+
+.flip-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.flip-card.is-flipped {
+  transform: rotateY(-180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  min-height: 100vh; /* 👈 allows back to grow */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-face--front {
+  transform: rotateY(0deg);
+}
+
+.flip-face--back {
+  transform: rotateY(180deg);
+  overflow-y: auto; /* 👈 enables scroll */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* interaction control */
+.flip-card.is-flipped .flip-face--front {
+  pointer-events: none;
+}
+
+.flip-card.is-flipped .flip-face--back {
+  pointer-events: auto;
+}
+
+/* ─────────────────────────────────────────
+   SHARED LAYOUT
+───────────────────────────────────────── */
+
+.face-inner {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Background */
+.face-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.face-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* 👈 always fills */
+  object-position: center; /* 👈 better default than left */
+}
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY
+───────────────────────────────────────── */
+.cursive-type {
+  color: #171717;
+  font-family: "Princess Signature", cursive;
+  font-size: 30px;
+  line-height: 40px;
+  letter-spacing: 0.48px;
+}
+
+.body {
+  color: #171717;
+  font-family: "Times New Roman";
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.2px;
+}
+
+.indent {
+  text-indent: 2em;
+}
+
+.mono-body,
+.mono-btn {
+  color: #171717;
+  font-family: "Roboto Mono";
+  font-size: 13px;
+  letter-spacing: -0.24px;
+  text-transform: uppercase;
+}
+
+.mono-body {
+  line-height: 18px;
+}
+
+.mono-btn {
+  text-decoration: none;
+}
+
+.mono-btn:hover {
+  text-decoration: underline;
+}
+
+/* ─────────────────────────────────────────
+   FRONT
+───────────────────────────────────────── */
+
+.front-top-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px 28px;
+  z-index: 2;
+}
+
+.intro {
+  position: absolute;
+  top: 40px;
+  left: 24px;
+  max-width: 320px;
+  z-index: 2;
+}
+
+.logo {
+  position: absolute;
+  bottom: 40px;
+  left: 24px;
+  width: 70%;
+  z-index: 2;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─────────────────────────────────────────
+   BACK
+───────────────────────────────────────── */
+
+.back-top-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  padding: 24px;
+}
+
+.back-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 100px 88px;
+}
+
+.back-left {
+  width: 420px;
+}
+
+.back-right {
+  display: flex;
+  gap: 80px;
+}
+
+.col-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding-right: 48px;
+}
+
+.section-spacing {
+  padding-bottom: 64px;
+}
+
+.section-title {
+  padding-bottom: 20px;
+}
+
+.contact {
+  padding-bottom: 48px;
+}
+
+/* ─────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  .flip-scene {
+    width: 100vw;
+  }
+
+  /* Stack layout */
+  .back-container {
+    flex-direction: column;
+    padding: 100px 20px 40px;
+    gap: 48px;
+  }
+
+  .back-left {
+    width: 100%;
+  }
+
+  .back-right {
+    flex-direction: column;
+    gap: 48px;
+    width: 100%;
+  }
+
+  .col-1,
+  .col-2 {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .col-2 {
+    gap: 40px;
+  }
+
+  /* Typography tweaks */
+  .body {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  .mono-body {
+    font-size: 12px;
+  }
+
+  /* Spacing rhythm */
+  .section-spacing {
+    padding-bottom: 48px;
+  }
+  
+  .section-title {
+    padding-bottom: 12px;
+  }
+
+  .contact {
+    padding-bottom: 32px;
+  }
+
+  /* Front adjustments */
+  .intro {
+    top: 80px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .logo {
+    width: 180%;
+  }
+}

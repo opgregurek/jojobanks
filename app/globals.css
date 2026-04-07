@@ -30,7 +30,7 @@ body {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: "Roboto Mono", "Courier New", monospace;
+  font-family: "Roboto Mono", "Times New Roman", monospace;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }

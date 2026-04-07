@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "JOJO BANKS",
-  description: "JOJO BANKS",
+  description: "Personal website and portfolio of Jojo Banks, a multidisciplinary designer.",
 };
 
 export default function RootLayout({

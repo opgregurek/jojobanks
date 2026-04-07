@@ -40,9 +40,8 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
 
       {/* Bottom Logo */}
       <div className="logo">
-        <img src="/images/logo.png" alt="" />
+        <img src="/images/logo.png" alt="Jojobanks" />
       </div>
-
     </div>
   );
 }

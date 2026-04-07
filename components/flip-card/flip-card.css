@@ -73,20 +73,17 @@
 .face-bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* 👈 always fills */
-  object-position: center; /* 👈 better default than left */
+  object-fit: cover; 
+  object-position: center;
+}
+
+.cursive-type {
+  height: 40px;
 }
 
 /* ─────────────────────────────────────────
    TYPOGRAPHY
 ───────────────────────────────────────── */
-.cursive-type {
-  color: #171717;
-  font-family: "Princess Signature", cursive;
-  font-size: 30px;
-  line-height: 40px;
-  letter-spacing: 0.48px;
-}
 
 .body {
   color: #171717;

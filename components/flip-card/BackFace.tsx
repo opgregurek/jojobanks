@@ -49,7 +49,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
           </p>
 
           <div className="cursive-type contact">
-            <p>Josephine</p>
+            <img src="/images/Josephine.svg" alt="Josephine" />
           </div>
         </div>
 

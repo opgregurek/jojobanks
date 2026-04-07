@@ -34,12 +34,12 @@ export default function BackFace({ onFlip }: BackFaceProps) {
           <p className="body indent">
             A visual portfolio is a reflection of your design sensibilities 
             and a cue to the type of designer you are. In a previous iteration, 
-            I had three quotes on the front page, until someone said 
-            “Jojo that is too many quotes”. I’ve since removed them in an effort to share my own voice.
+            I had three quotes on the front page. A friend had called out 
+            “Jojo that is too many quotes”, so in an effort to share my own voice I removed them.
           </p>
           <br></br>
           <p className="body">
-            Over the years I’ve learned that capturing the “essence” of others is the job, 
+            I’ve learned that capturing the “essence” of others is the job, 
             but capturing one’s own is the challenge. This domain will continue to be a 
             living document that best represents me. Shedding its skin and growing a new.
           </p>

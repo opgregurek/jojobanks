@@ -39,9 +39,9 @@ export default function BackFace({ onFlip }: BackFaceProps) {
           </p>
           <br></br>
           <p className="body">
-            I’ve learned that capturing the “essence” of others is the job, 
-            but capturing one’s own is the challenge. This domain will continue to be a 
-            living document that best represents me. Shedding its skin and growing a new.
+            Capturing the “essence” of others is the job, and capturing one’s own 
+            is the challenge. This domain will continue to be a 
+            living document that best represents me. Shedding skin and forming new.
           </p>
           <br></br>
           <p className="body section-spacing">

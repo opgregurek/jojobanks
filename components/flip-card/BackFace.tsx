@@ -10,7 +10,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
       
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/back-landing.png" alt="" />
+        <img src="/images/background.png" alt="" />
       </div>
 
       {/* Top bar */}
@@ -31,8 +31,8 @@ export default function BackFace({ onFlip }: BackFaceProps) {
 
           <p className="mono-body section-title">DEAR READER</p>
 
-          <p className="body indent">
-            A visual portfolio is a reflection of your design sensibilities 
+          <p className="body">
+            <span className="gap" />A visual portfolio is a reflection of your design sensibilities 
             and a cue to the type of designer you are. In a previous iteration, 
             I had three quotes on the front page. A friend had called out 
             “Jojo that is too many quotes”, so in an effort to share my own voice I removed them.
@@ -74,8 +74,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
               <p className="body">
                 UX/UI Design<br />
                 Creative Direction<br />
-                Brand Identity<br />
-                3D Modeling
+                Brand Identity
               </p>
             </div>
 

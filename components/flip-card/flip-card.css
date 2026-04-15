@@ -6,10 +6,9 @@
   width: 100%;
   height: 100vh;
   perspective: 1800px;
-  overflow: hidden; /* no scroll on front */
+  overflow: hidden;
 }
 
-/* Enable scroll when flipped */
 .flip-scene.is-back {
   overflow-y: auto;
 }
@@ -29,7 +28,7 @@
 .flip-face {
   position: absolute;
   inset: 0;
-  min-height: 100vh; /* 👈 allows back to grow */
+  min-height: 100vh;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -40,11 +39,10 @@
 
 .flip-face--back {
   transform: rotateY(180deg);
-  overflow-y: auto; /* 👈 enables scroll */
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-/* interaction control */
 .flip-card.is-flipped .flip-face--front {
   pointer-events: none;
 }
@@ -61,9 +59,11 @@
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
+  display: flex;
+  flex-direction: column;   
+  align-items: stretch;
 }
 
-/* Background */
 .face-bg {
   position: absolute;
   inset: 0;
@@ -73,12 +73,8 @@
 .face-bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   object-position: center;
-}
-
-.cursive-type {
-  height: 40px;
 }
 
 /* ─────────────────────────────────────────
@@ -93,17 +89,22 @@
   letter-spacing: -0.2px;
 }
 
+.white {
+  color: #ffffff;
+}
+
 .indent {
   text-indent: 2em;
 }
 
 .mono-body,
 .mono-btn {
-  color: #171717;
   font-family: "Roboto Mono";
-  font-size: 13px;
+  font-size: 12px;
   letter-spacing: -0.24px;
   text-transform: uppercase;
+  line-height: 1;      
+  vertical-align: top;
 }
 
 .mono-body {
@@ -112,6 +113,10 @@
 
 .mono-btn {
   text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .mono-btn:hover {
@@ -119,37 +124,90 @@
 }
 
 /* ─────────────────────────────────────────
-   FRONT
+   FRONT — BORDER WRAPPER
 ───────────────────────────────────────── */
 
-.front-top-bar {
+.front-border {
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 20px 28px;
+  inset: 0;
+  height: 100%;
   z-index: 2;
+  border-style: solid;
+  border-width: 14px 6px 40px 6px;
+  border-color: #c8c4b0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 24px 24px;
+  gap: 120px;
 }
+
+/* ─────────────────────────────────────────
+   FRONT — COLUMNS
+───────────────────────────────────────── */
 
 .intro {
-  position: absolute;
-  top: 40px;
-  left: 24px;
-  max-width: 320px;
+  flex: 2;
+  max-width: 460px;
   z-index: 2;
 }
 
-.logo {
-  position: absolute;
-  bottom: 40px;
-  left: 24px;
-  width: 70%;
-  z-index: 2;
+.front-contact {
+    z-index: 2;
 }
 
-.logo img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Read More pushed to far right with auto margin */
+.front-top-bar {
+  flex: 0 0 auto;
+  margin-left: auto;
+  z-index: 2;
+  align-self: flex-start;
+}
+
+/* ─────────────────────────────────────────
+   FRONT — BIO TEXT HELPERS
+───────────────────────────────────────── */
+
+/* Fixed-width gap within a line of text */
+.gap {
+  display: inline-block;
+  width: 2.5em;
+}
+
+/* First-line indent block */
+.indent-block {
+  display: inline-block;
+  width: 2em;
+}
+
+/* Yellow dot before WORK */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #F0FD5C;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+/* WORK link styling */
+.work-link {
+  color: #F0FD5C;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  font-family: "Roboto Mono";
+  font-size: 13px;
+  letter-spacing: -0.24px;
+  text-transform: uppercase;
+}
+
+/* Mobile read-more — hidden on desktop */
+.read-more-mobile {
+  display: none;
 }
 
 /* ─────────────────────────────────────────
@@ -207,8 +265,9 @@
   padding-bottom: 48px;
 }
 
+
 /* ─────────────────────────────────────────
-   MOBILE
+   MOBILE  ≤ 768px
 ───────────────────────────────────────── */
 
 @media (max-width: 768px) {
@@ -217,7 +276,32 @@
     width: 100vw;
   }
 
-  /* Stack layout */
+  /* ── Front border: stack columns ── */
+  .front-border {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 16px 48px 16px;
+  }
+
+  .intro {
+    max-width: 275px;
+  }
+
+  /* hide desktop read more on mobile */
+  .front-top-bar {
+    display: none;
+  }
+
+  /* ── Pinned Read More above bottom border ── */
+  .read-more-mobile {
+    display: block;
+    position: absolute;
+    bottom: 20px;   /* sits just above the 6px bottom border */
+    right: 22px;    /* sits just inside the 14px right border */
+    color: #ffffff;
+  }
+
+  /* ── Back layout ── */
   .back-container {
     flex-direction: column;
     padding: 100px 20px 40px;
@@ -231,7 +315,7 @@
   .back-right {
     flex-direction: column;
     gap: 48px;
-    width: 100%;
+    width: 100%; 
   }
 
   .col-1,
@@ -258,23 +342,12 @@
   .section-spacing {
     padding-bottom: 48px;
   }
-  
+
   .section-title {
     padding-bottom: 12px;
   }
 
   .contact {
-    padding-bottom: 32px;
-  }
-
-  /* Front adjustments */
-  .intro {
-    top: 80px;
-    left: 16px;
-    right: 16px;
-  }
-
-  .logo {
-    width: 180%;
+    padding-bottom: 72px;
   }
 }

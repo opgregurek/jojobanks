@@ -10,10 +10,6 @@ const NAV_ITEMS = [
 export default function NavBar() {
   return (
     <nav className={styles.nav}>
-      <div className={styles.dots}>
-        <span className={styles.dot} />
-        <span className={styles.dot} />
-      </div>
       <ul className={styles.links}>
         {NAV_ITEMS.map(({ label, href }) => (
           <li key={href}>

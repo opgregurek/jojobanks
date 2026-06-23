@@ -4,9 +4,7 @@ import Link from "next/link";
 import styles from "./nav-bar.module.css";
 
 const NAV_ITEMS = [
-  { label: "FRONT PAGE", href: "/" },
-  { label: "PROJECTS ON DISPLAY", href: "/projects" },
-  { label: "FORM", href: "/form" },
+  { label: "BACK TO MAIN", href: "/" },
 ];
 
 export default function NavBar() {

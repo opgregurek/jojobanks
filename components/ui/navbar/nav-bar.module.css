@@ -1,6 +1,5 @@
 .nav {
   width: 100%;
-  background: var(--nav-bg);
   padding: 24px 24px 8px 24px;
   display: flex;
   align-items: flex-start;
@@ -16,10 +15,10 @@
 
 .dot {
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: var(--nav-ink);
+  background: #131313;
 }
 
 .links {
@@ -30,26 +29,16 @@
 }
 
 .link {
-  font-family: "Roboto Mono", "Courier New", monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--nav-ink);
-  line-height: 2;
+  color: #131313;
   text-decoration: none;
-  display: inline-block;
 }
 
 .link:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-/* ── Mobile ── */
-@media (max-width: 768px) {
-  .nav {
-    padding: 16px 16px 8px 16px;
-    gap: 40px;
-  }
 }

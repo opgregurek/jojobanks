@@ -1,5 +1,7 @@
 "use client";
 
+import WorkHover from "../work-hover/WorkHover";
+
 interface FrontFaceProps {
   onFlip: () => void;
 }
@@ -10,7 +12,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
 
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/front-landing.png" alt="" />
+        <img src="/images/jojo-banks-portfolio.png" alt="Digital portfolio by Jojo Banks" />
       </div>
 
       {/* ── Page border wrapper ── */}
@@ -27,7 +29,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             in the creative space.
             Take a look at her{" "}
             <span className="dot" />
-            <span className="work-link">WORK</span>
+            <WorkHover />
             {" "} <span className="gap" />for insights into her craft and style.
           </p>
         </div>

@@ -1,58 +1,165 @@
 "use client";
 
-import WorkHover from "../work-hover/WorkHover";
+import { useEffect, useState, type WheelEvent } from "react";
 
 interface FrontFaceProps {
   onFlip: () => void;
 }
 
+const PROJECT_MEDIA = [
+  { src: " ", poster: "/images/jojo-banks-pic.jpg" },
+  { src: "/images/jojo-banks-moribana.mp4", poster: "/images/jojo-banks-pic.jpg" },
+  { src: " ", poster: "/images/jojo-banks-objects.jpg" },
+  { src: "/images/jojo-banks-apas-port-harvest-hall-reel.mp4", poster: "/images/jojo-banks-objects.jpg" },
+];
+
 export default function FrontFace({ onFlip }: FrontFaceProps) {
+  const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
+  const [isTouchViewport, setIsTouchViewport] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(pointer: coarse)");
+    const handleMediaChange = () => setIsTouchViewport(mediaQuery.matches);
+    handleMediaChange();
+
+    const hideCursor = () => {
+      setCursor((prev) => ({ ...prev, visible: false }));
+    };
+
+    const handleMouseMove = (event: MouseEvent) => {
+      if (
+        event.clientX < 0 ||
+        event.clientY < 0 ||
+        event.clientX > window.innerWidth ||
+        event.clientY > window.innerHeight
+      ) {
+        hideCursor();
+        return;
+      }
+      setCursor({ x: event.clientX, y: event.clientY, visible: true });
+    };
+
+    const handleMouseLeave = () => {
+      hideCursor();
+    };
+
+    const handleMouseOut = (event: MouseEvent) => {
+      if (!event.relatedTarget) {
+        hideCursor();
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        hideCursor();
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("mouseout", handleMouseOut);
+    window.addEventListener("blur", hideCursor);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    mediaQuery.addEventListener("change", handleMediaChange);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("mouseout", handleMouseOut);
+      window.removeEventListener("blur", hideCursor);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      mediaQuery.removeEventListener("change", handleMediaChange);
+    };
+  }, []);
+
+  const mediaItems = isTouchViewport ? [...PROJECT_MEDIA, ...PROJECT_MEDIA] : PROJECT_MEDIA;
+
+  const handleProjectStripWheel = (event: WheelEvent<HTMLDivElement>) => {
+    if (isTouchViewport) return;
+    if (event.deltaY === 0) return;
+
+    event.currentTarget.scrollLeft += event.deltaY;
+    event.preventDefault();
+  };
+
   return (
     <div className="face-inner">
-
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/jojo-banks-portfolio.png" alt="Digital portfolio by Jojo Banks" />
+        <img src="/images/background.png" alt="Digital portfolio by Jojo Banks" />
       </div>
 
-      {/* ── Page border wrapper ── */}
       <div className="front-border">
+        <div className="landing-info-frame">
+          <p className="front-meta-text front-name white">JOJO BANKS</p>
+          <div className="front-contact">
+            <a
+              className="front-meta-text white front-contact-link"
+              href="https://www.linkedin.com/in/jojobanks/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LINKEDIN
+            </a>
+            <a
+              className="front-meta-text white front-contact-link"
+              href="https://www.instagram.com/jojobanksi"
+              target="_blank"
+              rel="noreferrer"
+            >
+              INSTAGRAM
+            </a>
+            <br></br>
+            <p className="front-meta-text front-contact white">hellojojobanks@gmail.com</p>
+          </div>
+        </div>
 
-        {/* Top Left — Bio */}
-        <div className="intro">
-          <p className="mono-body white">
-            <span className="gap" />
-            A showcase of the evolving body of work of 
-            <span className="gap" />Jojo Banks
-            <span className="gap" />Spanning several years
-            <span className="gap" />
-            in the creative space.
-            Take a look at her{" "}
-            <span className="dot" />
-            <WorkHover />
-            {" "} <span className="gap" />for insights into her craft and style.
+        <div className="landing-projects-frame">
+          <div className="front-top-bar">
+            <button
+              className="front-arrow-btn white"
+              onClick={onFlip}
+              aria-label="Open about page"
+            >
+              ↗
+            </button>
+          </div>
+
+          <p className="front-intro-copy white">
+            <span className="gap" />Jojo Banks (Josephine Nguyen) is a multidisciplinary digital designer based in Tokyo.
+            This spaces showcases her work and style spanning several years in the creative space.
           </p>
+
+          <div
+            className="project-strip"
+            aria-label="Selected work preview"
+            onWheel={handleProjectStripWheel}
+          >
+            {mediaItems.map((item, index) => (
+              <video
+                key={`${item.src}-${index}`}
+                src={item.src}
+                poster={item.poster}
+                className="project-strip-image"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                aria-label={`Portfolio placeholder ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
-
-        {/* Top Center — Contact */}
-        <div className="front-contact">
-          <p className="mono-body white">Contact details</p>
-          <p className="mono-body white"><span className="gap" />hellojojobanks@gmail.com</p>
-        </div>
-
-        {/* Top Right — Read More (desktop) */}
-        <div className="front-top-bar">
-          <button className="mono-btn white" onClick={onFlip}>
-            READ MORE
-          </button>
-        </div>
-
-        {/* Bottom Right — Read More (mobile only, pinned above border) */}
-        <button className="mono-btn read-more-mobile" onClick={onFlip}>
-          READ MORE
-        </button>
-
       </div>
+
+      {!isTouchViewport && cursor.visible && (
+        <div
+          className="cursor-circle"
+          aria-hidden="true"
+          style={{ transform: `translate(${cursor.x}px, ${cursor.y}px)` }}
+        />
+      )}
     </div>
   );
 }

@@ -6,7 +6,7 @@
 
 :root {
   --bg: #e8e6e1;
-  --ink: #171717;
+  --ink: #232323;
   --ink-muted: #999;
   --ink-ghost: #d0cdc8;
   --nav-bg: #171717;
@@ -49,4 +49,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-

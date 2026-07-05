@@ -6,11 +6,11 @@ interface FrontFaceProps {
   onFlip: () => void;
 }
 
-const PROJECT_IMAGES = [
-  "/images/img1.png",
-  "/images/img2.png",
-  "/images/img3.png",
-  "/images/img4.png",
+const PROJECT_MEDIA = [
+  { src: "/images/project-1.mp4", poster: "/images/img1.png" },
+  { src: "/images/project-2.mp4", poster: "/images/img2.png" },
+  { src: "/images/project-3.mp4", poster: "/images/img3.png" },
+  { src: "/images/project-4.mp4", poster: "/images/img4.png" },
 ];
 
 export default function FrontFace({ onFlip }: FrontFaceProps) {
@@ -41,7 +41,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
     };
   }, []);
 
-  const images = isTouchViewport ? [...PROJECT_IMAGES, ...PROJECT_IMAGES] : PROJECT_IMAGES;
+  const mediaItems = isTouchViewport ? [...PROJECT_MEDIA, ...PROJECT_MEDIA] : PROJECT_MEDIA;
 
   return (
     <div className="face-inner">
@@ -53,17 +53,24 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
       {/* ── Page border wrapper ── */}
       <div className="front-border">
         <div className="landing-info-frame">
-          <p className="front-meta-text white">JOJO BANKS</p>
+          <p className="front-meta-text front-name white">JOJO BANKS</p>
           <div className="front-contact">
-<<<<<<< HEAD
-            <p className="front-meta-text white">LINKEDIN</p>
-            <p className="front-meta-text white">INSTAGRAM</p>
-            <br></br>
-            <p className="front-meta-text white">hellojojobanks@gmail.com</p>
-=======
-            <p className="front-meta-text white">CONTACT</p>
-            <p className="front-meta-text white">Linkedin</p>
->>>>>>> 364a468a8fec50f2f799c626fe721252341cee20
+            <a
+              className="front-meta-text white front-contact-link"
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LINKEDIN
+            </a>
+            <a
+              className="front-meta-text white front-contact-link"
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              INSTAGRAM
+            </a>
           </div>
         </div>
 
@@ -85,12 +92,18 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
           </p>
 
           <div className="project-strip" aria-label="Selected work preview">
-            {images.map((src, index) => (
-              <img
-                key={`${src}-${index}`}
-                src={src}
-                alt={`Portfolio placeholder ${index + 1}`}
+            {mediaItems.map((item, index) => (
+              <video
+                key={`${item.src}-${index}`}
+                src={item.src}
+                poster={item.poster}
                 className="project-strip-image"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                aria-label={`Portfolio placeholder ${index + 1}`}
               />
             ))}
           </div>

@@ -9,7 +9,7 @@ export default function FlipCard() {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div className="flip-scene">
+    <div className={`flip-scene ${isFlipped ? "is-back" : ""}`}>
       <div className={`flip-card ${isFlipped ? "is-flipped" : ""}`}>
         <div className="flip-face flip-face--front">
           <FrontFace onFlip={() => setIsFlipped(true)} />

@@ -7,10 +7,10 @@ interface FrontFaceProps {
 }
 
 const PROJECT_MEDIA = [
-  { src: "/images/project-1.mp4", poster: "/images/img1.png" },
-  { src: "/images/project-2.mp4", poster: "/images/img2.png" },
-  { src: "/images/project-3.mp4", poster: "/images/img3.png" },
-  { src: "/images/project-4.mp4", poster: "/images/img4.png" },
+  { src: "/images/project-1.mp4", poster: "/images/jojo-banks-pic.jpg" },
+  { src: "/images/project-2.mp4", poster: "/images/jojo-banks-moribana.jpg" },
+  { src: "/images/project-3.mp4", poster: "/images/jojo-banks-objects.jpg" },
+  { src: "/images/project-4.mp4", poster: "/images/jojo-banks-apas-port-harvest-hall-reel.mp4" },
 ];
 
 export default function FrontFace({ onFlip }: FrontFaceProps) {
@@ -57,7 +57,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
           <div className="front-contact">
             <a
               className="front-meta-text white front-contact-link"
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/jojobanks/"
               target="_blank"
               rel="noreferrer"
             >
@@ -65,7 +65,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             </a>
             <a
               className="front-meta-text white front-contact-link"
-              href="https://www.instagram.com/"
+              href="https://www.instagram.com/jojobanksi"
               target="_blank"
               rel="noreferrer"
             >

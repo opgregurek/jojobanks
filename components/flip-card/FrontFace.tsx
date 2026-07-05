@@ -11,7 +11,6 @@ const PROJECT_IMAGES = [
   "/images/img2.png",
   "/images/img3.png",
   "/images/img4.png",
-  "/images/img5.png",
 ];
 
 export default function FrontFace({ onFlip }: FrontFaceProps) {
@@ -56,7 +55,9 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
         <div className="landing-info-frame">
           <p className="front-meta-text white">JOJO BANKS</p>
           <div className="front-contact">
-            <p className="front-meta-text white">CONTACT</p>
+            <p className="front-meta-text white">LINKEDIN</p>
+            <p className="front-meta-text white">INSTAGRAM</p>
+            <br></br>
             <p className="front-meta-text white">hellojojobanks@gmail.com</p>
           </div>
         </div>
@@ -73,7 +74,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
           </div>
 
           <p className="front-intro-copy white">
-            Jojo Banks (Josephine Nguyen) is a multidisciplinary digital designer based in Tokyo.
+            <span className="gap" />Jojo Banks (Josephine Nguyen) is a multidisciplinary digital designer based in Tokyo.
             This is a showcase of her evolving body of work spanning several years in the creative
             space.
           </p>

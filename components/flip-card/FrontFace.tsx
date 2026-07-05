@@ -71,6 +71,8 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             >
               INSTAGRAM
             </a>
+            <br></br>
+            <p className="front-meta-text front-contact white">hellojojobanks@gmail.com</p>
           </div>
         </div>
 
@@ -87,8 +89,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
 
           <p className="front-intro-copy white">
             <span className="gap" />Jojo Banks (Josephine Nguyen) is a multidisciplinary digital designer based in Tokyo.
-            This is a showcase of her evolving body of work spanning several years in the creative
-            space.
+            This spaces showcases her work and style spanning several years in the creative space.
           </p>
 
           <div className="project-strip" aria-label="Selected work preview">

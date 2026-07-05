@@ -82,7 +82,7 @@
 ───────────────────────────────────────── */
 
 .body {
-  color: #171717;
+  color: #232323;
   font-family: "Times New Roman";
   font-size: 16px;
   line-height: 22px;
@@ -169,7 +169,7 @@
 }
 
 .front-meta-text {
-  color: #ffffff;
+  color: #232323;
   font-family: "Roboto Mono", monospace;
   font-size: 12px;
   letter-spacing: -0.24px;
@@ -187,6 +187,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  color: #232323;
   font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   font-size: 48px;
   line-height: 1;
@@ -195,7 +196,7 @@
 
 .front-intro-copy {
   max-width: 460px;
-  color: #ffffff;
+  color: #232323;
   font-family: "Roboto Mono", monospace;
   font-size: 12px;
   letter-spacing: -0.24px;

@@ -48,7 +48,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
     <div className="face-inner">
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/jojo-banks-portfolio.png" alt="Digital portfolio by Jojo Banks" />
+        <img src="/images/background.png" alt="Digital portfolio by Jojo Banks" />
       </div>
 
       {/* ── Page border wrapper ── */}
@@ -57,7 +57,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
           <p className="front-meta-text white">JOJO BANKS</p>
           <div className="front-contact">
             <p className="front-meta-text white">CONTACT</p>
-            <p className="front-meta-text white">hellojojobanks@gmail.com</p>
+            <p className="front-meta-text white">Linkedin</p>
           </div>
         </div>
 

@@ -89,7 +89,6 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
         <img src="/images/background.png" alt="Digital portfolio by Jojo Banks" />
       </div>
 
-      {/* ── Page border wrapper ── */}
       <div className="front-border">
         <div className="landing-info-frame">
           <p className="front-meta-text front-name white">JOJO BANKS</p>

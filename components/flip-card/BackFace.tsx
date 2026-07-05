@@ -24,10 +24,6 @@ export default function BackFace({ onFlip }: BackFaceProps) {
         
         {/* LEFT */}
         <div className="back-left">
-          <div className="mono-body section-spacing">
-            <p>HELLOJOJOBANKS@GMAIL.COM</p>
-            <p>INSTAGRAM.COM/JOJOBANKSI</p>
-          </div>
 
           <p className="mono-body section-title">DEAR READER</p>
 

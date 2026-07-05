@@ -43,6 +43,16 @@
   -webkit-overflow-scrolling: touch;
 }
 
+@media (min-width: 769px) {
+  .flip-scene.is-back {
+    overflow-y: hidden;
+  }
+
+  .flip-face--back {
+    overflow-y: hidden;
+  }
+}
+
 .flip-card.is-flipped .flip-face--front {
   pointer-events: none;
 }

@@ -35,6 +35,8 @@
 
 .flip-face--front {
   transform: rotateY(0deg);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .flip-face--back {
@@ -123,91 +125,143 @@
   text-decoration: underline;
 }
 
-/* ─────────────────────────────────────────
-   FRONT — BORDER WRAPPER
-───────────────────────────────────────── */
-
-.front-border {
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  z-index: 2;
-  border-style: solid;
-  border-width: 14px 6px 40px 6px;
-  border-color: #c8c4b0;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 24px 24px;
-  gap: 120px;
-}
-
-/* ─────────────────────────────────────────
-   FRONT — COLUMNS
-───────────────────────────────────────── */
-
-.intro {
-  flex: 2;
-  max-width: 460px;
-  z-index: 2;
-}
-
-.front-contact {
-    z-index: 2;
-}
-
-/* Read More pushed to far right with auto margin */
-.front-top-bar {
-  flex: 0 0 auto;
-  margin-left: auto;
-  z-index: 2;
-  align-self: flex-start;
-}
-
-/* ─────────────────────────────────────────
-   FRONT — BIO TEXT HELPERS
-───────────────────────────────────────── */
-
-/* Fixed-width gap within a line of text */
 .gap {
   display: inline-block;
   width: 2.5em;
 }
 
-/* First-line indent block */
-.indent-block {
-  display: inline-block;
-  width: 2em;
+/* ─────────────────────────────────────────
+   FRONT
+───────────────────────────────────────── */
+
+.face-inner--front {
+  padding: 16px;
 }
 
-/* Yellow dot before WORK */
-.dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  background-color: #F0FD5C;
-  border-radius: 50%;
-  margin-right: 4px;
-  vertical-align: middle;
+.front-shell {
   position: relative;
-  top: -1px;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  gap: 16px;
+  min-height: calc(100vh - 32px);
+  min-height: calc(100svh - 32px);
 }
 
-/* WORK link styling */
+.front-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(23, 23, 23, 0.2);
+  background: rgba(248, 247, 242, 0.84);
+  min-height: 100%;
+}
+
+.front-frame--info {
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.front-wordmark {
+  font-family: "Times New Roman";
+  font-size: clamp(2.75rem, 5vw, 4.75rem);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+  max-width: 180px;
+}
+
+.front-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.front-frame--content {
+  padding: 24px;
+  overflow: hidden;
+}
+
+.front-content-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.front-intro {
+  max-width: 420px;
+  line-height: 1.5;
+}
+
+.front-arrow {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(23, 23, 23, 0.7);
+  border-radius: 999px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.front-arrow:hover {
+  text-decoration: none;
+  background: rgba(23, 23, 23, 0.06);
+}
+
+.front-center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #171717;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.front-projects {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: end;
+  padding-top: 72px;
+}
+
+.front-project-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.front-project-image-frame {
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  background: #e0ddd5;
+  overflow: hidden;
+}
+
+.front-project-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: grayscale(100%);
+}
+
+.front-project-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  line-height: 1.4;
+}
+
 .work-link {
-  color: #F0FD5C;
   text-decoration: underline;
   text-underline-offset: 3px;
-  cursor: pointer;
-  font-family: "Roboto Mono";
-  font-size: 13px;
-  letter-spacing: -0.24px;
-  text-transform: uppercase;
-}
-
-/* Mobile read-more — hidden on desktop */
-.read-more-mobile {
-  display: none;
 }
 
 /* ─────────────────────────────────────────
@@ -346,29 +400,56 @@
     overflow: visible;
   }
 
-  /* ── Front border: stack columns ── */
-  .front-border {
+  .face-inner--front {
+    padding: 12px;
+  }
+
+  .front-shell {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    min-height: auto;
+  }
+
+  .front-frame--content {
+    order: 1;
+    min-height: 68vh;
+    min-height: 68svh;
+    padding: 20px;
+  }
+
+  .front-frame--info {
+    order: 2;
+    min-height: 220px;
+    padding: 20px;
+    gap: 40px;
+  }
+
+  .front-content-top {
+    gap: 16px;
+  }
+
+  .front-intro {
+    max-width: 240px;
+  }
+
+  .front-wordmark {
+    max-width: 140px;
+    font-size: clamp(2.5rem, 14vw, 4rem);
+  }
+
+  .front-projects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding-top: 56px;
+  }
+
+  .front-project-meta {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 24px 16px 48px 16px;
+    gap: 2px;
   }
 
-  .intro {
-    max-width: 275px;
-  }
-
-  /* hide desktop read more on mobile */
-  .front-top-bar {
-    display: none;
-  }
-
-  /* ── Pinned Read More above bottom border ── */
-  .read-more-mobile {
-    display: block;
-    position: absolute;
-    bottom: 20px;   /* sits just above the 6px bottom border */
-    right: 22px;    /* sits just inside the 14px right border */
-    color: #ffffff;
+  .front-center-dot {
+    top: 48%;
   }
 
   /* ── Back layout ── */

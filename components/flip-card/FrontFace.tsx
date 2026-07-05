@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type WheelEvent } from "react";
 
 interface FrontFaceProps {
   onFlip: () => void;
@@ -74,6 +74,14 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
 
   const mediaItems = isTouchViewport ? [...PROJECT_MEDIA, ...PROJECT_MEDIA] : PROJECT_MEDIA;
 
+  const handleProjectStripWheel = (event: WheelEvent<HTMLDivElement>) => {
+    if (isTouchViewport) return;
+    if (event.deltaY === 0) return;
+
+    event.currentTarget.scrollLeft += event.deltaY;
+    event.preventDefault();
+  };
+
   return (
     <div className="face-inner">
       {/* Background */}
@@ -123,7 +131,11 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             This spaces showcases her work and style spanning several years in the creative space.
           </p>
 
-          <div className="project-strip" aria-label="Selected work preview">
+          <div
+            className="project-strip"
+            aria-label="Selected work preview"
+            onWheel={handleProjectStripWheel}
+          >
             {mediaItems.map((item, index) => (
               <video
                 key={`${item.src}-${index}`}

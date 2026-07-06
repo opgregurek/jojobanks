@@ -8,9 +8,9 @@ interface FrontFaceProps {
 
 const PROJECT_MEDIA = [
   { src: " ", poster: "/images/jojo-banks-pic.jpg" },
-  { src: "/images/jojo-banks-moribana.mp4", poster: "/images/jojo-banks-pic.jpg" },
+  { src: "/images/jojo-banks-moribana.mp4", poster: "/images/jojo-banks-placeholder.jpg" },
   { src: " ", poster: "/images/jojo-banks-objects.jpg" },
-  { src: "/images/jojo-banks-apas-port-harvest-hall-reel.mp4", poster: "/images/jojo-banks-objects.jpg" },
+  { src: "/images/jojo-banks-apas-port-harvest-hall-reel.mp4", poster: "/images/jojo-banks-placeholder.jpg" },
 ];
 
 export default function FrontFace({ onFlip }: FrontFaceProps) {

@@ -232,6 +232,7 @@
   aspect-ratio: 222 / 277;
   object-fit: cover;
   display: block;
+  pointer-events: none;
 }
 
 .flip-face--front,
@@ -425,6 +426,8 @@
     overflow-y: hidden;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
     scrollbar-width: none;
     padding-bottom: 0;
     margin-bottom: 16px;
@@ -439,6 +442,7 @@
     flex: 0 0 auto;
     width: 222px;
     height: 277px;
+    scroll-snap-align: start;
   }
 
   .landing-info-frame {

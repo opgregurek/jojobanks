@@ -7,9 +7,9 @@ interface FrontFaceProps {
 }
 
 const PROJECT_MEDIA = [
-  { src: " ", poster: "/images/jojo-banks-pic.jpg" },
+  { poster: "/images/jojo-banks-pic.jpg" },
   { src: "/images/jojo-banks-moribana.mp4", poster: "/images/jojo-banks-pic.jpg" },
-  { src: " ", poster: "/images/jojo-banks-objects.jpg" },
+  { poster: "/images/jojo-banks-objects.jpg" },
   { src: "/images/jojo-banks-apas-port-harvest-hall-reel.mp4", poster: "/images/jojo-banks-objects.jpg" },
 ];
 
@@ -136,18 +136,27 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             onWheel={handleProjectStripWheel}
           >
             {mediaItems.map((item, index) => (
-              <video
-                key={`${item.src}-${index}`}
-                src={item.src}
-                poster={item.poster}
-                className="project-strip-image"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                aria-label={`Portfolio placeholder ${index + 1}`}
-              />
+              item.src ? (
+                <video
+                  key={`${item.src}-${index}`}
+                  src={item.src}
+                  poster={item.poster}
+                  className="project-strip-image"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label={`Portfolio placeholder ${index + 1}`}
+                />
+              ) : (
+                <img
+                  key={`${item.poster}-${index}`}
+                  src={item.poster}
+                  alt={`Portfolio placeholder ${index + 1}`}
+                  className="project-strip-image"
+                />
+              )
             ))}
           </div>
         </div>

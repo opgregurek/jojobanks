@@ -6,7 +6,8 @@
   width: 100%;
   height: 100vh;
   perspective: 1800px;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .flip-scene.is-back {
@@ -183,6 +184,13 @@
   text-decoration: none;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .front-contact-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+}
+
 .front-meta-text {
   color: #232323;
   font-family: "Roboto Mono", monospace;
@@ -235,24 +243,24 @@
   pointer-events: none;
 }
 
-.flip-face--front,
-.flip-face--front * {
-  cursor: none;
-}
+@media (max-width: 768px) {
+  .project-strip {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    scrollbar-width: none;
+  }
 
-.cursor-circle {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 11px;
-  height: 11px;
-  background: #232323;
-  border-radius: 999px;
-  pointer-events: none;
-  transform: translate(-100px, -100px);
-  margin-left: -5.5px;
-  margin-top: -5.5px;
-  z-index: 30;
+  .project-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-strip-image {
+    flex: 0 0 clamp(180px, 62vw, 280px);
+    min-width: clamp(180px, 62vw, 280px);
+  }
 }
 
 /* ─────────────────────────────────────────

@@ -14,60 +14,15 @@ const PROJECT_MEDIA = [
 ];
 
 export default function FrontFace({ onFlip }: FrontFaceProps) {
-  const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
   const [isTouchViewport, setIsTouchViewport] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(pointer: coarse)");
     const handleMediaChange = () => setIsTouchViewport(mediaQuery.matches);
     handleMediaChange();
-
-    const hideCursor = () => {
-      setCursor((prev) => ({ ...prev, visible: false }));
-    };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      if (
-        event.clientX < 0 ||
-        event.clientY < 0 ||
-        event.clientX > window.innerWidth ||
-        event.clientY > window.innerHeight
-      ) {
-        hideCursor();
-        return;
-      }
-      setCursor({ x: event.clientX, y: event.clientY, visible: true });
-    };
-
-    const handleMouseLeave = () => {
-      hideCursor();
-    };
-
-    const handleMouseOut = (event: MouseEvent) => {
-      if (!event.relatedTarget) {
-        hideCursor();
-      }
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        hideCursor();
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", handleMouseLeave);
-    window.addEventListener("mouseout", handleMouseOut);
-    window.addEventListener("blur", hideCursor);
-    document.addEventListener("visibilitychange", handleVisibilityChange);
     mediaQuery.addEventListener("change", handleMediaChange);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", handleMouseLeave);
-      window.removeEventListener("mouseout", handleMouseOut);
-      window.removeEventListener("blur", hideCursor);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
       mediaQuery.removeEventListener("change", handleMediaChange);
     };
   }, []);
@@ -161,14 +116,6 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
           </div>
         </div>
       </div>
-
-      {!isTouchViewport && cursor.visible && (
-        <div
-          className="cursor-circle"
-          aria-hidden="true"
-          style={{ transform: `translate(${cursor.x}px, ${cursor.y}px)` }}
-        />
-      )}
     </div>
   );
 }

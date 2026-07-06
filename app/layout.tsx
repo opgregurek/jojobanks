@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SiteCursor from "@/components/ui/site-cursor";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -110,7 +111,10 @@ export default function RootLayout({
         />
       </head>
 
-      <body>{children}</body>
+      <body>
+        {children}
+        <SiteCursor />
+      </body>
     </html>
   );
 }

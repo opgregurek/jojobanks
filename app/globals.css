@@ -70,8 +70,9 @@ a {
   top: 0;
   width: 11px;
   height: 11px;
-  background: #232323;
+  background: #ffffff;
   border-radius: 999px;
+  mix-blend-mode: difference;
   pointer-events: none;
   transform: translate(-100px, -100px);
   margin-left: -5.5px;

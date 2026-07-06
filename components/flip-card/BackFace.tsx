@@ -10,7 +10,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
       
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/background.png" alt="" />
+        <img src="/images/general/background.png" alt="" />
       </div>
 
       {/* Top bar */}
@@ -45,7 +45,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
           </p>
 
           <div className="cursive-type contact">
-            <img src="/images/Josephine.svg" alt="Josephine" />
+            <img src="/images/general/Josephine.svg" alt="Josephine" />
           </div>
         </div>
 

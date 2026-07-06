@@ -59,7 +59,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: "/images/jojo-banks-portfolio.png",
+        url: "/images/general/jojo-banks-pic.jpg",
         width: 1200,
         height: 630,
         alt: "Selected branding, product design, UX and creative technology work by Jojo Banks",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
       "Jojo Banks | Product Designer, Brand Designer & Creative Technologist",
     description:
       "Branding, digital products, UX/UI, creative technology and 3D work by Jojo Banks.",
-    images: ["/images/jojo-banks-portfolio.png"],
+    images: ["/images/general/jojo-banks-pic.jpg"],
   },
 };
 

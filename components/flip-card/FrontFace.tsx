@@ -1,17 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState, type WheelEvent } from "react";
+import { HOME_PAGE_PROJECT_PREVIEWS } from "@/app/(main)/projects/project-previews";
 
 interface FrontFaceProps {
   onFlip: () => void;
 }
-
-const PROJECT_MEDIA = [
-  { poster: "/images/jojo-banks-pic.jpg" },
-  { src: "/images/jojo-banks-moribana.mp4", poster: "/images/jojo-banks-pic.jpg" },
-  { poster: "/images/jojo-banks-objects.jpg" },
-  { src: "/images/jojo-banks-apas-port-harvest-hall-reel.mp4", poster: "/images/jojo-banks-objects.jpg" },
-];
 
 export default function FrontFace({ onFlip }: FrontFaceProps) {
   const [isTouchViewport, setIsTouchViewport] = useState(false);
@@ -27,7 +22,9 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
     };
   }, []);
 
-  const mediaItems = isTouchViewport ? [...PROJECT_MEDIA, ...PROJECT_MEDIA] : PROJECT_MEDIA;
+  const previewItems = isTouchViewport
+    ? [...HOME_PAGE_PROJECT_PREVIEWS, ...HOME_PAGE_PROJECT_PREVIEWS]
+    : HOME_PAGE_PROJECT_PREVIEWS;
 
   const handleProjectStripWheel = (event: WheelEvent<HTMLDivElement>) => {
     if (isTouchViewport) return;
@@ -41,7 +38,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
     <div className="face-inner">
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/background.png" alt="Digital portfolio by Jojo Banks" />
+        <img src="/images/general/background.png" alt="Digital portfolio by Jojo Banks" />
       </div>
 
       <div className="front-border">
@@ -90,29 +87,47 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             aria-label="Selected work preview"
             onWheel={handleProjectStripWheel}
           >
-            {mediaItems.map((item, index) => (
-              item.src ? (
-                <video
-                  key={`${item.src}-${index}`}
-                  src={item.src}
-                  poster={item.poster}
-                  className="project-strip-image"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                  aria-label={`Portfolio placeholder ${index + 1}`}
-                />
-              ) : (
-                <img
-                  key={`${item.poster}-${index}`}
-                  src={item.poster}
-                  alt={`Portfolio placeholder ${index + 1}`}
-                  className="project-strip-image"
-                />
-              )
-            ))}
+            {previewItems.map(({ media, projectSlug }, index) => {
+              const mediaElement =
+                media.kind === "video" ? (
+                  <video
+                    src={media.src}
+                    poster={media.poster}
+                    className="project-strip-image"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label={media.alt}
+                  />
+                ) : (
+                  <img
+                    src={media.src}
+                    alt={media.alt}
+                    className="project-strip-image"
+                  />
+                );
+
+              if (!projectSlug) {
+                return (
+                  <div key={`${media.src}-${index}`} className="project-strip-item" aria-hidden="true">
+                    {mediaElement}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={`${media.src}-${index}`}
+                  href={`/projects/${projectSlug}`}
+                  className="project-strip-item"
+                  aria-label={`Open ${projectSlug} project`}
+                >
+                  {mediaElement}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>

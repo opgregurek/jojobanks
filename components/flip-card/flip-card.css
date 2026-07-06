@@ -126,7 +126,7 @@
   text-decoration: none;
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: none;
   padding: 0;
 }
 
@@ -208,7 +208,7 @@
   text-decoration: none;
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: none;
   padding: 0;
   color: #232323;
   font-family: "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
@@ -234,13 +234,18 @@
   overflow: hidden;
 }
 
-.project-strip-image {
+.project-strip-item {
   flex: 1 1 0;
   min-width: 0;
+  display: block;
+}
+
+.project-strip-image {
+  width: 100%;
+  height: auto;
   aspect-ratio: 222 / 277;
   object-fit: cover;
   display: block;
-  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -258,6 +263,11 @@
   }
 
   .project-strip-image {
+    width: clamp(180px, 62vw, 280px);
+    max-width: clamp(180px, 62vw, 280px);
+  }
+
+  .project-strip-item {
     flex: 0 0 clamp(180px, 62vw, 280px);
     min-width: clamp(180px, 62vw, 280px);
   }

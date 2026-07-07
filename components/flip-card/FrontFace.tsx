@@ -1,38 +1,30 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type WheelEvent } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { HOME_PAGE_PROJECT_PREVIEWS } from "@/app/(main)/projects/project-previews";
 
 interface FrontFaceProps {
   onFlip: () => void;
 }
 
+// Repeat the previews so the carousel track always overflows the viewport. With only
+// four base items they fit on any wide screen, leaving nothing to scroll — and Embla
+// only loops when the slides exceed the viewport width. Tripling guarantees overflow,
+// so the strip is always draggable.
+const STRIP_ITEMS = [
+  ...HOME_PAGE_PROJECT_PREVIEWS,
+  ...HOME_PAGE_PROJECT_PREVIEWS,
+  ...HOME_PAGE_PROJECT_PREVIEWS,
+];
+
 export default function FrontFace({ onFlip }: FrontFaceProps) {
-  const [isTouchViewport, setIsTouchViewport] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(pointer: coarse)");
-    const handleMediaChange = () => setIsTouchViewport(mediaQuery.matches);
-    handleMediaChange();
-    mediaQuery.addEventListener("change", handleMediaChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaChange);
-    };
-  }, []);
-
-  const previewItems = isTouchViewport
-    ? [...HOME_PAGE_PROJECT_PREVIEWS, ...HOME_PAGE_PROJECT_PREVIEWS]
-    : HOME_PAGE_PROJECT_PREVIEWS;
-
-  const handleProjectStripWheel = (event: WheelEvent<HTMLDivElement>) => {
-    if (isTouchViewport) return;
-    if (event.deltaY === 0) return;
-
-    event.currentTarget.scrollLeft += event.deltaY;
-    event.preventDefault();
-  };
+  const [emblaRef] = useEmblaCarousel({
+    loop: true,
+    dragFree: true,
+    align: "start",
+    containScroll: false,
+  });
 
   return (
     <div className="face-inner">
@@ -81,55 +73,55 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
 
           <p className="front-intro-copy">
             <span className="gap" />Jojo Banks (Josephine Nguyen) is a multidisciplinary digital designer based in Tokyo.
-            This spaces showcases her work and style spanning several years in the creative space. 
+            This spaces showcases her work and style spanning several years in the creative space.
           </p>
 
-          <div
-            className="project-strip"
-            aria-label="Selected work preview"
-            onWheel={handleProjectStripWheel}
-          >
-            {previewItems.map(({ media, projectSlug }, index) => {
-              const mediaElement =
-                media.kind === "video" ? (
-                  <video
-                    src={media.src}
-                    poster={media.poster}
-                    className="project-strip-image"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="metadata"
-                    aria-label={media.alt}
-                  />
-                ) : (
-                  <img
-                    src={media.src}
-                    alt={media.alt}
-                    className="project-strip-image"
-                  />
-                );
+          <div className="project-strip" ref={emblaRef} aria-label="Selected work preview">
+            <div className="project-strip-track">
+              {STRIP_ITEMS.map(({ media, projectSlug }, index) => {
+                const mediaElement =
+                  media.kind === "video" ? (
+                    <video
+                      src={media.src}
+                      poster={media.poster}
+                      className="project-strip-image"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      aria-label={media.alt}
+                    />
+                  ) : (
+                    <img
+                      src={media.src}
+                      alt={media.alt}
+                      className="project-strip-image"
+                      draggable={false}
+                    />
+                  );
 
-              if (!projectSlug) {
+                if (!projectSlug) {
+                  return (
+                    <div key={`${media.src}-${index}`} className="project-strip-item" aria-hidden="true">
+                      {mediaElement}
+                    </div>
+                  );
+                }
+
                 return (
-                  <div key={`${media.src}-${index}`} className="project-strip-item" aria-hidden="true">
+                  <Link
+                    key={`${media.src}-${index}`}
+                    href={`/projects/${projectSlug}`}
+                    className="project-strip-item"
+                    aria-label={`Open ${projectSlug} project`}
+                    draggable={false}
+                  >
                     {mediaElement}
-                  </div>
+                  </Link>
                 );
-              }
-
-              return (
-                <Link
-                  key={`${media.src}-${index}`}
-                  href={`/projects/${projectSlug}`}
-                  className="project-strip-item"
-                  aria-label={`Open ${projectSlug} project`}
-                >
-                  {mediaElement}
-                </Link>
-              );
-            })}
+              })}
+            </div>
           </div>
         </div>
       </div>

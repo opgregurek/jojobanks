@@ -1,78 +1,30 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState, type WheelEvent } from "react";
+import { HOME_PAGE_PROJECT_PREVIEWS } from "@/app/(main)/projects/project-previews";
 
 interface FrontFaceProps {
   onFlip: () => void;
 }
 
-const PROJECT_MEDIA = [
-  { src: " ", poster: "/images/jojo-banks-pic.jpg" },
-  { src: "/images/jojo-banks-moribana.mp4", poster: "/images/jojo-banks-pic.jpg" },
-  { src: " ", poster: "/images/jojo-banks-objects.jpg" },
-  { src: "/images/jojo-banks-apas-port-harvest-hall-reel.mp4", poster: "/images/jojo-banks-objects.jpg" },
-];
-
 export default function FrontFace({ onFlip }: FrontFaceProps) {
-  const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
   const [isTouchViewport, setIsTouchViewport] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(pointer: coarse)");
     const handleMediaChange = () => setIsTouchViewport(mediaQuery.matches);
     handleMediaChange();
-
-    const hideCursor = () => {
-      setCursor((prev) => ({ ...prev, visible: false }));
-    };
-
-    const handleMouseMove = (event: MouseEvent) => {
-      if (
-        event.clientX < 0 ||
-        event.clientY < 0 ||
-        event.clientX > window.innerWidth ||
-        event.clientY > window.innerHeight
-      ) {
-        hideCursor();
-        return;
-      }
-      setCursor({ x: event.clientX, y: event.clientY, visible: true });
-    };
-
-    const handleMouseLeave = () => {
-      hideCursor();
-    };
-
-    const handleMouseOut = (event: MouseEvent) => {
-      if (!event.relatedTarget) {
-        hideCursor();
-      }
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        hideCursor();
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", handleMouseLeave);
-    window.addEventListener("mouseout", handleMouseOut);
-    window.addEventListener("blur", hideCursor);
-    document.addEventListener("visibilitychange", handleVisibilityChange);
     mediaQuery.addEventListener("change", handleMediaChange);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", handleMouseLeave);
-      window.removeEventListener("mouseout", handleMouseOut);
-      window.removeEventListener("blur", hideCursor);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
       mediaQuery.removeEventListener("change", handleMediaChange);
     };
   }, []);
 
-  const mediaItems = isTouchViewport ? [...PROJECT_MEDIA, ...PROJECT_MEDIA] : PROJECT_MEDIA;
+  const previewItems = isTouchViewport
+    ? [...HOME_PAGE_PROJECT_PREVIEWS, ...HOME_PAGE_PROJECT_PREVIEWS]
+    : HOME_PAGE_PROJECT_PREVIEWS;
 
   const handleProjectStripWheel = (event: WheelEvent<HTMLDivElement>) => {
     if (isTouchViewport) return;
@@ -86,15 +38,15 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
     <div className="face-inner">
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/background.png" alt="Digital portfolio by Jojo Banks" />
+        <img src="/images/general/background.png" alt="Digital portfolio by Jojo Banks" />
       </div>
 
       <div className="front-border">
         <div className="landing-info-frame">
-          <p className="front-meta-text front-name white">JOJO BANKS</p>
+          <p className="front-meta-text front-name">©Jojo Banks</p>
           <div className="front-contact">
             <a
-              className="front-meta-text white front-contact-link"
+              className="front-meta-text front-contact-link"
               href="https://www.linkedin.com/in/jojobanks/"
               target="_blank"
               rel="noreferrer"
@@ -102,22 +54,24 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
               LINKEDIN
             </a>
             <a
-              className="front-meta-text white front-contact-link"
+              className="front-meta-text front-contact-link"
               href="https://www.instagram.com/jojobanksi"
               target="_blank"
               rel="noreferrer"
             >
               INSTAGRAM
             </a>
+            <p className="front-meta-text front-contact">hellojojobanks@gmail.com</p>
             <br></br>
-            <p className="front-meta-text front-contact white">hellojojobanks@gmail.com</p>
+            <br></br>
+            <p className="front-meta-text front-contact">Reproduction, scraping, or use for AI training, model development, or generative outputs is not permitted.</p>
           </div>
         </div>
 
         <div className="landing-projects-frame">
           <div className="front-top-bar">
             <button
-              className="front-arrow-btn white"
+              className="front-arrow-btn"
               onClick={onFlip}
               aria-label="Open about page"
             >
@@ -125,9 +79,9 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             </button>
           </div>
 
-          <p className="front-intro-copy white">
+          <p className="front-intro-copy">
             <span className="gap" />Jojo Banks (Josephine Nguyen) is a multidisciplinary digital designer based in Tokyo.
-            This spaces showcases her work and style spanning several years in the creative space.
+            This spaces showcases her work and style spanning several years in the creative space. 
           </p>
 
           <div
@@ -135,31 +89,50 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             aria-label="Selected work preview"
             onWheel={handleProjectStripWheel}
           >
-            {mediaItems.map((item, index) => (
-              <video
-                key={`${item.src}-${index}`}
-                src={item.src}
-                poster={item.poster}
-                className="project-strip-image"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                aria-label={`Portfolio placeholder ${index + 1}`}
-              />
-            ))}
+            {previewItems.map(({ media, projectSlug }, index) => {
+              const mediaElement =
+                media.kind === "video" ? (
+                  <video
+                    src={media.src}
+                    poster={media.poster}
+                    className="project-strip-image"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label={media.alt}
+                  />
+                ) : (
+                  <img
+                    src={media.src}
+                    alt={media.alt}
+                    className="project-strip-image"
+                  />
+                );
+
+              if (!projectSlug) {
+                return (
+                  <div key={`${media.src}-${index}`} className="project-strip-item" aria-hidden="true">
+                    {mediaElement}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={`${media.src}-${index}`}
+                  href={`/projects/${projectSlug}`}
+                  className="project-strip-item"
+                  aria-label={`Open ${projectSlug} project`}
+                >
+                  {mediaElement}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
-
-      {!isTouchViewport && cursor.visible && (
-        <div
-          className="cursor-circle"
-          aria-hidden="true"
-          style={{ transform: `translate(${cursor.x}px, ${cursor.y}px)` }}
-        />
-      )}
     </div>
   );
 }

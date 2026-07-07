@@ -1,0 +1,168 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  color: #ffffff;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.footer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.header {
+  padding: 24px 24px 48px;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 48px 24px 24px;
+}
+
+.headerRight,
+.footerRight {
+  justify-self: end;
+}
+
+.headerLeft,
+.footerLeft {
+  justify-self: start;
+}
+
+.headerCenter,
+.footerCenter {
+  justify-self: center;
+}
+
+.navLink,
+.title,
+.projectMeta {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: -0.24px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.navLink {
+  white-space: nowrap;
+}
+
+.mobileBack {
+  display: none;
+}
+
+.details {
+  width: min(100%, 740px);
+  padding: 80px 24px;
+  margin: 0 auto;
+}
+
+.projectMeta {
+  opacity: 0.7;
+}
+
+.description {
+  margin-top: 12px;
+}
+
+.description p {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(18px, 2.4vw, 22px);
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.description p + p {
+  margin-top: clamp(28px, 4.2vw, 56px);
+}
+
+.rightsNotice {
+  margin-top: 24px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.rows {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: clamp(44px, 8vw, 90px);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 16px 24px;
+  }
+
+  .footer {
+    padding: 24px 16px 16px;
+  }
+
+  .desktopBack {
+    display: none;
+  }
+
+  .mobileBack {
+    display: inline;
+  }
+
+  .details {
+    padding: 64px 64px 64px 16px;
+  }
+
+  .description {
+    margin-top: 14px;
+  }
+
+  .description p {
+    font-size: clamp(18px, 8vw, 22px);
+    line-height: 1.5;
+  }
+
+  .description p + p {
+    margin-top: 40px;
+  }
+
+  .rightsNotice {
+    margin-top: 20px;
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .rows {
+    margin-top: 44px;
+    padding: 6px;
+  }
+}

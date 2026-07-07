@@ -49,3 +49,33 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  body,
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+.site-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 11px;
+  height: 11px;
+  background: #ffffff;
+  border-radius: 999px;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transform: translate(-100px, -100px);
+  margin-left: -5.5px;
+  margin-top: -5.5px;
+  z-index: 1000;
+}

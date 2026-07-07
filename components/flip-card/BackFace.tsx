@@ -10,7 +10,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
       
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/background.png" alt="" />
+        <img src="/images/general/background.png" alt="" />
       </div>
 
       {/* Top bar */}
@@ -41,11 +41,11 @@ export default function BackFace({ onFlip }: BackFaceProps) {
           </p>
           <br></br>
           <p className="body section-spacing">
-            Reach out should you be interested to create together.
+            Let&apos;s create something cool.
           </p>
 
           <div className="cursive-type contact">
-            <img src="/images/Josephine.svg" alt="Josephine" />
+            <img src="/images/general/Josephine.svg" alt="Josephine" />
           </div>
         </div>
 
@@ -75,10 +75,11 @@ export default function BackFace({ onFlip }: BackFaceProps) {
             </div>
 
             <div>
-              <p className="mono-body section-title">PLACES</p>
+              <p className="mono-body section-title">WORK</p>
               <p className="body">
               Westpac Bank / Macquarie Bank<br />
-              WorkingMouse / Digital Freelancer<br />
+              WorkingMouse / Mustard Music<br />
+              Moreton Island Adventures<br />
               Apas Port / 6OVER3 INSTITUTE
               </p>
             </div>

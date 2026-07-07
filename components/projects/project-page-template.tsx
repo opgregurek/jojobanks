@@ -42,6 +42,8 @@ export default function ProjectPageTemplate({ project }: ProjectPageTemplateProp
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+
+          {project.rightsNotice ? <p className={styles.rightsNotice}>{project.rightsNotice}</p> : null}
         </section>
 
         <section className={styles.rows} aria-label="Project media gallery">

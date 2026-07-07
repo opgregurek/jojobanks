@@ -36,6 +36,11 @@
   object-fit: cover;
 }
 
+.mediaContain {
+  object-fit: contain;
+  background: #000000;
+}
+
 @media (max-width: 768px) {
   .row[data-variant="one"] {
     height: auto;
@@ -43,8 +48,8 @@
   }
 
   .row[data-variant="two"] {
-    height: min(68vw, 480px);
-    max-height: 480px;
+    height: auto;
+    max-height: none;
   }
 
   .row[data-variant="four"] {
@@ -52,7 +57,9 @@
     max-height: none;
   }
 
+  .row[data-variant="two"] .cell,
   .row[data-variant="four"] .cell {
     height: auto;
+    aspect-ratio: 4 / 5;
   }
 }

@@ -7,23 +7,25 @@ interface ProjectMediaRowProps {
 }
 
 function ProjectMedia({ item }: { item: ProjectMediaItem }) {
+  const mediaClassName = item.fit === "contain" ? `${styles.media} ${styles.mediaContain}` : styles.media;
+
   if (item.kind === "video") {
     return (
       <video
-        className={styles.media}
+        className={mediaClassName}
         src={item.src}
         poster={item.poster}
         autoPlay
         loop
         muted
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-label={item.alt}
       />
     );
   }
 
-  return <img className={styles.media} src={item.src} alt={item.alt} />;
+  return <img className={mediaClassName} src={item.src} alt={item.alt} />;
 }
 
 export default function ProjectMediaRow({ variant, items }: ProjectMediaRowProps) {

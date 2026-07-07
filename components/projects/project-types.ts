@@ -5,6 +5,7 @@ export interface ProjectMediaItem {
   src: string;
   alt: string;
   poster?: string;
+  fit?: "cover" | "contain";
 }
 
 export type ProjectRowVariant = "one" | "two" | "four";
@@ -19,6 +20,7 @@ export interface ProjectPageData {
   title: string;
   year: string;
   summary: string[];
+  rightsNotice?: string;
   rows: ProjectMediaRow[];
 }
 

@@ -43,10 +43,10 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
 
       <div className="front-border">
         <div className="landing-info-frame">
-          <p className="front-meta-text front-name white">JOJO BANKS</p>
+          <p className="front-meta-text front-name">©Jojo Banks</p>
           <div className="front-contact">
             <a
-              className="front-meta-text white front-contact-link"
+              className="front-meta-text front-contact-link"
               href="https://www.linkedin.com/in/jojobanks/"
               target="_blank"
               rel="noreferrer"
@@ -54,22 +54,24 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
               LINKEDIN
             </a>
             <a
-              className="front-meta-text white front-contact-link"
+              className="front-meta-text front-contact-link"
               href="https://www.instagram.com/jojobanksi"
               target="_blank"
               rel="noreferrer"
             >
               INSTAGRAM
             </a>
+            <p className="front-meta-text front-contact">hellojojobanks@gmail.com</p>
             <br></br>
-            <p className="front-meta-text front-contact white">hellojojobanks@gmail.com</p>
+            <br></br>
+            <p className="front-meta-text front-contact">Reproduction, scraping, or use for AI training, model development, or generative outputs is not permitted.</p>
           </div>
         </div>
 
         <div className="landing-projects-frame">
           <div className="front-top-bar">
             <button
-              className="front-arrow-btn white"
+              className="front-arrow-btn"
               onClick={onFlip}
               aria-label="Open about page"
             >
@@ -77,9 +79,9 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             </button>
           </div>
 
-          <p className="front-intro-copy white">
+          <p className="front-intro-copy">
             <span className="gap" />Jojo Banks (Josephine Nguyen) is a multidisciplinary digital designer based in Tokyo.
-            This spaces showcases her work and style spanning several years in the creative space.
+            This spaces showcases her work and style spanning several years in the creative space. 
           </p>
 
           <div

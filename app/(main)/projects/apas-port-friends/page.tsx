@@ -4,10 +4,10 @@ import type { ProjectPageData } from "@/components/projects/project-types";
 const apasPortFriendsProject: ProjectPageData = {
   slug: "apas-port-friends",
   title: "APAS PORT & FRIENDS",
-  year: "2023",
+  year: "2024",
   summary: [
-    "Campaign and event visuals developed with Apas Port and collaborators across static compositions, motion studies, and showreel outputs.",
-    "The work spans Harvest Hall communication, flow diagrams, and moving-image pieces designed for digital-first presentation.",
+    "Apas Port is shaping a vision for Web3 in Japan that places artists and communities first. Rather than treating NFTs as speculative assets, they position it as a platform for cultural engagement, education, and meaningful connection.",
+    "Through collaborations with artists such as Kaniza and Mago Nagasaka, each collection became an opportunity to introduce audiences to distinct artistic practices, explore the stories and traditions behind the work, and demonstrate how digital ownership can support creative livelihoods.",
   ],
   rows: [
     {
@@ -18,6 +18,7 @@ const apasPortFriendsProject: ProjectPageData = {
           src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-reel.mp4",
           poster: "/images/general/jojo-banks-placeholder.png",
           alt: "Harvest Hall showreel",
+          fit: "contain",
         },
         {
           kind: "image",
@@ -62,13 +63,13 @@ const apasPortFriendsProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port-harvest-flow-2.png",
-          alt: "Harvest Flow and Plume NFT",
+          src: "/images/apas-port/jojo-banks-apas-port-harvest-flow-1.png",
+          alt: "Harvest Flow tuktuk and Plume campaign",
         },
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port-harvest-flow-1.png",
-          alt: "Harvest Flow tuktuk and Plume campaign",
+          src: "/images/apas-port/jojo-banks-apas-port-harvest-flow-2.png",
+          alt: "Harvest Flow and Plume NFT",
         },
       ],
     },

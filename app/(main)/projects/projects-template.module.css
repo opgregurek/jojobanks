@@ -103,6 +103,16 @@
   margin-top: clamp(28px, 4.2vw, 56px);
 }
 
+.rightsNotice {
+  margin-top: 24px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+}
+
 .rows {
   padding: 12px;
   display: flex;
@@ -143,6 +153,12 @@
 
   .description p + p {
     margin-top: 40px;
+  }
+
+  .rightsNotice {
+    margin-top: 20px;
+    font-size: 10px;
+    line-height: 1.6;
   }
 
   .rows {

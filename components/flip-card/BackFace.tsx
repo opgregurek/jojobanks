@@ -41,7 +41,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
           </p>
           <br></br>
           <p className="body section-spacing">
-            Let's create something cool.
+            Let&apos;s create something cool.
           </p>
 
           <div className="cursive-type contact">

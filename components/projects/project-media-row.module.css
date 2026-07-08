@@ -41,43 +41,4 @@
   background: #000000;
 }
 
-@media (max-width: 768px) {
-  .row[data-variant="one"] {
-    height: auto;
-    max-height: none;
-  }
 
-  .row[data-variant="two"] {
-    height: auto;
-    max-height: none;
-  }
-
-  .row[data-variant="four"] {
-    height: auto;
-    max-height: none;
-  }
-
-  /* The aspect-ratio cells resolve to fractional heights (e.g. 181.5px wide →
-     226.875px tall), so each cell's box lands on a fractional device pixel. The
-     browser rasterizes adjacent boxes independently and can leave a ~1px gap between
-     them that exposes the dark page background — the seams reported on mobile.
-     Collapsing the grid gap to 0 and overlapping neighbouring cells by 1px covers
-     that gap at any device-pixel ratio, so the images read as a seamless grid. */
-  .row {
-    gap: 0;
-  }
-
-  .row + .row {
-    margin-top: -1px;
-  }
-
-  .cell + .cell {
-    margin-left: -1px;
-  }
-
-  .row[data-variant="two"] .cell,
-  .row[data-variant="four"] .cell {
-    height: auto;
-    aspect-ratio: 4 / 5;
-  }
-}

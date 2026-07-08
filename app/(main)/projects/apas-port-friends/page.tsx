@@ -18,7 +18,6 @@ const apasPortFriendsProject: ProjectPageData = {
           src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-reel.mp4",
           poster: "/images/general/jojo-banks-placeholder.png",
           alt: "Harvest Hall showreel",
-          fit: "contain",
         },
         {
           kind: "image",

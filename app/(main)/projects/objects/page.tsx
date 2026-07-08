@@ -6,8 +6,7 @@ const objectsProject: ProjectPageData = {
   title: "OBJECTS",
   year: "2022",
   summary: [
-    "COVID. A period of recalibration. During this time, Josephine began experimenting with 3D modelling as a new medium to extend her creative practice.",
-    "This culminated in her first collection, Objects – a series of simple, sometimes mundane items found around the house. It celebrates the beauty and significance of the ordinary. In 2023, Objects was exhibited as part of the ScratchThat Magazine launch, hosted by a collective celebrating emerging local artists.",
+    "COVID. A period of recalibration. During this time, Josephine began experimenting with 3D modelling as a new medium to expand her creative practice. This culminated in her first collection, Objects – a series of simple, sometimes mundane items found around the house. It celebrates the beauty and significance of the ordinary. In 2023, Objects was exhibited as part of the ScratchThat Magazine launch, hosted by a collective celebrating emerging local artists.",
     "All images ©Jojo Banks. Reproduction, scraping, or use for AI training, model development, or generative outputs is not permitted.",
   ],
   rows: [

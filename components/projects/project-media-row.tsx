@@ -19,13 +19,13 @@ function ProjectMedia({ item }: { item: ProjectMediaItem }) {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         aria-label={item.alt}
       />
     );
   }
 
-  return <img className={mediaClassName} src={item.src} alt={item.alt} />;
+  return <img className={mediaClassName} src={item.src} alt={item.alt} loading="lazy" decoding="async" />;
 }
 
 export default function ProjectMediaRow({ variant, items }: ProjectMediaRowProps) {

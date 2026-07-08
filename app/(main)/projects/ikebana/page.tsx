@@ -7,7 +7,7 @@ const ikebanaProject: ProjectPageData = {
   year: "2023",
   summary: [
     "Jojo began studying Moribana Ikebana under Ohara School in November 2023. This is a practice rooted in flow, structure, and finding the best elements of the floral subject to highlight. What began as a personal discipline has since evolved into an ongoing practice that has been celebrated in cultural spaces.",
-    "She had collaborated with 030, Hanabino jewelry, Namnam Space, and Onari Studios, to invite the principles of traditional Japanese ikebana into contemporary and creative spaces.",
+    "She has arranged for 030, Hanabino jewelry, Namnam Space, and The Palette Club with Onari Studios, inviting traditional Japanese ikebana into contemporary and creative spaces.",
   ],
   rows: [
     {

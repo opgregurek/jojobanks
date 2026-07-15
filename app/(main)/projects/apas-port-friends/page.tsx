@@ -7,7 +7,7 @@ const apasPortFriendsProject: ProjectPageData = {
   year: "2024",
   summary: [
     "Apas Port is shaping a vision for Web3 in Japan that places artists and communities first. Rather than treating NFTs as speculative assets, they position it as a platform for cultural engagement, education, and meaningful connection.",
-    "Through collaborations with artists such as Kaniza and Mago Nagasaka, each collection became an opportunity to introduce audiences to distinct artistic practices, explore the stories and traditions behind the work, and demonstrate how digital ownership can support creative livelihoods.",
+    "Through collaborations with artists such as Kaniza and Mago Nagasaka, each collection became an opportunity for audiences to learn about their stories, processes, and demonstrate how digital ownership can support creative livelihoods.",
   ],
   rows: [
     {

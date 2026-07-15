@@ -19,12 +19,31 @@ const STRIP_ITEMS = [
 ];
 
 export default function FrontFace({ onFlip }: FrontFaceProps) {
-  const [emblaRef] = useEmblaCarousel({
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     dragFree: true,
     align: "start",
     containScroll: false,
   });
+
+  const handleCarouselWheel = (event: React.WheelEvent<HTMLDivElement>) => {
+    if (!emblaApi) {
+      return;
+    }
+
+    if (event.ctrlKey) {
+      return;
+    }
+
+    const horizontalDelta = event.deltaX + event.deltaY;
+
+    if (horizontalDelta === 0) {
+      return;
+    }
+
+    event.preventDefault();
+    emblaApi.internalEngine().scrollTo.distance(-horizontalDelta, false);
+  };
 
   return (
     <div className="face-inner">
@@ -74,20 +93,26 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
             This is a showcase of her work and style spanning several years in the creative space.
           </p>
 
-          <div className="project-strip" ref={emblaRef} aria-label="Selected work preview">
+          <div
+            className="project-strip"
+            ref={emblaRef}
+            aria-label="Selected work preview"
+            onWheel={handleCarouselWheel}
+          >
             <div className="project-strip-track">
               {STRIP_ITEMS.map(({ media, projectSlug }, index) => {
+                const isPrimaryCycle = index < HOME_PAGE_PROJECT_PREVIEWS.length;
                 const mediaElement =
                   media.kind === "video" ? (
                     <video
                       src={media.src}
                       poster={media.poster}
                       className="project-strip-image"
-                      autoPlay
-                      loop
+                      autoPlay={isPrimaryCycle}
+                      loop={isPrimaryCycle}
                       muted
                       playsInline
-                      preload="metadata"
+                      preload={isPrimaryCycle ? "metadata" : "none"}
                       aria-label={media.alt}
                     />
                   ) : (
@@ -99,7 +124,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
                       height={277}
                       sizes="(max-width: 768px) min(60vw, 240px), 222px"
                       draggable={false}
-                      priority={index < HOME_PAGE_PROJECT_PREVIEWS.length}
+                      priority={isPrimaryCycle}
                     />
                   );
 

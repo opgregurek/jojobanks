@@ -2,7 +2,8 @@
   width: 100%;
   display: grid;
   gap: 1px;
-  padding-bottom: 1px;
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
 }
 
 .row[data-variant="one"] {
@@ -36,11 +37,22 @@
   height: 100%;
   display: block;
   object-fit: cover;
+  animation: mediaFadeIn 220ms ease both;
 }
 
 .mediaContain {
   object-fit: contain;
   background: #000000;
+}
+
+@keyframes mediaFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 

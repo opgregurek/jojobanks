@@ -232,6 +232,8 @@
 .project-strip {
   margin-top: auto;
   overflow: hidden;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: contain;
 }
 
 /* Embla carousel container (the element Embla translates) */
@@ -245,11 +247,6 @@
   flex: 0 0 222px;
   min-width: 0;
   display: block;
-  cursor: grab;
-}
-
-.project-strip-item:active {
-  cursor: grabbing;
 }
 
 .project-strip-image {

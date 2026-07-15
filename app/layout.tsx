@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BrowserSwipeGuard from "@/components/ui/browser-swipe-guard";
 import SiteCursor from "@/components/ui/site-cursor";
 import "./globals.css";
 
@@ -113,6 +114,7 @@ export default function RootLayout({
 
       <body>
         {children}
+        <BrowserSwipeGuard />
         <SiteCursor />
       </body>
     </html>

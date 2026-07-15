@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import styles from "@/app/(main)/projects/projects-template.module.css";
 import { getNextProjectSlug, getProjectHref } from "@/app/(main)/projects/project-routes";
@@ -15,7 +16,7 @@ export default function ProjectPageTemplate({ project }: ProjectPageTemplateProp
   return (
     <div className={styles.page}>
       <div className={styles.background} aria-hidden="true" data-cursor-surface="dark">
-        <img src="/images/general/dark-background.png" alt="" />
+        <Image src="/images/general/dark-background.png" alt="" fill priority sizes="100vw" />
       </div>
 
       <div className={styles.content}>
@@ -48,7 +49,12 @@ export default function ProjectPageTemplate({ project }: ProjectPageTemplateProp
 
         <section className={styles.rows} aria-label="Project media gallery">
           {project.rows.map((row, index) => (
-            <ProjectMediaRow key={`${row.variant}-${index}`} variant={row.variant} items={row.items} />
+            <ProjectMediaRow
+              key={`${row.variant}-${index}`}
+              variant={row.variant}
+              items={row.items}
+              prioritizeImages={index === 0}
+            />
           ))}
         </section>
 

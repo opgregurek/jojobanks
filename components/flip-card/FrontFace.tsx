@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import useEmblaCarousel from "embla-carousel-react";
 import { HOME_PAGE_PROJECT_PREVIEWS } from "@/app/(main)/projects/project-previews";
@@ -13,7 +14,6 @@ interface FrontFaceProps {
 // only loops when the slides exceed the viewport width. Tripling guarantees overflow,
 // so the strip is always draggable.
 const STRIP_ITEMS = [
-  ...HOME_PAGE_PROJECT_PREVIEWS,
   ...HOME_PAGE_PROJECT_PREVIEWS,
   ...HOME_PAGE_PROJECT_PREVIEWS,
 ];
@@ -30,7 +30,7 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
     <div className="face-inner">
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/general/background.png" alt="Digital portfolio by Jojo Banks" />
+        <Image src="/images/general/background.png" alt="Digital portfolio by Jojo Banks" fill priority sizes="100vw" />
       </div>
 
       <div className="front-border">
@@ -91,11 +91,15 @@ export default function FrontFace({ onFlip }: FrontFaceProps) {
                       aria-label={media.alt}
                     />
                   ) : (
-                    <img
+                    <Image
                       src={media.src}
                       alt={media.alt}
                       className="project-strip-image"
+                      width={222}
+                      height={277}
+                      sizes="(max-width: 768px) min(60vw, 240px), 222px"
                       draggable={false}
+                      priority={index < HOME_PAGE_PROJECT_PREVIEWS.length}
                     />
                   );
 

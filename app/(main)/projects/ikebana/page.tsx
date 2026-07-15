@@ -6,10 +6,25 @@ const ikebanaProject: ProjectPageData = {
   title: "IKEBANA",
   year: "2023",
   summary: [
-    "Jojo began studying Moribana Ikebana under Ohara School in November 2023. This is a practice rooted in flow, structure, and finding the best elements of the floral subject to highlight. What began as a personal discipline has since evolved into an ongoing practice that has been celebrated in cultural spaces.",
-    "She has arranged for 030, Hanabino jewelry, Namnam Space, and The Palette Club with Onari Studios, inviting traditional Japanese ikebana into contemporary and creative spaces.",
+    "Jojo began studying Moribana Ikebana under Ohara School in November 2023. A practice rooted in flow, form, and finding the best elements of the floral subject to highlight. What began as a personal discipline has since evolved into an ongoing practice that can be shared in cultural spaces.",
+    "Using seasonal flowers in Japan, she has created floral arrangements for 030, Hanabino jewelry, Namnam Space, and The Palette Club with Onari Studios, inviting traditional Japanese ikebana into contemporary and creative spaces.",
   ],
   rows: [
+    {
+      variant: "two",
+      items: [
+        {
+          kind: "image",
+          src: "/images/ikebana/jojo-banks-moribana-001.jpg",
+          alt: "Moribana Ikebana arrangement",
+        },
+        {
+          kind: "image",
+          src: "/images/ikebana/jojo-banks-moribana-002.jpg",
+          alt: "Moribana Ikebana arrangement",
+        },
+      ],
+    },
     {
       variant: "two",
       items: [
@@ -61,12 +76,12 @@ const ikebanaProject: ProjectPageData = {
         {
           kind: "image",
           src: "/images/ikebana/jojo-banks-moribana-1.png",
-          alt: "Ikebana studies 1",
+          alt: "Ikebana studies",
         },
         {
           kind: "image",
           src: "/images/ikebana/jojo-banks-moribana-2.png",
-          alt: "Ikebana studies 2",
+          alt: "Ikebana studies",
         },
       ],
     },
@@ -76,12 +91,12 @@ const ikebanaProject: ProjectPageData = {
         {
           kind: "image",
           src: "/images/ikebana/jojo-banks-moribana-3.png",
-          alt: "Ikebana studies 3",
+          alt: "Ikebana studies",
         },
         {
           kind: "image",
           src: "/images/ikebana/jojo-banks-moribana-4.png",
-          alt: "Ikebana studies 4",
+          alt: "Ikebana studies",
         },
       ],
     },
@@ -91,12 +106,12 @@ const ikebanaProject: ProjectPageData = {
         {
           kind: "image",
           src: "/images/ikebana/jojo-banks-moribana-5.png",
-          alt: "Ikebana studies 5",
+          alt: "Ikebana studies",
         },
         {
           kind: "image",
           src: "/images/ikebana/jojo-banks-moribana-6.png",
-          alt: "Ikebana studies 6",
+          alt: "Ikebana studies",
         },
       ],
     },
@@ -106,12 +121,27 @@ const ikebanaProject: ProjectPageData = {
         {
           kind: "image",
           src: "/images/ikebana/jojo-banks-moribana-7.png",
-          alt: "Ikebana studies 7",
+          alt: "Ikebana studies",
         },
         {
           kind: "image",
           src: "/images/ikebana/jojo-banks-moribana-8.png",
-          alt: "Ikebana studies 8",
+          alt: "Ikebana studies",
+        },
+      ],
+    },
+    {
+      variant: "two",
+      items: [
+        {
+          kind: "image",
+          src: "/images/ikebana/jojo-banks-moribana-9.png",
+          alt: "Ikebana studies",
+        },
+        {
+          kind: "image",
+          src: "/images/ikebana/jojo-banks-moribana-10.png",
+          alt: "Ikebana studies",
         },
       ],
     },

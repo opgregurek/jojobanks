@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 interface BackFaceProps {
   onFlip: () => void;
 }
@@ -10,7 +12,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
       
       {/* Background */}
       <div className="face-bg">
-        <img src="/images/general/background.png" alt="" />
+        <Image src="/images/general/background.png" alt="" fill sizes="100vw" />
       </div>
 
       {/* Top bar */}
@@ -45,7 +47,7 @@ export default function BackFace({ onFlip }: BackFaceProps) {
           </p>
 
           <div className="cursive-type contact">
-            <img src="/images/general/Josephine.svg" alt="Josephine" />
+            <Image src="/images/general/Josephine.svg" alt="Josephine" width={144} height={54} />
           </div>
         </div>
 

@@ -164,6 +164,6 @@
   .rows {
     margin-top: 44px;
     padding: 6px;
-    gap: 0;
+    gap: 1px;
   }
 }

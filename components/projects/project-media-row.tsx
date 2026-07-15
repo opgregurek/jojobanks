@@ -21,7 +21,15 @@ function getMediaSizes(variant: ProjectRowVariant) {
   }
 }
 
-function ProjectMedia({ item, variant, priority = false }: { item: ProjectMediaItem; variant: ProjectRowVariant; priority?: boolean }) {
+function ProjectMedia({
+  item,
+  variant,
+  priority = false,
+}: {
+  item: ProjectMediaItem;
+  variant: ProjectRowVariant;
+  priority?: boolean;
+}) {
   const mediaClassName = item.fit === "contain" ? `${styles.media} ${styles.mediaContain}` : styles.media;
 
   if (item.kind === "video") {
@@ -34,7 +42,7 @@ function ProjectMedia({ item, variant, priority = false }: { item: ProjectMediaI
         loop
         muted
         playsInline
-        preload="metadata"
+        preload="none"
         aria-label={item.alt}
       />
     );
@@ -48,11 +56,16 @@ function ProjectMedia({ item, variant, priority = false }: { item: ProjectMediaI
       fill
       sizes={getMediaSizes(variant)}
       priority={priority}
+      loading={priority ? "eager" : "lazy"}
     />
   );
 }
 
-export default function ProjectMediaRow({ variant, items, prioritizeImages = false }: ProjectMediaRowProps) {
+export default function ProjectMediaRow({
+  variant,
+  items,
+  prioritizeImages = false,
+}: ProjectMediaRowProps) {
   const maxItems = variant === "one" ? 1 : variant === "two" ? 2 : 4;
   const visibleItems = items.slice(0, maxItems);
 
@@ -60,7 +73,11 @@ export default function ProjectMediaRow({ variant, items, prioritizeImages = fal
     <section className={styles.row} data-variant={variant} data-cursor-surface="light" aria-label="Project media row">
       {visibleItems.map((item, index) => (
         <div key={`${item.src}-${index}`} className={styles.cell}>
-          <ProjectMedia item={item} variant={variant} priority={prioritizeImages && item.kind === "image"} />
+          <ProjectMedia
+            item={item}
+            variant={variant}
+            priority={prioritizeImages && item.kind === "image"}
+          />
         </div>
       ))}
     </section>

@@ -20,7 +20,7 @@ export const HOME_PAGE_PROJECT_PREVIEWS: HomePageProjectPreview[] = [
   {
     media: {
       kind: "image",
-      src: "/images/objects/jojo-banks-objects.jpg",
+      src: "/images/general/jojo-banks-objects.jpg",
       alt: "3D modelling by Jojo Banks",
     },
     projectSlug: "objects",

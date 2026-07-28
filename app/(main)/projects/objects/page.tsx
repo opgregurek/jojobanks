@@ -15,47 +15,22 @@ const objectsProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-1.png",
+          src: "/images/objects/jojo-banks-objects-3d-1.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-2.png",
+          src: "/images/objects/jojo-banks-objects-3d-2.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-3.png",
+          src: "/images/objects/jojo-banks-objects-3d-3.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-4.png",
-          alt: "Objects project still image",
-        },
-      ],
-    },
-    {
-      variant: "four",
-      items: [
-        {
-          kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-5.png",
-          alt: "Objects project still image",
-        },
-        {
-          kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-6.png",
-          alt: "Objects project still image",
-        },
-        {
-          kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-7.png",
-          alt: "Objects project still image",
-        },
-        {
-          kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-8.png",
+          src: "/images/objects/jojo-banks-objects-3d-4.jpg",
           alt: "Objects project still image",
         },
       ],
@@ -65,47 +40,22 @@ const objectsProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-9.png",
+          src: "/images/objects/jojo-banks-objects-3d-5.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-10.png",
+          src: "/images/objects/jojo-banks-objects-3d-6.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-11.png",
+          src: "/images/objects/jojo-banks-objects-3d-7.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-12.png",
-          alt: "Objects project still image",
-        },
-      ],
-    },
-    {
-      variant: "four",
-      items: [
-        {
-          kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-13.png",
-          alt: "Objects project still image",
-        },
-        {
-          kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-14.png",
-          alt: "Objects project still image",
-        },
-        {
-          kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-15.png",
-          alt: "Objects project still image",
-        },
-        {
-          kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-16.png",
+          src: "/images/objects/jojo-banks-objects-3d-8.jpg",
           alt: "Objects project still image",
         },
       ],
@@ -115,22 +65,72 @@ const objectsProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-17.png",
+          src: "/images/objects/jojo-banks-objects-3d-9.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-18.png",
+          src: "/images/objects/jojo-banks-objects-3d-10.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-19.png",
+          src: "/images/objects/jojo-banks-objects-3d-11.jpg",
           alt: "Objects project still image",
         },
         {
           kind: "image",
-          src: "/images/objects/jojo-banks-objects-3d-20.png",
+          src: "/images/objects/jojo-banks-objects-3d-12.jpg",
+          alt: "Objects project still image",
+        },
+      ],
+    },
+    {
+      variant: "four",
+      items: [
+        {
+          kind: "image",
+          src: "/images/objects/jojo-banks-objects-3d-13.jpg",
+          alt: "Objects project still image",
+        },
+        {
+          kind: "image",
+          src: "/images/objects/jojo-banks-objects-3d-14.jpg",
+          alt: "Objects project still image",
+        },
+        {
+          kind: "image",
+          src: "/images/objects/jojo-banks-objects-3d-15.jpg",
+          alt: "Objects project still image",
+        },
+        {
+          kind: "image",
+          src: "/images/objects/jojo-banks-objects-3d-16.jpg",
+          alt: "Objects project still image",
+        },
+      ],
+    },
+    {
+      variant: "four",
+      items: [
+        {
+          kind: "image",
+          src: "/images/objects/jojo-banks-objects-3d-17.jpg",
+          alt: "Objects project still image",
+        },
+        {
+          kind: "image",
+          src: "/images/objects/jojo-banks-objects-3d-18.jpg",
+          alt: "Objects project still image",
+        },
+        {
+          kind: "image",
+          src: "/images/objects/jojo-banks-objects-3d-19.jpg",
+          alt: "Objects project still image",
+        },
+        {
+          kind: "image",
+          src: "/images/objects/jojo-banks-objects-3d-20.jpg",
           alt: "Objects project still image",
         },
       ],

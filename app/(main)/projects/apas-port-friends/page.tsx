@@ -16,12 +16,12 @@ const apasPortFriendsProject: ProjectPageData = {
         {
           kind: "video",
           src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-reel.mp4",
-          poster: "/images/general/jojo-banks-placeholder.png",
+          poster: "/images/general/jojo-banks-placeholder.jpg",
           alt: "Harvest Hall showreel",
         },
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-2.png",
+          src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-2.jpg",
           alt: "Harvest Hall and flowers",
         },
       ],
@@ -31,12 +31,12 @@ const apasPortFriendsProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-4.png",
+          src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-4.jpg",
           alt: "Harvest Hall continous learning value",
         },
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-1.png",
+          src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-1.jpg",
           alt: "Harvest Hall logo",
         },
       ],
@@ -46,13 +46,13 @@ const apasPortFriendsProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-3.png",
+          src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-3.jpg",
           alt: "Harvest flow and Kaniza",
         },
         {
           kind: "video",
           src: "/images/apas-port/jojo-banks-apas-port-harvest-hall-mago-nagasaka.mp4",
-          poster: "/images/general/jojo-banks-placeholder.png",
+          poster: "/images/general/jojo-banks-placeholder.jpg",
           alt: "Harvest Hall and Mago Nagasaka",
         },
       ],
@@ -62,12 +62,12 @@ const apasPortFriendsProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port-harvest-flow-1.png",
+          src: "/images/apas-port/jojo-banks-apas-port-harvest-flow-1.jpg",
           alt: "Harvest Flow tuktuk and Plume campaign",
         },
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port-harvest-flow-2.png",
+          src: "/images/apas-port/jojo-banks-apas-port-harvest-flow-2.jpg",
           alt: "Harvest Flow and Plume NFT",
         },
       ],
@@ -77,7 +77,7 @@ const apasPortFriendsProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/apas-port/jojo-banks-apas-port.png",
+          src: "/images/apas-port/jojo-banks-apas-port.jpg",
           alt: "Apas Port team 2024",
         },
       ],

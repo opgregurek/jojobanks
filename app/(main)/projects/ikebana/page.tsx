@@ -15,12 +15,12 @@ const ikebanaProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-001.jpg",
+          src: "/images/ikebana/jojo-banks-moribana-002.jpg",
           alt: "Moribana Ikebana arrangement",
         },
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-002.jpg",
+          src: "/images/ikebana/jojo-banks-moribana-001.jpg",
           alt: "Moribana Ikebana arrangement",
         },
       ],
@@ -45,12 +45,12 @@ const ikebanaProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-namnam-space.png",
+          src: "/images/ikebana/jojo-banks-namnam-space.jpg",
           alt: "Ikebana for an event at Namnam, in collaboration with Substore",
         },
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-hanabino.png",
+          src: "/images/ikebana/jojo-banks-hanabino.jpg",
           alt: "Ikebana for Hanabino pop-up in Tokyo",
         },
       ],
@@ -60,28 +60,13 @@ const ikebanaProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-030-tokyo-2.JPG",
-          alt: "Ikebana for 030 cafe's Vogue magazine feature",
-        },
-        {
-          kind: "image",
           src: "/images/ikebana/jojo-banks-030-tokyo.JPG",
           alt: "Ikebana for 030 cafe's Vogue magazine feature",
         },
-      ],
-    },
-    {
-      variant: "two",
-      items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-1.png",
-          alt: "Ikebana studies",
-        },
-        {
-          kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-2.png",
-          alt: "Ikebana studies",
+          src: "/images/ikebana/jojo-banks-030-tokyo-2.JPG",
+          alt: "Ikebana for 030 cafe's Vogue magazine feature",
         },
       ],
     },
@@ -90,12 +75,12 @@ const ikebanaProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-3.png",
+          src: "/images/ikebana/jojo-banks-moribana-1.jpg",
           alt: "Ikebana studies",
         },
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-4.png",
+          src: "/images/ikebana/jojo-banks-moribana-2.jpg",
           alt: "Ikebana studies",
         },
       ],
@@ -105,27 +90,12 @@ const ikebanaProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-5.png",
+          src: "/images/ikebana/jojo-banks-moribana-3.jpg",
           alt: "Ikebana studies",
         },
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-6.png",
-          alt: "Ikebana studies",
-        },
-      ],
-    },
-    {
-      variant: "two",
-      items: [
-        {
-          kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-7.png",
-          alt: "Ikebana studies",
-        },
-        {
-          kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-8.png",
+          src: "/images/ikebana/jojo-banks-moribana-4.jpg",
           alt: "Ikebana studies",
         },
       ],
@@ -135,12 +105,42 @@ const ikebanaProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-9.png",
+          src: "/images/ikebana/jojo-banks-moribana-5.jpg",
           alt: "Ikebana studies",
         },
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-10.png",
+          src: "/images/ikebana/jojo-banks-moribana-6.jpg",
+          alt: "Ikebana studies",
+        },
+      ],
+    },
+    {
+      variant: "two",
+      items: [
+        {
+          kind: "image",
+          src: "/images/ikebana/jojo-banks-moribana-7.jpg",
+          alt: "Ikebana studies",
+        },
+        {
+          kind: "image",
+          src: "/images/ikebana/jojo-banks-moribana-8.jpg",
+          alt: "Ikebana studies",
+        },
+      ],
+    },
+    {
+      variant: "two",
+      items: [
+        {
+          kind: "image",
+          src: "/images/ikebana/jojo-banks-moribana-9.jpg",
+          alt: "Ikebana studies",
+        },
+        {
+          kind: "image",
+          src: "/images/ikebana/jojo-banks-moribana-10.jpg",
           alt: "Ikebana studies",
         },
       ],

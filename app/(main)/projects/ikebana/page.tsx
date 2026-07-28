@@ -15,12 +15,12 @@ const ikebanaProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-001.jpg",
+          src: "/images/ikebana/jojo-banks-moribana-002.jpg",
           alt: "Moribana Ikebana arrangement",
         },
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-moribana-002.jpg",
+          src: "/images/ikebana/jojo-banks-moribana-001.jpg",
           alt: "Moribana Ikebana arrangement",
         },
       ],
@@ -60,12 +60,12 @@ const ikebanaProject: ProjectPageData = {
       items: [
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-030-tokyo-2.JPG",
+          src: "/images/ikebana/jojo-banks-030-tokyo.JPG",
           alt: "Ikebana for 030 cafe's Vogue magazine feature",
         },
         {
           kind: "image",
-          src: "/images/ikebana/jojo-banks-030-tokyo.JPG",
+          src: "/images/ikebana/jojo-banks-030-tokyo-2.JPG",
           alt: "Ikebana for 030 cafe's Vogue magazine feature",
         },
       ],

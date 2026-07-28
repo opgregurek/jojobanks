@@ -16,7 +16,7 @@ export default function ProjectPageTemplate({ project }: ProjectPageTemplateProp
   return (
     <div className={styles.page}>
       <div className={styles.background} aria-hidden="true" data-cursor-surface="dark">
-        <Image src="/images/general/dark-background.png" alt="" fill priority sizes="100vw" />
+        <Image src="/images/general/dark-background.jpg" alt="" fill priority sizes="100vw" />
       </div>
 
       <div className={styles.content}>
